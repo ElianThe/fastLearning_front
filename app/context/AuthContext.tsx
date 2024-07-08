@@ -51,7 +51,7 @@ export const AuthProvider = ({children } : any) => {
     // Fonction pour enregistrer un nouvel utilisateur
     const register = async (email : string, password : string) => {
         try {
-            return await axios.post(`${API_URL}/login`, {email, password});
+            return await axios.post(`${API_URL}/register`, {email, password});
         } catch (e) {
             return {error: true, msg: (e as any).message};
         }
@@ -60,11 +60,20 @@ export const AuthProvider = ({children } : any) => {
     // Fonction pour connecter un utilisateur
     const login = async (email : string, password : string) => {
         try {
-            const result = await axios.post(`${API_URL}/auth`, {
+            console.log("API_URL: ", `${API_URL}/products`)
+            const response = await fetch(`${API_URL}/products`);
+            if (!response.ok) {
+                const errorText = await response.text();
+                console.error('Error:', errorText);
+                throw new Error(response.statusText);
+            }
+            const data = await response.json();
+            console.log(data);
+            /*const result = await axios.post(`${API_URL}/login`, {
                 email,
                 password
             });
-            console.log("quelque chose", result.data.token);
+
             setAuthState({
                 token: result.data.token,
                 authenticated: true
@@ -72,7 +81,7 @@ export const AuthProvider = ({children } : any) => {
             axios.defaults.headers.common['Authorization'] = `Bearer ${result.data.token}`;
             await SecureStore.setItemAsync(TOKEN_KEY, result.data.token);
             console.log('Token saved successfully');
-            return result;
+            return result;*/
         } catch (e) {
             console.error('Network error:', e);
             return {error: true, msg: (e as any).message};
