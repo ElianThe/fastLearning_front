@@ -6,28 +6,28 @@ import {API_URL, TOKEN_KEY} from "@env";
 
 // Interface définissant les propriétés du contexte d'authentification
 interface AuthProps {
-    authState? : { token : string | null; authenticated : boolean | null }; //Etat de l'authentification
-    onRegister? : (email : string, password : string) => Promise<any>; // Fonction d'inscription
-    onLogin? : (email : string, password : string) => Promise<any>; //Fonction de connexion
-    onLogout? : () => Promise<any>; // Fonction de déconnexion
+    authState?: { token: string | null; authenticated: boolean | null }; //Etat de l'authentification
+    onRegister?: (email: string, password: string, username: string) => Promise<any>; // Fonction d'inscription
+    onLogin?: (email: string, password: string) => Promise<any>; //Fonction de connexion
+    onLogout?: () => Promise<any>; // Fonction de déconnexion
 }
 
 // Création d'un contexte d'authentification avec les propriétés définies par AuthProps
 const AuthContext = createContext<AuthProps>({});
 
-// Hook personnalisé pour utiliser le contexte d'authentification
+// Hook personnalisé pour utiliser le contexte d'authentification = consumer
 export const useAuth = () => {
     return useContext(AuthContext);
 }
 
-// Composant fournisseur d'authentification qui enveloppe les composants enfants
-export const AuthProvider = ({children } : any) => {
+// Composant fournisseur d'authentification qui enveloppe les composants enfants = provider
+export const AuthProvider = ({children}: any) => {
     // État local pour stocker l'état d'authentification
     const [authState, setAuthState] = useState<{
-        token : string | null;
-        authenticated : boolean | null
+        token: string | null;
+        authenticated: boolean | null
     }>({
-        token:  null,
+        token: null,
         authenticated: null
     });
 
@@ -37,7 +37,9 @@ export const AuthProvider = ({children } : any) => {
             console.log("stored: ", token);
 
             if (token) {
+                // Configure les en-têtes par défaut pour les requêtes HTTP avec le jeton d'authentification
                 axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+                // met à jour l'état d'auth si le jeton est présent
                 setAuthState({
                     token,
                     authenticated: true
@@ -49,42 +51,45 @@ export const AuthProvider = ({children } : any) => {
     }, []); // Dépendance vide pour s'exécuter une seule fois
 
     // Fonction pour enregistrer un nouvel utilisateur
-    const register = async (email : string, password : string) => {
+    const register = async (email: string, password: string, username: string) => {
         try {
-            return await axios.post(`${API_URL}/register`, {email, password});
-        } catch (e) {
-            return {error: true, msg: (e as any).message};
+            return await axios.post(`${API_URL}/register`, {email, password, username});
+        } catch (e : any) {
+            console.error('Error response:', e.response.data);
+            return {
+                error: true,
+                msg: e.response.data.message || 'An error occurred',
+                details: e.response.data.errors || {} // Détails des erreurs de validation
+            };
         }
     }
 
     // Fonction pour connecter un utilisateur
-    const login = async (email : string, password : string) => {
+    const login = async (email: string, password: string) => {
         try {
-            console.log("API_URL: ", `${API_URL}/products`)
-            const response = await fetch(`${API_URL}/products`);
-            if (!response.ok) {
-                const errorText = await response.text();
-                console.error('Error:', errorText);
-                throw new Error(response.statusText);
-            }
-            const data = await response.json();
-            console.log(data);
-            /*const result = await axios.post(`${API_URL}/login`, {
+            const result = await axios.post(`${API_URL}/login`, {
                 email,
                 password
             });
 
+            const token = result.data.data.token;
+
             setAuthState({
-                token: result.data.token,
+                token: token,
                 authenticated: true
             });
-            axios.defaults.headers.common['Authorization'] = `Bearer ${result.data.token}`;
-            await SecureStore.setItemAsync(TOKEN_KEY, result.data.token);
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+            await SecureStore.setItemAsync(TOKEN_KEY, token);
             console.log('Token saved successfully');
-            return result;*/
-        } catch (e) {
-            console.error('Network error:', e);
-            return {error: true, msg: (e as any).message};
+            return result;
+        } catch (e : any) {
+            // Le serveur a répondu avec un statut d'erreur
+            console.error('Error response:', e.response.data);
+            return {
+                error: true,
+                msg: e.response.data.message || 'An error occurred',
+                details: e.response.data.errors || {} // Détails des erreurs de validation
+            };
         }
     };
 
@@ -102,8 +107,8 @@ export const AuthProvider = ({children } : any) => {
     // Valeur fournie par le contexte d'authentification
     const value = {
         onRegister: register,
-        onLogin : login,
-        onLogout : logout,
+        onLogin: login,
+        onLogout: logout,
         authState
     };
     // Retourne le fournisseur de contexte avec les enfants
