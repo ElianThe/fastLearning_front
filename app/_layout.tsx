@@ -1,19 +1,26 @@
 import {AuthProvider, useAuth} from "@/app/context/AuthContext";
-import React, {useEffect} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import {Slot, useRouter} from "expo-router";
 import {useFonts} from "expo-font";
 import * as SplashScreen from 'expo-splash-screen';
+import {ActivityIndicator, View} from "react-native";
 
 export function RootLayout() {
     const {authState} = useAuth();
     const router = useRouter();
-    useEffect(() => {
-        if (!authState?.authenticated) {
-            router.push('/screens/login');
+
+    // fonction pour rediriger l'utilisateur en fonction de son état d'authentification
+    const handleAuthRedirect = useCallback(() => {
+        if (authState?.authenticated) {
+            router.push('/home');
         } else {
-            router.push('/');
+            router.push('/screens/login');
         }
-    }, [authState?.authenticated]);
+    }, [authState?.authenticated, router]);
+
+    useEffect(() => {
+        handleAuthRedirect();
+    }, [handleAuthRedirect]);
 
     return (
         <Slot />
@@ -34,10 +41,18 @@ const App = () => {
         prepare();
     }, []);
 
+    useEffect(() => {
+        if (fontsLoaded) {
+            SplashScreen.hideAsync();
+        }
+    }, [fontsLoaded]);
+
     if (!fontsLoaded) {
-        return undefined;
-    } else {
-        SplashScreen.hideAsync();
+        return (
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <ActivityIndicator size="large" />
+            </View>
+        );
     }
 
     return (
