@@ -10,21 +10,19 @@ export default function Login() {
     // etats locaux pour stocker les valeurs des champs de saisie
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-    // Fonction de connexion de l'utilisateur
-    const {onLogin} = useAuth();
     const [error, setError] = useState<string | null>(null);
 
-    // Hook de routage pour la navigation
-    const router = useRouter();
-
+    const {onLogin} = useAuth();
+    // Fonction de connexion
     const login = async () => {
         const result = await onLogin!(email, password);
         if (result && result.error) {
-            console.log(result);
             setError("Adresse email ou mot de passe invalide");
         }
     }
+
+    // Hook de routage pour la navigation
+    const router = useRouter();
 
     return (
         <TouchableWithoutFeedback onPress={() => {
@@ -71,7 +69,7 @@ export default function Login() {
                                style={styles.viewSignup}>
                     <Text>Vous n'avez pas de compte ? </Text>
                     <Pressable onPress={() => {
-                        router.push('/screens/signup')
+                        router.push('/screens/signup');
                     }}>
                         <Text style={styles.textSignup}>S'inscrire</Text>
                     </Pressable>
