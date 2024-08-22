@@ -1,29 +1,20 @@
 import {Tabs} from "expo-router";
 import {FontAwesome5} from "@expo/vector-icons";
 import Feather from '@expo/vector-icons/Feather';
-import {Button} from "react-native";
-import {useAuth} from "@/app/context/AuthContext";
 
 export default () => {
-    const {onLogout} = useAuth();
     return (
-
         /* barre d'onglets en bas de l'ecran */
         <Tabs
             screenOptions={{
                 tabBarActiveTintColor: 'blue',
-                /*tabBarShowLabel: false,*/
                 tabBarStyle: {justifyContent: 'center'},
                 tabBarIconStyle: {
                     marginTop: 5,
                 },
             }}
         >
-            <Tabs.Screen name="index" options={{
-                headerRight: () => <Button onPress={onLogout} title="logout" />,
-                tabBarIcon: ({color}) => <FontAwesome5 size={24} name="home" color={color}/>
-            }}/>
-            <Tabs.Screen name="review" options={{
+            <Tabs.Screen name="home" options={{
                 headerShown: false,
                 tabBarIcon: ({color}) => <FontAwesome5 size={24} name="brain" color={color}/>
             }}/>
@@ -36,9 +27,9 @@ export default () => {
                 headerShown: false,
                 tabBarIcon: ({color}) => <FontAwesome5 size={24} name="book" color={color}/>
             }}/>
-            <Tabs.Screen name="search" options={{
+            <Tabs.Screen name="more" options={{
                 headerShown: false,
-                tabBarIcon: ({color}) => <Feather size={24} name="search" color={color}/>
+                tabBarIcon: ({color}) => <Feather name="more-horizontal" size={24} color={color}/>
             }}/>
         </Tabs>
     );
