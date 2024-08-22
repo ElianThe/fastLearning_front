@@ -1,15 +1,22 @@
+// fichier de configuration pour compiler les fichiers TypeScript en JavaScript
 {
-  "extends": "expo/tsconfig.base",
+  "extends": "expo/tsconfig.base", //hérite de la configuration de base d'Expo
   "compilerOptions": {
-    "strict": true,
-    "paths": {
+    "strict": true, // impose des règles de typage strictes
+    "paths": { // permet de définir des alias pour les chemins d'accès pour simplifier l'import de fichiers
       "@/*": [
         "./*"
       ]
     }
   },
-  "include": [
+  "include": [ // indique les fichiers à inclure dans la compilation
     "**/*.ts",
     "**/*.tsx"
   ]
 }
+
+// Les étapes de processus de compilation sont les suivantes :
+// 1. Identifie les fichiers à inclure dans la compilation
+// 2. Application des options de compilation
+// 3. Transpilation des fichiers TypeScript en JavaScript
+// 4. Ecriture des fichiers transpilés dans le dossier de destination
