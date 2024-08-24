@@ -36,7 +36,6 @@ export default function SignUpScreen() {
             // Récupérer le premier message d'erreur pour cette clé
             const firstErrorMessage = result.details[firstKey][0];
             setError(firstErrorMessage);
-            console.log(firstErrorMessage);
         } else {
             router.push('/screens/login');
         }
