@@ -6,7 +6,8 @@ export default function StackLayout () {
             <Stack.Screen
                 name="index"
                 options={{
-                    headerTitle: 'Search Page'
+                    headerTitle: 'Réviser',
+                    headerTitleAlign: 'center',
                 }}
             />
         </Stack>

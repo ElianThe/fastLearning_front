@@ -12,7 +12,7 @@ export function RootLayout() {
     // fonction pour rediriger l'utilisateur en fonction de son état d'authentification
     const handleAuthRedirect = useCallback(() => {
         if (authState?.authenticated) {
-            router.push('/home');
+            router.push('/learn');
         } else {
             router.push('/screens/login');
         }

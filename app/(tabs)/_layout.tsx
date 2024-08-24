@@ -14,22 +14,25 @@ export default () => {
                 },
             }}
         >
+            <Tabs.Screen name="learn" options={{
+                headerShown: false,
+                tabBarIcon: ({color}) => <FontAwesome5 size={24} name="graduation-cap" color={color}/>,
+                tabBarLabel: 'Apprendre'
+            }}/>
             <Tabs.Screen name="home" options={{
                 headerShown: false,
-                tabBarIcon: ({color}) => <FontAwesome5 size={24} name="brain" color={color}/>
-            }}/>
-            <Tabs.Screen name="list" options={{
-                title: 'learn',
-                headerShown: true,
-                tabBarIcon: ({color}) => <FontAwesome5 size={24} name="graduation-cap" color={color}/>
+                tabBarIcon: ({color}) => <FontAwesome5 size={24} name="brain" color={color}/>,
+                tabBarLabel: 'Réviser'
             }}/>
             <Tabs.Screen name="library" options={{
                 headerShown: false,
-                tabBarIcon: ({color}) => <FontAwesome5 size={24} name="book" color={color}/>
+                tabBarIcon: ({color}) => <FontAwesome5 size={24} name="book" color={color}/>,
+                tabBarLabel: 'Librairie'
             }}/>
             <Tabs.Screen name="more" options={{
                 headerShown: false,
-                tabBarIcon: ({color}) => <Feather name="more-horizontal" size={24} color={color}/>
+                tabBarIcon: ({color}) => <Feather name="more-horizontal" size={24} color={color}/>,
+                tabBarLabel: 'Paramètres'
             }}/>
         </Tabs>
     );
