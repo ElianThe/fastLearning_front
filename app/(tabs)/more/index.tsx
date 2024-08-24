@@ -4,7 +4,7 @@ export default function Search () {
     return (
         <View>
             <Text>
-                Search
+                More
             </Text>
         </View>
     )
