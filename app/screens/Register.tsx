@@ -175,12 +175,6 @@ const Register = () => {
                 >
                     <Text style={styles.textLogin}>S'inscrire</Text>
                 </TouchableOpacity>
-
-                {/* sign up redirection */}
-                <Text>Vous avez déjà un compte ? </Text>
-                <TouchableOpacity onPress={() => router.push('/screens/Login')}>
-                    <Text style={styles.textSignup}>Se connecter</Text>
-                </TouchableOpacity>
             </View>
         </TouchableWithoutFeedback>
     );
@@ -249,9 +243,6 @@ const styles = StyleSheet.create({
     textLogin: {
         textAlign: 'center',
         color: 'white',
-    },
-    textSignup: {
-        color: 'blue'
     },
     error: {
         display: 'flex',

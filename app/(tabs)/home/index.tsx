@@ -1,5 +1,5 @@
 import {ActivityIndicator} from "react-native";
-import React, {useCallback, useEffect, useState} from "react";
+import React, {useCallback, useState} from "react";
 import Card from "@/components/Card";
 import {API_URL} from "@env";
 import axios from "axios";
@@ -45,6 +45,6 @@ export default function Home() {
     }
 
     return (
-        <ReviewDeck data={data} />
+        <ReviewDeck cards={data} />
     )
 }

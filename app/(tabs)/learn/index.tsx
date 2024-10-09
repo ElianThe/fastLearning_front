@@ -1,46 +1,47 @@
 import {View, Text, ActivityIndicator, FlatList, StyleSheet, Button, Pressable, RefreshControl} from "react-native";
-import React, {useCallback, useEffect, useState} from "react";
+import React, {useCallback, useState} from "react";
 import {API_URL} from "@env";
 import axios from "axios";
 import {router, useFocusEffect} from "expo-router";
-import Card from "@/components/Card";
 
-interface Cards {
+export type TypeCard = {
     id: number,
     title: string,
-    content: string
+    content: string,
+    folder_id: string,
+    image_url: string
 }
 
-export default function Learn() {
-    const [cards, setCards] = useState<Cards[]>([]);
+const Learn = () => {
+    const [cards, setCards] = useState<TypeCard[]>([]);
     const [loading, setLoading] = useState(true);
-    const [refreshing, setRefreshing] = useState(false);
-
-    const onRefresh = () => {
-        setRefreshing(true);
-        fetchData();
-        setRefreshing(false);
-    }
-
-    const fetchData = async () => {
-        try {
-            const response = await axios.get(`${API_URL}/learn-new-cards`)
-            if (response.data.success) {
-                setCards(response.data.data);
-            } else {
-                throw new Error('Invalid data format')
-            }
-        } catch (e: any) {
-            console.log(e.response.data.message);
-            setCards([])
-        } finally {
-            setLoading(false);
-        }
-    }
 
     useFocusEffect(
         useCallback(() => {
+            const controller = new AbortController();
+            const fetchData = async () => {
+                try {
+                    setLoading(true);
+                    const response = await axios.get(`${API_URL}/learn-new-cards`, {
+                        signal: controller.signal
+                    })
+                    if (response.data.success) {
+                        setCards(response.data.data);
+                    } else {
+                        throw new Error('Invalid data format')
+                    }
+                } catch (e: any) {
+                    console.error(e.response.data.message);
+                    setCards([])
+                } finally {
+                    setLoading(false);
+                }
+            }
             fetchData();
+
+            return () => {
+                controller.abort();
+            }
         }, [])
     );
 
@@ -49,36 +50,39 @@ export default function Learn() {
     }
 
     return (
-        <View style={style.container}>
-            <FlatList
-                refreshing={refreshing}
-                onRefresh={onRefresh}
-                data={cards}
-                renderItem={({item}: { item: Cards }) => (
-                    <View style={style.cardContainer}>
-                        <Text style={style.title}>
-                            {item.title}
-                        </Text>
-                        <Text style={style.content}>
-                            {item.content}
-                        </Text>
-                    </View>
-
-                )}
-                keyExtractor={item => item.id.toString()}
-            />
-            <Pressable style={style.button} onPress={
-                () => router.push({
-                    pathname: '/learn/apprendre',
-                    params: {cards: JSON.stringify(cards)}
-
-                })
-            }>
-                <Text style={style.buttonText}>Apprendre</Text>
-            </Pressable>
-        </View>
+        <>
+            {cards.length > 0 ?
+                <View style={style.container}>
+                    <FlatList
+                        data={cards}
+                        renderItem={({item}: { item: TypeCard }) => (
+                            <View style={style.cardContainer}>
+                                <Text style={style.title}>
+                                    {item.title}
+                                </Text>
+                                <Text style={style.content}>
+                                    {item.content}
+                                </Text>
+                            </View>
+                        )}
+                        keyExtractor={item => item.id.toString()}
+                    />
+                    <Pressable style={style.button} onPress={() =>
+                        router.push({
+                            pathname: '/learn/apprendre',
+                            params: {cards: JSON.stringify(cards)}
+                        })
+                    }>
+                        <Text style={style.buttonText}>Apprendre</Text>
+                    </Pressable>
+                </View> :
+                <Text>Pas de carte à apprendre</Text>
+            }
+        </>
     )
 }
+
+export default Learn;
 
 const style = StyleSheet.create({
     container: {

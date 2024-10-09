@@ -14,10 +14,10 @@ import {useState} from "react";
 import * as ImagePicker from 'expo-image-picker';
 import axios from "axios";
 import {API_URL} from "@env";
+import {Ionicons} from "@expo/vector-icons";
 
-export default function createCard() {
+const CreateCard = () => {
     const {id} = useLocalSearchParams<{ id: string }>();
-
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [image, setImage] = useState('');
@@ -82,11 +82,23 @@ export default function createCard() {
                         onChangeText={content => setContent(content)}
                         value={content}
                     />
-                    <Label text={"Image de la carte"}/>
-                    <TouchableOpacity style={style.image} activeOpacity={0.8} onPress={handleImagePickerPress}>
-                        <Text style={style.imageText}>Choisir une image</Text>
-                    </TouchableOpacity>
-                    {image && <Image source={{uri: image}} style={{width: 200, height: 200}}/>}
+                    {image ?
+                        <View style={{alignItems: "center", marginTop: 40}}>
+                            <View>
+                                <Image source={{uri: image}} style={{width: 300, height: 300}}/>
+                                <Pressable style={{position: 'absolute', top: 5, right: 5, zIndex: 1}}
+                                           onPress={() => setImage('')}>
+                                    <Ionicons name="close-circle" size={30} color="white"/>
+                                </Pressable>
+                            </View>
+                        </View> :
+                        <>
+                            <Label text={"Image de la carte"}/>
+                            <TouchableOpacity style={style.image} activeOpacity={0.8} onPress={handleImagePickerPress}>
+                                <Text style={style.imageText}>Choisir une image</Text>
+                            </TouchableOpacity>
+                        </>
+                    }
                 </View>
                 <Pressable
                     style={style.button}
@@ -100,6 +112,8 @@ export default function createCard() {
         </TouchableWithoutFeedback>
     );
 }
+
+export default CreateCard;
 
 const style = StyleSheet.create({
     container: {

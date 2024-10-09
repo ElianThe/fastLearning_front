@@ -2,7 +2,7 @@ import {Tabs} from "expo-router";
 import {FontAwesome5} from "@expo/vector-icons";
 import Feather from '@expo/vector-icons/Feather';
 
-export default () => {
+const Layout = () => {
     return (
         /* barre d'onglets en bas de l'ecran */
         <Tabs
@@ -32,8 +32,10 @@ export default () => {
             <Tabs.Screen name="more" options={{
                 headerShown: false,
                 tabBarIcon: ({color}) => <Feather name="more-horizontal" size={24} color={color}/>,
-                tabBarLabel: 'Paramètres'
+                tabBarLabel: 'Plus'
             }}/>
         </Tabs>
     );
 }
+
+export default Layout;

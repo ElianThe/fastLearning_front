@@ -1,7 +1,7 @@
 import {router, Stack} from "expo-router";
 import Feather from "@expo/vector-icons/Feather";
 
-export default function StackLayout () {
+const StackLayout = () => {
     return (
         <Stack>
             <Stack.Screen
@@ -24,6 +24,14 @@ export default function StackLayout () {
                 }}
             />
             <Stack.Screen
+                name="updateFolder"
+                options={{
+                    headerTitle: 'modifier le dossier',
+                    headerTitleAlign: 'center',
+                }}
+            />
+
+            <Stack.Screen
                 name="folder/[id]/index"
                 options={{
                     headerTitleAlign: 'center',
@@ -40,3 +48,4 @@ export default function StackLayout () {
     );
 }
 
+export default StackLayout;

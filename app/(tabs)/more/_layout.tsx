@@ -2,7 +2,7 @@ import {Stack} from "expo-router";
 import {useAuth} from "@/app/context/AuthContext";
 import {Alert, Button} from "react-native";
 
-export default function StackLayout () {
+const StackLayout = () => {
     const {onLogout} = useAuth();
 
     const logout = async () => {
@@ -17,7 +17,7 @@ export default function StackLayout () {
             <Stack.Screen
                 name="index"
                 options={{
-                    headerTitle: 'Paramètres',
+                    headerTitle: 'Plus',
                     headerTitleAlign: 'center',
                     headerRight: () => {
                         return (
@@ -32,3 +32,5 @@ export default function StackLayout () {
         </Stack>
     );
 }
+
+export default StackLayout;

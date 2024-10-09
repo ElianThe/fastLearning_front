@@ -1,11 +1,13 @@
-import {Text, View} from "react-native";
+import {View} from "react-native";
 
-export default function Search () {
+const Plus = () => {
+
     return (
         <View>
-            <Text>
-                More
-            </Text>
+
         </View>
-    )
+    );
 }
+
+export default Plus;
+

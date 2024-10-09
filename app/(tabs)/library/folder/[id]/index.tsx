@@ -1,9 +1,12 @@
 import {View, Text, FlatList, ActivityIndicator, StyleSheet, Pressable} from "react-native";
 import {router, useFocusEffect, useLocalSearchParams, useNavigation} from "expo-router";
-import {useCallback, useState} from "react";
+import React, {useCallback, useRef, useState} from "react";
 import axios from "axios";
 import {API_URL} from "@env";
 import {AntDesign} from "@expo/vector-icons";
+import Feather from "@expo/vector-icons/Feather";
+import {BottomSheetModal} from "@gorhom/bottom-sheet";
+import CustomBottomSheetModal from "@/components/CustomBottomSheetModal";
 
 interface Card {
     id: number;
@@ -12,16 +15,18 @@ interface Card {
     folder_id: number;
 }
 
-export default function folder() {
+const Folder = () => {
     const {id, name} = useLocalSearchParams<{ id: string, name: string }>();
     const navigation = useNavigation();
-    const [cards, setCards] = useState([]);
+    const [cards, setCards] = useState<Card[]>([]);
     const [loading, setLoading] = useState(true);
 
-    // recharger les cartes à chaque fois que l'écran est affiché
-    // pour éviter de recharger les cartes à chaque fois que l'écran est affiché
+    const handleDeleteCard = (cardId: number) => {
+        const filterCards = cards.filter(card => card.id !== cardId);
+        setCards(filterCards);
+    }
+
     useFocusEffect(
-        // on utilise useCallback pour éviter de recharger les cartes à chaque fois que l'écran est affiché
         useCallback(() => {
             navigation.setOptions({
                 headerTitle: `${name}`,
@@ -40,7 +45,6 @@ export default function folder() {
                     setLoading(false);
                 }
             }
-            // Cette fonction sera appelée chaque fois que l'écran devient actif
             fetchCards();
         }, [id])
     );
@@ -55,7 +59,7 @@ export default function folder() {
                 <Pressable
                     style={styles.containerAddCard}
                     onPress={() => router.push({
-                        pathname : '/library/folder/[id]/createCard',
+                        pathname: '/library/folder/[id]/createCard',
                         params: {id}
                     })}
                 >
@@ -68,23 +72,75 @@ export default function folder() {
             <FlatList
                 data={cards}
                 renderItem={({item}: { item: Card }) => (
-                    <Pressable style={styles.card}>
-                        <View>
-                            <Text style={styles.title}>
-                                {item.title}
-                            </Text>
-                            <Text style={styles.subTitle}>
-                                {item.content}
-                            </Text>
-                        </View>
-                        <AntDesign name="pluscircle" size={24} color="black"/>
-                    </Pressable>
+                    <Card item={item} onDelete={handleDeleteCard}/>
                 )}
                 keyExtractor={item => item.id.toString()}
             />
         </View>
     );
 }
+
+const Card = ({item, onDelete}: { item: Card, onDelete: (cardId: number) => void }) => {
+
+    const bottomSheetRef = useRef<BottomSheetModal>(null);
+
+    const handleClose = () => {
+        bottomSheetRef.current?.close();
+    }
+
+    const deleteCard = async () => {
+        try {
+            const response = await axios.delete(`${API_URL}/cards/${item.id}`);
+            if (response.data.success) {
+                alert('Supression de la carte réussit avec succès !');
+                onDelete(item.id);
+            } else {
+                throw new Error('Error de la suppression');
+            }
+        } catch (err) {
+            console.log(err);
+        }
+        handleClose();
+    }
+
+    const updateCard = () => {
+        handleClose();
+    }
+
+    const data = [
+        {
+            key: "0",
+            title: "Supprimer la carte",
+            callback: deleteCard
+        },
+        {
+            key: "2",
+            title: "close",
+            callback: handleClose
+        }
+    ];
+
+    return (
+        <>
+            <Pressable style={styles.card}>
+                <View>
+                    <Text style={styles.title}>
+                        {item.title}
+                    </Text>
+                    <Text style={styles.subTitle}>
+                        {item.content}
+                    </Text>
+                </View>
+                <Pressable onPress={() => bottomSheetRef.current?.present()}>
+                    <Feather name="more-horizontal" size={24} color="black"/>
+                </Pressable>
+            </Pressable>
+            <CustomBottomSheetModal ref={bottomSheetRef} data={data}/>
+        </>
+    );
+}
+
+export default Folder;
 
 const styles = StyleSheet.create({
     container: {

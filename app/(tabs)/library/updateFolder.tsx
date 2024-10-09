@@ -1,22 +1,41 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {View, Text, TextInput, StyleSheet, TouchableWithoutFeedback, Keyboard, Pressable} from "react-native";
 import Label from "@/components/Label";
 import axios from "axios";
 import {API_URL} from "@env";
-import {router} from "expo-router";
+import {router, useLocalSearchParams} from "expo-router";
 
-const CreateFolder = () => {
+const UpdateFolder = () => {
+    const {id} = useLocalSearchParams();
     const [name, setName] = useState('');
     const [content, setContent] = useState('');
 
-    const createFolder = async () => {
-        await axios.post(`${API_URL}/folders`, {
+    const updateFolder = async () => {
+        await axios.patch(`${API_URL}/folders/${id}`, {
             name,
-            content,
-            "is_public": false,
-            "parent_id": null
+            content
         });
     }
+
+    useEffect(() => {
+        const getInfoFolder = async () => {
+            try {
+                const response = await axios.get(`${API_URL}/folders/${id}`)
+                if (response.data.success) {
+                    console.log(response.data.data.name)
+                    setName(response.data.data.name);
+                    setContent(response.data.data.content);
+                } else {
+                    throw new Error("erreur survenue")
+                }
+            } catch (err) {
+                console.error(err);
+            }
+
+        }
+        getInfoFolder();
+    }, []);
+
     return (
         <TouchableWithoutFeedback
             onPress={() => {
@@ -24,7 +43,7 @@ const CreateFolder = () => {
             }}
         >
             <View style={styles.container}>
-                <Text style={styles.title}>Créer un dossier</Text>
+                <Text style={styles.title}>Modifier le dossier {id}</Text>
                 <Label text={'Nom du dossier'}/>
                 <TextInput
                     style={styles.input}
@@ -46,18 +65,18 @@ const CreateFolder = () => {
                 <Pressable
                     style={styles.button}
                     onPress={() => {
-                        createFolder();
+                        updateFolder();
                         router.back();
                     }}
                 >
-                    <Text style={styles.button}>Créer</Text>
+                    <Text style={styles.button}>Modifier</Text>
                 </Pressable>
             </View>
         </TouchableWithoutFeedback>
     );
 }
 
-export default CreateFolder;
+export default UpdateFolder;
 
 const styles = StyleSheet.create({
     title: {

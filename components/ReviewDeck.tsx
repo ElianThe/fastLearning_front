@@ -1,57 +1,45 @@
 import React, {useState} from "react";
-import { Animated, StyleSheet, Text, View} from "react-native";
+import {Animated, StyleSheet, Text, View} from "react-native";
 import ButtonCard from "@/components/ButtonCard";
 import RatingButtons from "@/components/RatingButtons";
 import Card from "@/components/Card";
+import {router} from "expo-router";
 
-const ReviewDeck = ({data} : any) => {
+const ReviewDeck = ({cards, routerBack}: any) => {
     const [currentIndex, setCurrentIndex] = useState(0);
-
-    // utilisée pour stocker l'état de la rotation de la carte
     const rotateAnim = useState(new Animated.Value(0))[0];
-
-    // état booléen qui indique si la carte est actuellement retournée
     const [flipped, setFlipped] = useState(false);
 
-
-
-    // Function to flip the card
     const flipCard = () => {
-        // Animated.timing est une méthode fournie par React Native pour animer une valeur sur une période donnée
-        // deux arguments principaux :
-        // - rotateAnim: la valeur animée à modifier.
-        // - Objet de configuration: qui définit la manière dont l'animation doit se dérouler.
         Animated.timing(rotateAnim, {
-            toValue: flipped ? 0 : 180,
+            toValue: 180,
             duration: 500,
-            // Indique si l'animation doit utiliser le moteur d'animation natif
             useNativeDriver: true,
         }).start();
-        setFlipped(!flipped);
+        setFlipped(true);
     };
 
-    // fonction pour passer à la carte suivante
     const nextCard = () => {
-        setCurrentIndex(currentIndex + 1);
-        setFlipped(false);
-        rotateAnim.setValue(0); // Reset rotation for the new card
+        const nextIndex = currentIndex + 1;
+        if (nextIndex === cards.length && routerBack) {
+            router.back();
+        } else {
+            setCurrentIndex(nextIndex);
+            setFlipped(false);
+            rotateAnim.setValue(0);
+        }
     };
 
-    const currentCard = data[currentIndex];
-    const id = currentCard ? currentCard.id : null;
-    const title = currentCard ? currentCard.title : 'No Title';
-    const content = currentCard ? currentCard.content : 'No Content';
-    const image = currentCard ? currentCard.image_url : 'No Image';
+    const currentCard = cards[currentIndex];
 
     return (
         <View style={styles.container}>
-            {/* tant qu'il reste des cartes à réviser */}
-            {currentIndex < data.length ? (
+            {currentIndex < cards.length ? (
                 <>
-                    <Card flipped={flipped} rotateAnim={rotateAnim} title={title} description={content} image={image}/>
+                    <Card flipped={flipped} rotateAnim={rotateAnim} title={currentCard.title} description={currentCard.content} image={currentCard.image_url} />
                     {!flipped ?
                         <ButtonCard onPress={flipCard}/> :
-                        <RatingButtons onPress={nextCard} id={id} />
+                        <RatingButtons onPress={nextCard} id={currentCard.id} />
                     }
                 </>
             ) : (
@@ -73,6 +61,5 @@ const styles = StyleSheet.create({
         marginTop: 20,
     }
 });
-
 
 export default ReviewDeck
