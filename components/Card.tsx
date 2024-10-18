@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, Animated, Image} from 'react-native';
+import {LinearGradient} from "expo-linear-gradient";
 
 interface CardProps {
     flipped: boolean;
@@ -7,9 +8,10 @@ interface CardProps {
     title: string;
     description: string;
     image: string;
+    colorCard: string;
 }
 
-const Card = ({flipped, rotateAnim, title, description, image}: CardProps) => {
+const Card = ({flipped, rotateAnim, title, description, image, colorCard}: CardProps) => {
 
     const rotateInterpolated = rotateAnim.interpolate({
         inputRange: [0, 180],
@@ -27,30 +29,38 @@ const Card = ({flipped, rotateAnim, title, description, image}: CardProps) => {
     });
 
     return (
-        <Animated.View style={[styles.card, {transform: [{rotateY: rotateInterpolated}]}]}>
-            {!flipped ?
-                <View>
-                    {/* image url in source */}
-                    <Text style={styles.cardText}>{title}</Text>
-                    <Image style={styles.image} source={{ uri: image }} />
-                </View> :
-                <Animated.View style={{transform: [{rotateY: textRotation}]}}>
-                    <Animated.Text style={[styles.cardText, {opacity: opacityBack}]}>
-                        {description}
-                    </Animated.Text>
-                </Animated.View>
-            }
+        <Animated.View style={[{transform: [{rotateY: rotateInterpolated}]}, styles.card]}>
+            <LinearGradient colors={[colorCard, '#FFFFFF']} style={{borderRadius: 20}}>
+                {!flipped ?
+                    <View>
+                        {/* image url in source */}
+                        <Text style={styles.cardText}>{title}</Text>
+                        <Image style={styles.image} source={{uri: image}}/>
+                    </View>
+                    :
+                    <Animated.View>
+                        <Animated.Text
+                            style={[styles.cardText, {opacity: opacityBack}, {transform: [{rotateY: textRotation}]}]}>
+                            {description}
+                        </Animated.Text>
+                    </Animated.View>
+                }
+            </LinearGradient>
         </Animated.View>
+
     );
 };
 
 const styles = StyleSheet.create({
     card: {
-        flex: 1,
-        backgroundColor: 'lightgray',
-        borderStyle: 'solid',
-        borderWidth: 1,
         borderRadius: 20,
+        backgroundColor: "white",
+        flex: 1,
+        shadowColor: "black",
+        shadowRadius: 1,
+        shadowOffset: {width: 1, height: 1},
+        shadowOpacity: 0.5,
+        elevation: 4
     },
     cardText: {
         paddingTop: 20,
@@ -58,12 +68,11 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: 'bold',
     },
-    image : {
-        width: '70%',
-        height: '70%',
-        alignSelf: 'center',
+    image: {
         marginTop: 80,
-
+        width: "70%",
+        aspectRatio: 1,
+        alignSelf: "center"
     }
 });
 
