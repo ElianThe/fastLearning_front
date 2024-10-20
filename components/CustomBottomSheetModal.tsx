@@ -1,6 +1,7 @@
 import {BottomSheetBackdrop, BottomSheetFlatList, BottomSheetModal} from "@gorhom/bottom-sheet";
 import {View, StyleSheet, TouchableOpacity, Text} from "react-native";
-import {forwardRef, ReactNode, useCallback} from "react";
+import {forwardRef, ReactNode, useCallback, useState} from "react";
+import useToggle from "@/hooks/useToggle";
 
 export type Ref = BottomSheetModal;
 
@@ -15,9 +16,8 @@ const CustomBottomSheetModal = forwardRef<Ref, any>(({data}: any, ref) => {
             index={0}
             enableDynamicSizing={true}
             backdropComponent={renderBackdrop}
-            style={{ marginHorizontal: 6 }}
-            handleIndicatorStyle={{ backgroundColor: "white" }}
-            backgroundStyle={{ backgroundColor: "blue" }}
+            handleIndicatorStyle={{ backgroundColor: "black" }}
+            backgroundStyle={{ backgroundColor: "#FFFFFF" }}
         >
             <View style={{ flex: 1 }}>
                 <BottomSheetFlatList
@@ -30,7 +30,10 @@ const CustomBottomSheetModal = forwardRef<Ref, any>(({data}: any, ref) => {
 });
 
 const ActionBottomSheet = ({title, callback} : {title: string, callback: any}) => {
-    return <View style={{ backgroundColor: "white" }}>
+
+    const [pressed, setPressed] = useState(false);
+
+    return <View style={{ backgroundColor: "#DDDDDD" }}>
         <TouchableOpacity onPress={callback} style={styles.containerAction}>
             <Text>
                 {title}
@@ -50,8 +53,8 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 20,
         alignItems: "center",
-        backgroundColor: "blue",
+        backgroundColor: "white",
         borderTopWidth: 1,
-        borderBottomColor: '#ccc'
+        borderTopColor: '#ccc'
     }
 });

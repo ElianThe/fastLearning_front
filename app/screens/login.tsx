@@ -3,19 +3,17 @@ import {
     StyleSheet,
     TextInput,
     Text,
-    Pressable,
-    TouchableWithoutFeedback,
-    Keyboard,
     TouchableOpacity
 } from "react-native";
 import {Colors} from "@/constants/Colors";
 import React, {useRef, useState} from "react";
 import {useAuth} from "@/app/context/AuthContext";
-import {useRouter} from "expo-router";
-import {MaterialIcons} from "@expo/vector-icons";
+import {router, useRouter} from "expo-router";
 import useFocusInputWithTime from "@/hooks/useFocusInputWithTime";
 import useToggle from "@/hooks/useToggle";
 import Icon from "@expo/vector-icons/FontAwesome";
+import {KeyboardAwareScrollView} from "react-native-keyboard-aware-scroll-view";
+import ErrorView from "@/components/ErrorView";
 
 const Login = () => {
 
@@ -32,7 +30,6 @@ const Login = () => {
     const [error, setError] = useState<string | null>(null);
 
     const {onLogin} = useAuth();
-    // Fonction de connexion
     const login = async () => {
         const result = await onLogin!(email, password);
         if (result && result.error) {
@@ -40,16 +37,14 @@ const Login = () => {
         }
     }
 
-    // Hook de routage pour la navigation
-    const router = useRouter();
-
     return (
-        <TouchableWithoutFeedback onPress={() => {
-            Keyboard.dismiss();
-        }}>
-            <View style={styles.container}>
-                <Text style={styles.title}>Connectez-vous</Text>
-
+        <View>
+            <KeyboardAwareScrollView
+                keyboardShouldPersistTaps="handled"
+                style={styles.container}
+                contentContainerStyle={{flex: 1, justifyContent: "center"}}
+            >
+                {error && <ErrorView text={error} onPress={() => router.push('/screens/Register')}/>}
                 <View style={styles.viewInput}>
                     <Text style={styles.label}>E-mail</Text>
                     <TextInput
@@ -63,19 +58,14 @@ const Login = () => {
                 </View>
 
                 <View style={styles.viewInput}>
-
                     <Text style={styles.label}>Mot de passe</Text>
-                    <TouchableOpacity
-                        style={styles.passwordContainer}
-                        onPress={() => {
-                            passwordRef.current && passwordRef.current.focus();
-                        }}
-                    >
+                    <View style={[styles.inputPassword, styles.input]}>
                         <TextInput
-                            style={styles.inputPassword}
+                            style={{flex: 1, paddingVertical: 10, fontSize: 16, color: 'black'}}
                             onChangeText={(text) => {
                                 setPassword(text);
                             }}
+                            onPress={() => passwordRef.current && passwordRef.current.focus()}
                             value={password}
                             secureTextEntry={!showPassword}
                             ref={passwordRef}
@@ -87,15 +77,8 @@ const Login = () => {
                                 color="#000" // Couleur de l'icône
                             />
                         </TouchableOpacity>
-                    </TouchableOpacity>
-                </View>
-
-                {error &&
-                    <View style={styles.error}>
-                        <MaterialIcons name={'error'} size={24} color={'red'}/>
-                        <Text style={styles.errorText}>{error}</Text>
                     </View>
-                }
+                </View>
 
                 {/* button login */}
                 <TouchableOpacity
@@ -106,16 +89,9 @@ const Login = () => {
                     <Text style={styles.textLogin}>Se connecter</Text>
                 </TouchableOpacity>
 
-                <View style={styles.viewSignup}>
-                    <Text>Vous n'avez pas de compte ? </Text>
-                    <Pressable onPress={() => {
-                        router.push('/screens/Register');
-                    }}>
-                        <Text style={styles.textSignup}>S'inscrire</Text>
-                    </Pressable>
-                </View>
-            </View>
-        </TouchableWithoutFeedback>
+
+            </KeyboardAwareScrollView>
+        </View>
     )
 }
 
@@ -124,8 +100,6 @@ export default Login;
 const styles = StyleSheet.create({
     container: {
         backgroundColor: Colors.light.background,
-        display: 'flex',
-        justifyContent: 'center',
         padding: 15,
         height: '100%',
         width: '100%'
@@ -152,8 +126,9 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     inputPassword: {
-        color: 'black',
-        width: 100
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingRight: 10,
     },
     passwordContainer: {
         borderRadius: 5,
@@ -176,26 +151,6 @@ const styles = StyleSheet.create({
     textLogin: {
         textAlign: 'center',
         color: 'white',
-    },
-    viewSignup: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        marginTop: 20
-    },
-    textSignup: {
-        color: 'blue'
-    },
-    error: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginBottom: 20
-    },
-    errorText: {
-        paddingLeft: 10,
-        color: 'red'
     },
     buttonRegisterDisabled: {
         backgroundColor: 'gray',

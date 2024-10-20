@@ -50,7 +50,7 @@ const Learn = () => {
     }
 
     return (
-        <>
+        <View style={{ backgroundColor: "white", flex: 1 }}>
             {cards.length > 0 ?
                 <View style={style.container}>
                     <FlatList
@@ -76,10 +76,12 @@ const Learn = () => {
                         <Text style={style.buttonText}>Apprendre</Text>
                     </Pressable>
                 </View> :
-                <Text>Pas de carte à apprendre</Text>
+                <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+                    <Text style={{ fontSize: 20 }}>Pas de carte à apprendre</Text>
+                </View>
             }
-        </>
-    )
+        </View>
+    );
 }
 
 export default Learn;
@@ -89,14 +91,20 @@ const style = StyleSheet.create({
         flex: 1,
         flexDirection: "column",
         justifyContent: "space-around",
-        backgroundColor: '#ccc',
+        backgroundColor: '#F2F2F2',
         margin: 10,
-        borderRadius: 10
+        borderRadius: 10,
+        elevation: 3,
+        shadowColor: '#000',
+        shadowOffset: { width: 1, height: 1 },
+        shadowOpacity: 0.5,
+        shadowRadius: 1,
     },
     cardContainer: {
         flex: 1,
         backgroundColor: 'white',
-        margin: 5,
+        marginTop: 10,
+        marginHorizontal: 10,
         borderRadius: 5
     },
     title: {
@@ -106,16 +114,17 @@ const style = StyleSheet.create({
     },
     content: {
         paddingLeft: 10,
-        paddingBottom: 10
+        paddingBottom: 10,
     },
     button: {
-        marginHorizontal: 10,
-        marginBottom: 10,
-        padding: 20,
+        margin: 10,
+        padding: 15,
         borderRadius: 10,
-        backgroundColor: "white"
+        backgroundColor: "#003049"
     },
     buttonText: {
-        textAlign: "center"
+        textAlign: "center",
+        color: "#FFFFFF",
+        fontSize: 16,
     }
 });

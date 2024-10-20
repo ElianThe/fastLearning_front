@@ -4,18 +4,19 @@ import Label from "@/components/Label";
 import axios from "axios";
 import {API_URL} from "@env";
 import {router} from "expo-router";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 const CreateFolder = () => {
     const [name, setName] = useState('');
-    const [content, setContent] = useState('');
 
     const createFolder = async () => {
         await axios.post(`${API_URL}/folders`, {
             name,
-            content,
+            content: "",
             "is_public": false,
             "parent_id": null
         });
+        router.back();
     }
     return (
         <TouchableWithoutFeedback
@@ -24,34 +25,30 @@ const CreateFolder = () => {
             }}
         >
             <View style={styles.container}>
-                <Text style={styles.title}>Créer un dossier</Text>
-                <Label text={'Nom du dossier'}/>
+                <View style={{justifyContent: "space-between", alignItems: "center", flexDirection: "row"}}>
+                    <Pressable onPress={() => router.back()}>
+                        <FontAwesome name="times-circle" size={40} color="#780000"/>
+                    </Pressable>
+                    <Text style={{textAlign: "center", fontSize: 20, fontWeight: "bold"}}>
+                        Ajouter un nouveau dossier
+                    </Text>
+                    <Pressable onPress={() => {
+                        createFolder();
+                    }}>
+                        <FontAwesome name="check-circle" size={40} color="#003049"/>
+                    </Pressable>
+                </View>
+                <Text style={{ marginVertical: 10,  }}>
+                    Nom du dossier
+                </Text>
                 <TextInput
                     style={styles.input}
-                    placeholder="Nom du dossier"
+                    placeholder="Les capitales"
                     placeholderTextColor={'gray'}
                     onChangeText={(text: string) => setName(text)}
                     value={name}
                     autoCapitalize="none"
                 />
-                <Label text={'Contenu du dossier'} />
-                <TextInput
-                    style={styles.input}
-                    placeholder="Contenu du dossier"
-                    placeholderTextColor={'gray'}
-                    onChangeText={(text: string) => setContent(text)}
-                    value={content}
-                    autoCapitalize="none"
-                />
-                <Pressable
-                    style={styles.button}
-                    onPress={() => {
-                        createFolder();
-                        router.back();
-                    }}
-                >
-                    <Text style={styles.button}>Créer</Text>
-                </Pressable>
             </View>
         </TouchableWithoutFeedback>
     );
@@ -67,12 +64,14 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 20,
+        marginVertical: 30,
+        backgroundColor: "#FFFFFF"
     },
     input: {
         padding: 10,
-        borderBottomWidth: 1,
-        borderBottomColor: '#ccc',
-        marginBottom: 20,
+        backgroundColor: "#F2F2F2",
+        borderRadius: 5,
+
     },
     button: {
         padding: 10,

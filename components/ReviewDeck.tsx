@@ -5,10 +5,26 @@ import RatingButtons from "@/components/RatingButtons";
 import Card from "@/components/Card";
 import {router} from "expo-router";
 
+const colorsCardRandom = [
+    '#D8E5F7',
+    '#C1E7E3',
+    '#DCFFFB',
+    '#FEDCDB',
+    '#FDF1C9',
+    '#F2D9EF',
+    '#D8EEDF'
+];
+
+const getRandomColor = () => {
+    const randomIndex = Math.floor(Math.random() * colorsCardRandom.length);
+    return colorsCardRandom[randomIndex];
+};
+
 const ReviewDeck = ({cards, routerBack}: any) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const rotateAnim = useState(new Animated.Value(0))[0];
     const [flipped, setFlipped] = useState(false);
+    const [backgroundColorCard, setBackgroundColorCard] = useState(getRandomColor());
 
     const flipCard = () => {
         Animated.timing(rotateAnim, {
@@ -26,6 +42,7 @@ const ReviewDeck = ({cards, routerBack}: any) => {
         } else {
             setCurrentIndex(nextIndex);
             setFlipped(false);
+            setBackgroundColorCard(getRandomColor());
             rotateAnim.setValue(0);
         }
     };
@@ -36,15 +53,18 @@ const ReviewDeck = ({cards, routerBack}: any) => {
         <View style={styles.container}>
             {currentIndex < cards.length ? (
                 <>
-                    <Card flipped={flipped} rotateAnim={rotateAnim} title={currentCard.title} description={currentCard.content} image={currentCard.image_url} />
+                    <Card title={currentCard.title} image={currentCard.image_url}
+                          description={currentCard.content}
+                          randomColor={backgroundColorCard} rotateAnim={rotateAnim} />
                     {!flipped ?
                         <ButtonCard onPress={flipCard}/> :
-                        <RatingButtons onPress={nextCard} id={currentCard.id} />
+                        <RatingButtons onPress={nextCard} id={currentCard.id}/>
                     }
                 </>
             ) : (
-                /* s'il n'y a plus de carte à réviser */
-                <Text style={styles.text}>Pas de carte à réviser</Text>
+                <View style={styles.containerText}>
+                    <Text style={styles.text}>Pas de carte à réviser</Text>
+                </View>
             )}
         </View>
     );
@@ -55,10 +75,13 @@ const styles = StyleSheet.create({
         flex: 1,
         margin: 20,
     },
+    containerText: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center"
+    },
     text: {
         fontSize: 20,
-        textAlign: 'center',
-        marginTop: 20,
     }
 });
 

@@ -80,7 +80,7 @@ export const AuthProvider = ({children}: any) => {
             });
             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
             await SecureStore.setItemAsync(TOKEN_KEY, token);
-            console.log('Token saved successfully');
+            console.log('Token saved successfully : '+ token);
             return result;
         } catch (e : any) {
             // Le serveur a répondu avec un statut d'erreur

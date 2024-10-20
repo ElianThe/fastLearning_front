@@ -26,25 +26,25 @@ type SlideProps = {
 const slides: SlideProps[] = [
     {
         id: "1",
-        image: require('@/assets/images/onBoarding/image1.png'),
+        image: require('@/assets/images/onBoarding/AddFolder.jpg'),
         title: 'Créer une box',
         subtitle: "La première chose à faire c'est créer une box",
     },
     {
         id: "2",
-        image: require('@/assets/images/onBoarding/image2.png'),
+        image: require('@/assets/images/onBoarding/addCard.jpg'),
         title: 'Créer une carte',
         subtitle: 'Puis, vous pouvez créer une carte qui contient les informations dont tu as besoin.',
     },
     {
         id: "3",
-        image: require('@/assets/images/onBoarding/image3.png'),
+        image: require('@/assets/images/onBoarding/apprendre.jpg'),
         title: "Révision des cartes",
         subtitle: "Toutes les cartes commence au niveau 0. Ton but est de te connecter à l'application tous les jours et de réviser les cartes.",
     },
     {
         id: "4",
-        image: require('@/assets/images/onBoarding/image1.png'),
+        image: require('@/assets/images/onBoarding/réviser.jpg'),
         title: "Déplacement des cartes",
         subtitle: "Si tu choisis la bonne réponse, la carte passe au niveau suivant. Dans le cas contraire, la carte baisse d'un niveau",
     }
@@ -128,7 +128,7 @@ const OnBoardingScreen = () => {
     }
 
     return (
-        <SafeAreaView style={{flex: 1, backgroundColor: COLORS.primary}}>
+        <SafeAreaView style={{flex: 1, backgroundColor: "#003049"}}>
             <StatusBar backgroundColor={COLORS.primary}/>
             <FlatList
                 ref={ref}

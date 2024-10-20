@@ -26,32 +26,25 @@ export default function RatingButtons ({onPress, id}: RatingButtonsProps)  {
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={styles.button} onPress={
-                () => {
-                    postRating(-2);
-                    onPress();
-                }}>
-                <Text>difficile</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={
+            <TouchableOpacity style={[styles.button, {backgroundColor: "#0594D0"}]} onPress={
                 () => {
                     postRating(-1);
                     onPress();
                 }}>
-                <Text>moyen</Text>
+                <Text style={styles.text}>difficile</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={
+            <TouchableOpacity style={[styles.button, {backgroundColor: "#003C57"}]} onPress={
                 () => {
                     postRating(0);
                     onPress();
-            }}>
-                <Text>facile</Text>
+                }}>
+                <Text style={styles.text}>moyen</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={() => {
+            <TouchableOpacity style={[styles.button, {backgroundColor: "#051C24"}]} onPress={() => {
                 postRating(1);
                 onPress();
             }}>
-                <Text>très facile</Text>
+                <Text style={styles.text}>très facile</Text>
             </TouchableOpacity>
         </View>
     );
@@ -61,7 +54,7 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginTop: 10,
+        marginTop: 20,
     },
     button: {
         backgroundColor: 'lightgray',
@@ -69,5 +62,6 @@ const styles = StyleSheet.create({
         width: 85,
         alignItems: 'center',
         borderRadius: 10,
-    }
+    },
+    text: { color: "white" }
 });

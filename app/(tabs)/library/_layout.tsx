@@ -1,5 +1,4 @@
-import {router, Stack} from "expo-router";
-import Feather from "@expo/vector-icons/Feather";
+import {Stack} from "expo-router";
 
 const StackLayout = () => {
     return (
@@ -9,28 +8,22 @@ const StackLayout = () => {
                 options={{
                     headerTitle: 'Librairie',
                     headerTitleAlign: 'center',
-                    headerRight: () => (
-                        <Feather name="plus" size={24} color="black" onPress={() => (
-                            router.push('/library/createFolder')
-                        )} />
-                    ),
+                }}
+            />
+             <Stack.Screen
+                name="updateFolder"
+                options={{
+                    headerShown: false,
+                    presentation: "modal"
                 }}
             />
             <Stack.Screen
                 name="createFolder"
                 options={{
-                    headerTitle: 'Créer un dossier',
-                    headerTitleAlign: 'center',
+                    headerShown: false,
+                    presentation: "modal"
                 }}
             />
-            <Stack.Screen
-                name="updateFolder"
-                options={{
-                    headerTitle: 'modifier le dossier',
-                    headerTitleAlign: 'center',
-                }}
-            />
-
             <Stack.Screen
                 name="folder/[id]/index"
                 options={{
@@ -40,8 +33,8 @@ const StackLayout = () => {
             <Stack.Screen
                 name="folder/[id]/createCard"
                 options={{
-                    headerTitle: 'Créer une carte',
-                    headerTitleAlign: 'center',
+                    headerShown: false,
+                    presentation: "modal",
                 }}
             />
         </Stack>

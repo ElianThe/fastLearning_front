@@ -1,13 +1,12 @@
 import {Tabs} from "expo-router";
 import {FontAwesome5} from "@expo/vector-icons";
-import Feather from '@expo/vector-icons/Feather';
 
 const Layout = () => {
     return (
         /* barre d'onglets en bas de l'ecran */
         <Tabs
             screenOptions={{
-                tabBarActiveTintColor: 'blue',
+                tabBarActiveTintColor: '#003049',
                 tabBarStyle: {justifyContent: 'center'},
                 tabBarIconStyle: {
                     marginTop: 5,
@@ -19,7 +18,7 @@ const Layout = () => {
                 tabBarIcon: ({color}) => <FontAwesome5 size={24} name="graduation-cap" color={color}/>,
                 tabBarLabel: 'Apprendre'
             }}/>
-            <Tabs.Screen name="home" options={{
+            <Tabs.Screen name="review" options={{
                 headerShown: false,
                 tabBarIcon: ({color}) => <FontAwesome5 size={24} name="brain" color={color}/>,
                 tabBarLabel: 'Réviser'
@@ -29,10 +28,10 @@ const Layout = () => {
                 tabBarIcon: ({color}) => <FontAwesome5 size={24} name="book" color={color}/>,
                 tabBarLabel: 'Librairie'
             }}/>
-            <Tabs.Screen name="more" options={{
+            <Tabs.Screen name="profile" options={{
                 headerShown: false,
-                tabBarIcon: ({color}) => <Feather name="more-horizontal" size={24} color={color}/>,
-                tabBarLabel: 'Plus'
+                tabBarIcon: ({color}) => <FontAwesome5 name="user-circle" size={24} color={color} solid />,
+                tabBarLabel: 'Profile'
             }}/>
         </Tabs>
     );

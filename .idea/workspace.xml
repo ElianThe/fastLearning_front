@@ -4,12 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="801311f0-97b6-427e-8a4a-5aa4295ac0cc" name="Changes" comment="first commit">
+    <list default="true" id="801311f0-97b6-427e-8a4a-5aa4295ac0cc" name="Changes" comment="Première version de carte avec linearGradient">
+      <change afterPath="$PROJECT_DIR$/app/(tabs)/profile/_layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/(tabs)/profile/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/onBoarding/AddFolder.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/onBoarding/addCard.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/onBoarding/apprendre.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/onBoarding/réviser.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/ErrorView.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/home/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/review/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/home/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/review/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/learn/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/learn/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/library/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/library/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/library/createFolder.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/library/createFolder.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/library/folder/[id]/createCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/library/folder/[id]/createCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/library/folder/[id]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/library/folder/[id]/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/library/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/library/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/library/updateFolder.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/library/updateFolder.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/more/_layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/more/index.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/context/AuthContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/context/AuthContext.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/screens/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/screens/Register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/register.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/screens/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/screens/homeAuthentificate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/homeAuthentificate.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/screens/onBoardingScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/onBoardingScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/adaptive-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/adaptive-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/splash.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/splash.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ButtonCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ButtonCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/CustomBottomSheetModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/CustomBottomSheetModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/RatingButtons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/RatingButtons.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ReviewDeck.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ReviewDeck.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/useFocusInputWithTime.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useFocusInputWithTime.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
@@ -29,22 +59,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/elian.guiffault/Desktop/perso/fastLearning_front&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\elian.guiffault\\Desktop\\perso\\fastLearning_front\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/elian/Bureau/fastLearning_front/assets/images/onBoarding",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Users\\elian\\Bureau\\fastLearning_front\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\elian\Bureau\fastLearning_front\assets\images\onBoarding" />
       <recent name="C:\Users\elian.guiffault\Desktop\perso\fastLearning_front" />
       <recent name="C:\Users\elian.guiffault\Desktop\perso\fastLearning_front\app" />
     </key>
@@ -55,7 +86,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.17011.90" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.17890.13" />
       </set>
     </attachedChunks>
   </component>
@@ -70,6 +101,17 @@
       <workItem from="1718875403063" duration="25000" />
       <workItem from="1718875558078" duration="4581000" />
       <workItem from="1718880551100" duration="6001000" />
+      <workItem from="1728543733573" duration="8998000" />
+      <workItem from="1728573864198" duration="587000" />
+      <workItem from="1728663531783" duration="2000" />
+      <workItem from="1728830183001" duration="5964000" />
+      <workItem from="1728917946087" duration="4509000" />
+      <workItem from="1729002667574" duration="3100000" />
+      <workItem from="1729159868417" duration="13998000" />
+      <workItem from="1729262174911" duration="9632000" />
+      <workItem from="1729275723073" duration="782000" />
+      <workItem from="1729276926442" duration="22561000" />
+      <workItem from="1729422379610" duration="5052000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -79,7 +121,23 @@
       <option name="project" value="LOCAL" />
       <updated>1718879276878</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="bottomSheet, modified Auth, add onBoardingScreen">
+      <option name="closed" value="true" />
+      <created>1728469425969</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1728469425969</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Première version de carte avec linearGradient">
+      <option name="closed" value="true" />
+      <created>1729262334660</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1729262334660</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -90,6 +148,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="bottomSheet, modified Auth, add onBoardingScreen" />
+    <MESSAGE value="Première version de carte avec linearGradient" />
+    <option name="LAST_COMMIT_MESSAGE" value="Première version de carte avec linearGradient" />
   </component>
 </project>

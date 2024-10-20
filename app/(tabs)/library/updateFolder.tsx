@@ -8,13 +8,16 @@ import {router, useLocalSearchParams} from "expo-router";
 const UpdateFolder = () => {
     const {id} = useLocalSearchParams();
     const [name, setName] = useState('');
-    const [content, setContent] = useState('');
+
 
     const updateFolder = async () => {
-        await axios.patch(`${API_URL}/folders/${id}`, {
-            name,
-            content
-        });
+        try {
+            const response = await axios.patch(`${API_URL}/folders/${id}`, {
+                name
+            });
+        } catch (err) {
+            console.error(err);
+        }
     }
 
     useEffect(() => {
@@ -22,16 +25,13 @@ const UpdateFolder = () => {
             try {
                 const response = await axios.get(`${API_URL}/folders/${id}`)
                 if (response.data.success) {
-                    console.log(response.data.data.name)
                     setName(response.data.data.name);
-                    setContent(response.data.data.content);
                 } else {
                     throw new Error("erreur survenue")
                 }
             } catch (err) {
                 console.error(err);
             }
-
         }
         getInfoFolder();
     }, []);
@@ -53,15 +53,6 @@ const UpdateFolder = () => {
                     value={name}
                     autoCapitalize="none"
                 />
-                <Label text={'Contenu du dossier'} />
-                <TextInput
-                    style={styles.input}
-                    placeholder="Contenu du dossier"
-                    placeholderTextColor={'gray'}
-                    onChangeText={(text: string) => setContent(text)}
-                    value={content}
-                    autoCapitalize="none"
-                />
                 <Pressable
                     style={styles.button}
                     onPress={() => {
@@ -75,7 +66,6 @@ const UpdateFolder = () => {
         </TouchableWithoutFeedback>
     );
 }
-
 export default UpdateFolder;
 
 const styles = StyleSheet.create({

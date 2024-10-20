@@ -10,17 +10,19 @@ import {
 } from "react-native";
 import {router, useLocalSearchParams} from "expo-router";
 import Label from "@/components/Label";
-import {useState} from "react";
+import React, {useState} from "react";
 import * as ImagePicker from 'expo-image-picker';
 import axios from "axios";
 import {API_URL} from "@env";
 import {Ionicons} from "@expo/vector-icons";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 const CreateCard = () => {
     const {id} = useLocalSearchParams<{ id: string }>();
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [image, setImage] = useState('');
+    const [isModalVisible, setIsModalVisible] = useState(false);
 
     const handleImagePickerPress = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -40,13 +42,15 @@ const CreateCard = () => {
             formData.append('title', title);
             formData.append('content', content);
             formData.append('folder_id', `${id}`);
-            const imageFile = {
-                uri: image,
-                type: 'image/jpeg', // Le type MIME doit correspondre au type de fichier
-                name: 'image.jpeg', // Un nom de fichier valide
-            };
+            if (image !== '') {
+                const imageFile = {
+                    uri: image,
+                    type: 'image/jpeg', // Le type MIME doit correspondre au type de fichier
+                    name: 'image.jpeg', // Un nom de fichier valide
+                };
 
-            formData.append('image_path', imageFile as any);
+                formData.append('image_path', imageFile as any);
+            }
 
             // Envoyer la requête POST avec le FormData
             const response = await axios.post(`${API_URL}/cards`, formData, {
@@ -59,25 +63,38 @@ const CreateCard = () => {
             } else {
                 console.log(response.data.message);
             }
-        } catch (e: any) {
-            console.log(e.response.data);
+        } catch (err: any) {
+            console.error(err.response.data);
         }
     };
 
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-            <View style={style.container}>
-                <View>
-                    <Label text={"Nom de la carte"}/>
+            <View style={styles.container}>
+                <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
+                    <Pressable onPress={() => router.back()}>
+                        <FontAwesome name="times-circle" size={40} color="#780000"/>
+                    </Pressable>
+                    <Text style={{ fontSize: 20, fontWeight: "bold" }}>Créer une carte</Text>
+                    <Pressable onPress={handleCreateCard}>
+                        <FontAwesome name="check-circle" size={40} color="#003049"/>
+                    </Pressable>
+                </View>
+                <View style={{ marginTop: 10 }}>
+                    <Text>
+                        Recto de la carte
+                    </Text>
                     <TextInput
-                        style={style.input}
+                        style={styles.input}
                         placeholder="France"
                         onChangeText={text => setTitle(text)}
                         value={title}
                     />
-                    <Label text={"Contenu de la carte"}/>
+                    <Text>
+                        Verso de la carte
+                    </Text>
                     <TextInput
-                        style={style.input}
+                        style={styles.input}
                         placeholder="Paris"
                         onChangeText={content => setContent(content)}
                         value={content}
@@ -93,21 +110,15 @@ const CreateCard = () => {
                             </View>
                         </View> :
                         <>
-                            <Label text={"Image de la carte"}/>
-                            <TouchableOpacity style={style.image} activeOpacity={0.8} onPress={handleImagePickerPress}>
-                                <Text style={style.imageText}>Choisir une image</Text>
+                            <Text>
+                                Image de la carte
+                            </Text>
+                            <TouchableOpacity style={[styles.image]} activeOpacity={0.8} onPress={handleImagePickerPress}>
+                                <Text style={styles.imageText}>Choisir une image</Text>
                             </TouchableOpacity>
                         </>
                     }
                 </View>
-                <Pressable
-                    style={style.button}
-                    onPress={() => {
-                        handleCreateCard()
-                    }}
-                >
-                    <Text>Enregistrer la carte</Text>
-                </Pressable>
             </View>
         </TouchableWithoutFeedback>
     );
@@ -115,35 +126,29 @@ const CreateCard = () => {
 
 export default CreateCard;
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         flex: 1,
-        margin: 10,
+        marginVertical: 30,
+        padding: 10,
         flexDirection: "column",
-        justifyContent: "space-between"
+        backgroundColor: "#FFFFFF"
     },
     input: {
+        marginVertical: 10,
         padding: 10,
-        borderWidth: 1,
-        borderRadius: 10,
+        borderRadius: 5,
+        backgroundColor: '#f2f2f2',
         borderStyle: "solid",
-        borderColor: "black"
     },
     image: {
-        padding: "auto",
         paddingVertical: 30,
         borderWidth: 1,
         borderStyle: "dashed",
-        borderRadius: 10
+        borderRadius: 10,
+        marginVertical: 10,
     },
     imageText: {
         textAlign: "center"
     },
-    button: {
-        marginBottom: 10,
-        paddingVertical: 15,
-        alignItems: "center",
-        borderWidth: 1,
-        borderRadius: 10,
-    }
 });

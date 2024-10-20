@@ -6,7 +6,7 @@ interface onPressProps {
 
 export default function ButtonCard({onPress} : onPressProps) {
     return (
-        <View>
+        <>
             <TouchableOpacity
                 style={styles.button}
                 onPress={() => {onPress();}}
@@ -15,19 +15,20 @@ export default function ButtonCard({onPress} : onPressProps) {
                     Retourner la carte
                 </Text>
             </TouchableOpacity>
-        </View>
+        </>
     )
 }
 
 const styles = StyleSheet.create({
     button: {
-        marginVertical: 10,
-        padding: 10,
-        backgroundColor: '#DDDDDD',
+        marginTop: 10,
+        padding: 15,
+        backgroundColor: '#003049',
         borderRadius: 10,
         alignItems: 'center',
     },
     text: {
         fontSize: 16,
+        color: "#FFFFFF",
     },
 });

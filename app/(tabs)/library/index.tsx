@@ -1,4 +1,14 @@
-import {Text, ActivityIndicator, FlatList, StyleSheet, Pressable} from "react-native";
+import {
+    Text,
+    ActivityIndicator,
+    FlatList,
+    StyleSheet,
+    Pressable,
+    View,
+    TouchableOpacity,
+    Modal,
+    TextInput
+} from "react-native";
 import React, {useCallback, useRef, useState} from "react";
 import {API_URL} from "@env";
 import axios from "axios";
@@ -6,6 +16,7 @@ import {router, useFocusEffect} from "expo-router";
 import Feather from "@expo/vector-icons/Feather";
 import {BottomSheetModal} from "@gorhom/bottom-sheet";
 import CustomBottomSheetModal from "@/components/CustomBottomSheetModal";
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 
 type FolderProps = {
     id: number;
@@ -21,6 +32,9 @@ const Librairie = () => {
         setFolders(updatedFolders);
     };
 
+    const handleUpdateFolder = (updatedFolder: FolderProps) => {
+        setFolders(folders.map(folder => folder.id === updatedFolder.id ? updatedFolder : folder));
+    }
 
     const fetchData = async () => {
         try {
@@ -31,7 +45,7 @@ const Librairie = () => {
                 throw new Error('Invalid data format');
             }
         } catch (e: any) {
-            console.log(e.response.data.message);
+            console.error(e.response.data.message);
         } finally {
             setLoading(false);
         }
@@ -40,7 +54,7 @@ const Librairie = () => {
     useFocusEffect(
         useCallback(() => {
             fetchData();
-        }, [])
+        }, [folders])
     );
 
     if (loading) {
@@ -48,17 +62,27 @@ const Librairie = () => {
     }
 
     return (
-        <FlatList
-            data={folders}
-            renderItem={({item}: { item: FolderProps }) => (
-                <Folder item={item} onDelete={handleDeleteFolder}/>
-            )}
-            keyExtractor={item => item.id.toString()}
-        />
+        <View style={{position: "relative", flex: 1}}>
+            <FlatList
+                data={folders}
+                renderItem={({item}: { item: FolderProps }) => (
+                    <Folder item={item} onDelete={handleDeleteFolder} />
+                )}
+                keyExtractor={item => item.id.toString()}
+            />
+            <TouchableOpacity onPress={(() => router.push('/library/createFolder'))}
+                              style={{position: "absolute", bottom: 30, right: 30}}>
+                <FontAwesome5 name="plus-circle" size={60} color="#003049"/>
+            </TouchableOpacity>
+        </View>
     );
 };
 
-const Folder = ({item, onDelete}: { item: FolderProps, onDelete : any }) => {
+export default Librairie;
+
+const Folder = ({item, onDelete}: { item: FolderProps, onDelete: (folderId: number) => void}) => {
+
+    const [isModalUpdateVisible, setIsModalUpdateVisible] = useState(false);
 
     const bottomSheetRef = useRef<BottomSheetModal>(null);
 
@@ -72,8 +96,8 @@ const Folder = ({item, onDelete}: { item: FolderProps, onDelete : any }) => {
 
     const deleteFolder = async () => {
         try {
-            const response = await axios.delete( `${API_URL}/folders/${item.id}`);
-            if(response.data.success) {
+            const response = await axios.delete(`${API_URL}/folders/${item.id}`);
+            if (response.data.success) {
                 alert("suppression du dossier");
                 onDelete(item.id);
             } else {
@@ -85,27 +109,31 @@ const Folder = ({item, onDelete}: { item: FolderProps, onDelete : any }) => {
         handleClose();
     }
 
+    const handleModalUpdateVisible = () => {
+        setIsModalUpdateVisible(false)
+    };
+
     const data = [
         {
             key: "0",
             title: "Supprimer le dossier",
-            callback : deleteFolder
+            callback: deleteFolder
         },
         {
             key: "1",
             title: "Modifier le dossier",
-            callback : () => {
+            callback: () => {
+                handleClose();
                 router.push({
-                    pathname: '/library/updateFolder',
+                    pathname: "/library/updateFolder",
                     params: {id: item.id}
-                })
-                handleClose()
+                });
             }
         },
         {
             key: "2",
             title: "Fermer",
-            callback : handleClose
+            callback: handleClose
         },
     ];
 
@@ -125,13 +153,14 @@ const Folder = ({item, onDelete}: { item: FolderProps, onDelete : any }) => {
                     <Feather name="more-horizontal" size={24} color="black"/>
                 </Pressable>
             </Pressable>
+
+
             <CustomBottomSheetModal
-                ref={bottomSheetRef} data={data} />
+                ref={bottomSheetRef} data={data}/>
         </>
     );
 }
 
-export default Librairie;
 
 const styles = StyleSheet.create({
     folder: {
@@ -141,5 +170,17 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center"
+    },
+    container: {
+        flex: 1,
+        padding: 20,
+    },
+    input: {
+        paddingHorizontal: 10,
+        paddingVertical: 15,
+        borderBottomColor: '#ccc',
+        marginTop: 5,
+        backgroundColor: "#F2F2F2",
+        borderRadius: 10
     },
 });
