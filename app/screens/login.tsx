@@ -144,9 +144,9 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10, // Espacement autour de l'icône
     },
     buttonLogin: {
-        backgroundColor: 'blue',
+        backgroundColor: '#003049',
         padding: 15,
-        borderRadius: 15
+        borderRadius: 5
     },
     textLogin: {
         textAlign: 'center',
