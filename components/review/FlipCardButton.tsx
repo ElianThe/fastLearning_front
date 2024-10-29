@@ -4,7 +4,7 @@ interface onPressProps {
     onPress: () => void;
 }
 
-export default function ButtonCard({onPress} : onPressProps) {
+export default function FlipCardButton({onPress} : onPressProps) {
     return (
         <>
             <TouchableOpacity

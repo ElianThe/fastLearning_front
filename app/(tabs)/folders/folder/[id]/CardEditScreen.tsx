@@ -1,6 +1,6 @@
 import {Text, TouchableWithoutFeedback} from "react-native";
 
-const UpdateCard = () => {
+const CardEditScreen = () => {
     return (
         <TouchableWithoutFeedback>
             <Text>
@@ -10,4 +10,4 @@ const UpdateCard = () => {
     )
 }
 
-export default UpdateCard;
+export default CardEditScreen;

@@ -10,7 +10,7 @@ interface CardProps {
     randomColor: string;
 }
 
-const Card = ({rotateAnim, title, description, image, randomColor}: CardProps) => {
+const FlashCard = ({rotateAnim, title, description, image, randomColor}: CardProps) => {
 
     const rotateFront = rotateAnim.interpolate({
         inputRange: [0, 180],
@@ -21,8 +21,6 @@ const Card = ({rotateAnim, title, description, image, randomColor}: CardProps) =
         inputRange: [0, 180],
         outputRange: ['180deg', '360deg'],
     });
-
-    console.log("Here in Card");
 
     return (
         <View style={{
@@ -87,4 +85,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Card;
+export default FlashCard;
