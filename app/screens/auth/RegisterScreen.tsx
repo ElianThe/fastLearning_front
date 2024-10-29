@@ -125,7 +125,7 @@ const RegisterScreen = () => {
                     flexDirection: 'row',
                     alignItems: 'center',
                     borderRadius: 5,
-                    backgroundColor: Colors.light.gray,
+                    backgroundColor: Colors.light.inputColor,
                     paddingRight: 10,
                     paddingLeft: 10,
                     height: 40
@@ -206,10 +206,10 @@ const styles = StyleSheet.create({
         width: '100%',
         alignItems: 'center',
         justifyContent: "space-between",
-        backgroundColor: Colors.light.gray,
+        backgroundColor: Colors.light.inputColor,
     },
     iconContainer: {
-        paddingHorizontal: 10, // Espacement autour de l'icône
+        paddingHorizontal: 10,
     },
     buttonLogin: {
         backgroundColor: '#003049',
