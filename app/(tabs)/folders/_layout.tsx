@@ -21,7 +21,7 @@ const FoldersStackLayout = () => {
                 name="CreateFolderScreen"
                 options={{
                     headerShown: false,
-                    presentation: "modal"
+                    presentation: "modal",
                 }}
             />
             <Stack.Screen

@@ -10,6 +10,7 @@ import axios from "axios";
 import {router, useFocusEffect} from "expo-router";
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import FolderItem from "@/components/folders/FolderItem";
+import {Colors} from "@/constants/Colors";
 
 type FolderProps = {
     id: number;
@@ -25,9 +26,8 @@ const FolderListScreen = () => {
         setFolders(updatedFolders);
     };
 
-    const fetchData = async () => {
+    const fetchFolderList = async () => {
         try {
-            console.log("Fetch list Folder fetch Data");
             const response = await axios.get(`${API_URL}/folders-of-user`);
             if (response.data.success) {
                 setFolders(response.data.data);
@@ -43,12 +43,12 @@ const FolderListScreen = () => {
 
     useFocusEffect(
         useCallback(() => {
-            fetchData();
+            fetchFolderList();
         }, [])
     );
 
     if (loading) {
-        return <ActivityIndicator size="large" color="#0000ff"/>;
+        return <ActivityIndicator size="large" color={Colors.light.activityIndicator} style={{ alignItems: "center", flex: 1 }}/>
     }
 
     return (
@@ -62,7 +62,7 @@ const FolderListScreen = () => {
             />
             <TouchableOpacity onPress={(() => router.push('/folders/CreateFolderScreen'))}
                               style={{position: "absolute", bottom: 30, right: 30}}>
-                <FontAwesome5 name="plus-circle" size={60} color="#003049"/>
+                <FontAwesome5 name="plus-circle" size={60} color={Colors.light.icon}/>
             </TouchableOpacity>
         </View>
     );

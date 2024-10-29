@@ -1,13 +1,13 @@
 import {Tabs} from "expo-router";
 import {FontAwesome5} from "@expo/vector-icons";
+import {Colors} from "@/constants/Colors";
 
 const TabsLayout = () => {
     return (
-        /* barre d'onglets en bas de l'ecran */
         <Tabs
             screenOptions={{
-                tabBarActiveTintColor: '#003049',
-                tabBarStyle: {justifyContent: 'center'},
+                tabBarInactiveTintColor: Colors.light.tabIconDefault,
+                tabBarActiveTintColor: Colors.light.tabIconSelected,
                 tabBarIconStyle: {
                     marginTop: 5,
                 },

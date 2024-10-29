@@ -14,14 +14,15 @@ import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import Icon from '@expo/vector-icons/FontAwesome';
 import useToggle from "@/hooks/useToggle";
 import {KeyboardAwareScrollView} from "react-native-keyboard-aware-scroll-view";
-import ErrorView from "@/components/ErrorView";
+import ErrorView from "@/components/FeedBack/ErrorView";
 import {router} from "expo-router";
+import Input from "@/components/UI/Input";
 
 const USER_REGEX = /^[a-zA-Z0-9._-]{3,20}$/;
 const EMAIL_REGEX = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z\d]{8,24}$/;
+const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,24}$/;
 
-const Register = () => {
+const RegisterScreen = () => {
 
     // etats locaux pour stocker les valeurs des champs de saisie
     const [email, setEmail] = useState('');
@@ -82,8 +83,7 @@ const Register = () => {
                     {(emailValid && email) && <FontAwesome name="check" size={20} color="black"/>}
                     {(!emailValid && email) && <FontAwesome5 name="times" size={20} color="black"/>}
                 </View>
-                <TextInput
-                    style={styles.input}
+                <Input
                     onChangeText={(text) => {
                         setEmail(text);
                         setEmailValid(EMAIL_REGEX.test(text));
@@ -93,7 +93,6 @@ const Register = () => {
                     onFocus={() => setEmailFocus(true)}
                     onBlur={() => setEmailFocus(false)}
                 />
-
                 {(emailFocus && !emailValid) &&
                     <Text>Veuillez entrer une adresse email valide.</Text>
                 }
@@ -106,16 +105,10 @@ const Register = () => {
                     {(usernameValid && username) && <FontAwesome name="check" size={20} color="black"/>}
                     {(!usernameValid && username) && <FontAwesome5 name="times" size={20} color="black"/>}
                 </View>
-                <TextInput
-                    style={styles.input}
-                    onChangeText={(text) => {
-                        setUsername(text);
-                        setUsernameValid(USER_REGEX.test(text))
-                    }}
-                    value={username}
-                    onFocus={() => setUsernameFocus(true)}
-                    onBlur={() => setUsernameFocus(false)}
-                />
+                <Input onChangeText={(text) => {
+                    setUsername(text);
+                    setUsernameValid(USER_REGEX.test(text))
+                }} value={username} onFocus={() => setUsernameFocus(true)} onBlur={() => setUsernameFocus(false)}/>
                 {(usernameFocus && !usernameValid) &&
                     <Text>Le nom d'utilisateur doit comporter entre 3 et 20 caractères.</Text>
                 }
@@ -134,21 +127,20 @@ const Register = () => {
                     borderRadius: 5,
                     backgroundColor: Colors.light.gray,
                     paddingRight: 10,
-                    paddingLeft: 20,
+                    paddingLeft: 10,
                     height: 40
                 }}>
-                    <TextInput
-                        style={{flex: 1, paddingVertical: 10, fontSize: 16, color: 'black'}}
-                        onChangeText={(text) => {
-                            setPassword(text);
-                            setPasswordValid(PASSWORD_REGEX.test(text));
-                        }}
-                        onPress={() => passwordRef.current && passwordRef.current.focus()}
-                        value={password}
-                        secureTextEntry={!showPassword}
-                        ref={passwordRef}
-                        onFocus={() => setPasswordFocus(true)}
-                        onBlur={() => setPasswordFocus(false)}
+                    <Input onChangeText={(text) => {
+                        setPassword(text);
+                        setPasswordValid(PASSWORD_REGEX.test(text))
+                    }}
+                           value={password}
+                           onFocus={() => setPasswordFocus(true)}
+                           onBlur={() => setPasswordFocus(false)}
+                           onPress={() => passwordRef.current && passwordRef.current.focus()}
+                           secureTextEntry={!showPassword}
+                           ref={passwordRef}
+                           style={{flex: 1, paddingVertical: 10, fontSize: 16, color: 'black'}}
                     />
                     <TouchableOpacity onPress={togglePasswordVisibility} style={styles.iconContainer}>
                         <Icon
@@ -178,7 +170,7 @@ const Register = () => {
     );
 }
 
-export default Register;
+export default RegisterScreen;
 
 const styles = StyleSheet.create({
     container: {
@@ -202,13 +194,6 @@ const styles = StyleSheet.create({
     label: {
         marginBottom: 5
     },
-    input: {
-        paddingLeft: 20,
-        height: 40,
-        borderRadius: 5,
-        color: 'black',
-        backgroundColor: Colors.light.gray
-    },
     inputPassword: {
         color: 'black',
         width: 100
@@ -216,7 +201,7 @@ const styles = StyleSheet.create({
     passwordContainer: {
         borderRadius: 5,
         flexDirection: 'row',
-        paddingLeft: 20,
+        paddingLeft: 10,
         height: 40,
         width: '100%',
         alignItems: 'center',

@@ -13,9 +13,10 @@ import useFocusInputWithTime from "@/hooks/useFocusInputWithTime";
 import useToggle from "@/hooks/useToggle";
 import Icon from "@expo/vector-icons/FontAwesome";
 import {KeyboardAwareScrollView} from "react-native-keyboard-aware-scroll-view";
-import ErrorView from "@/components/ErrorView";
+import ErrorView from "@/components/FeedBack/ErrorView";
+import Input from "@/components/UI/Input";
 
-const Login = () => {
+const LoginScreen = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState<string>('');
@@ -47,29 +48,16 @@ const Login = () => {
                 {error && <ErrorView text={error} onPress={() => router.push('/screens/Register')}/>}
                 <View style={styles.viewInput}>
                     <Text style={styles.label}>E-mail</Text>
-                    <TextInput
-                        style={styles.input}
-                        onChangeText={(text) => {
-                            setEmail(text);
-                        }}
-                        value={email}
-                        ref={userRef}
-                    />
+                    <Input onChangeText={(text) => setEmail(text)} value={email} ref={userRef} />
                 </View>
 
                 <View style={styles.viewInput}>
                     <Text style={styles.label}>Mot de passe</Text>
-                    <View style={[styles.inputPassword, styles.input]}>
-                        <TextInput
-                            style={{flex: 1, paddingVertical: 10, fontSize: 16, color: 'black'}}
-                            onChangeText={(text) => {
-                                setPassword(text);
-                            }}
-                            onPress={() => passwordRef.current && passwordRef.current.focus()}
-                            value={password}
-                            secureTextEntry={!showPassword}
-                            ref={passwordRef}
-                        />
+                    <View style={styles.inputPassword}>
+                        <Input onChangeText={(text) => setPassword(text)} value={password}
+                               onPress={() => passwordRef.current && passwordRef.current.focus()}
+                               secureTextEntry={!showPassword} ref={passwordRef}  style={{flex: 1, paddingVertical: 10, fontSize: 16, color: 'black'}} />
+
                         <TouchableOpacity onPress={togglePasswordVisibility} style={styles.iconContainer}>
                             <Icon
                                 name={showPassword ? 'eye-slash' : 'eye'} // Change l'icône en fonction de l'état
@@ -95,7 +83,7 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default LoginScreen;
 
 const styles = StyleSheet.create({
     container: {
@@ -114,13 +102,6 @@ const styles = StyleSheet.create({
     label: {
         marginBottom: 5
     },
-    input: {
-        paddingLeft: 20,
-        height: 40,
-        borderRadius: 5,
-        color: 'black',
-        backgroundColor: Colors.light.gray
-    },
     viewInput: {
         width: '100%',
         marginBottom: 20,
@@ -129,16 +110,21 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         paddingRight: 10,
+        paddingLeft: 10,
+        height: 40,
+        borderRadius: 5,
+        color: 'black',
+        backgroundColor: Colors.light.inputColor
     },
     passwordContainer: {
         borderRadius: 5,
         flexDirection: 'row',
-        paddingLeft: 20,
+        paddingLeft: 10,
         height: 40,
         width: '100%',
         alignItems: 'center',
         justifyContent: "space-between",
-        backgroundColor: Colors.light.gray,
+        backgroundColor: Colors.light.inputColor,
     },
     iconContainer: {
         paddingHorizontal: 10, // Espacement autour de l'icône

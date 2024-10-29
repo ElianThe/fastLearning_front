@@ -11,10 +11,10 @@ import {
 } from "react-native";
 import {useRef, useState} from "react";
 import {router} from "expo-router";
+import {Colors} from "@/constants/Colors";
 
 const {width, height} = Dimensions.get('window');
 
-const COLORS = {primary: '#282534', white: '#fff'};
 
 type SlideProps = {
     id: string,
@@ -72,7 +72,7 @@ const OnBoardingScreen = () => {
                 <View style={{flexDirection: "row", justifyContent: "center", marginTop: 20}}>
                     {slides.map((_, index) => (
                         <View style={[styles.indicator, currentSlideIndex === index && {
-                            backgroundColor: COLORS.white,
+                            backgroundColor: Colors.light.background,
                             width: 25
                         }]} key={index}/>
                     ))}
@@ -89,9 +89,9 @@ const OnBoardingScreen = () => {
                             <TouchableOpacity onPress={skip} style={[styles.btn, {
                                 backgroundColor: 'transparent',
                                 borderWidth: 1,
-                                borderColor: COLORS.white
+                                borderColor: "#fff"
                             }]}>
-                                <Text style={{fontSize: 15, fontWeight: "bold", color: COLORS.white}}>SKIP</Text>
+                                <Text style={{fontSize: 15, fontWeight: "bold", color: "#fff"}}>SKIP</Text>
                             </TouchableOpacity>
                             <View style={{width: 15}}/>
                             <TouchableOpacity style={[styles.btn]} onPress={goNextSlide}>
@@ -129,7 +129,6 @@ const OnBoardingScreen = () => {
 
     return (
         <SafeAreaView style={{flex: 1, backgroundColor: "#003049"}}>
-            <StatusBar backgroundColor={COLORS.primary}/>
             <FlatList
                 ref={ref}
                 onMomentumScrollEnd={updateCurrentSlideIndex}
@@ -153,13 +152,13 @@ export default OnBoardingScreen;
 const styles = StyleSheet.create({
     title: {
         textAlign: "center",
-        color: COLORS.white,
+        color: "#fff",
         fontSize: 22,
         marginTop: 20,
         fontWeight: "bold"
     },
     subtitle: {
-        color: COLORS.white,
+        color: "#fff",
         fontSize: 13,
         marginTop: 10,
         textAlign: "center",
@@ -177,7 +176,7 @@ const styles = StyleSheet.create({
         flex: 1,
         height: 50,
         borderRadius: 5,
-        backgroundColor: COLORS.white,
+        backgroundColor: '#fff',
         alignItems: "center",
         justifyContent: "center"
     }

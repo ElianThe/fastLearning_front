@@ -52,7 +52,6 @@ const RootLayout = () => {
 
         checkFirstLaunch().then(handleNavigation);
 
-
     }, [authState, isAppFirstLaunched]);
 
     if (isAppFirstLaunched === null) {

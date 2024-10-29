@@ -1,9 +1,6 @@
 import {Stack} from "expo-router";
-import {useAuth} from "@/app/context/AuthContext";
-import {Alert, Button} from "react-native";
 
 const ProfileStackLayout = () => {
-
 
     return (
         <Stack>

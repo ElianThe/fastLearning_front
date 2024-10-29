@@ -3,8 +3,9 @@ import React, {useCallback, useState} from "react";
 import {API_URL} from "@env";
 import axios from "axios";
 import {router, useFocusEffect} from "expo-router";
+import {Colors} from "@/constants/Colors";
 
-export type TypeCard = {
+type TypeCard = {
     id: number,
     title: string,
     content: string,
@@ -19,7 +20,7 @@ const CardListScreen = () => {
     useFocusEffect(
         useCallback(() => {
             const controller = new AbortController();
-            const fetchData = async () => {
+            const fetchLearnNewCards = async () => {
                 try {
                     setLoading(true);
                     const response = await axios.get(`${API_URL}/learn-new-cards`, {
@@ -37,7 +38,7 @@ const CardListScreen = () => {
                     setLoading(false);
                 }
             }
-            fetchData();
+            fetchLearnNewCards();
 
             return () => {
                 controller.abort();
@@ -46,7 +47,7 @@ const CardListScreen = () => {
     );
 
     if (loading) {
-        return <ActivityIndicator size="large" color="#0000ff"/>;
+        return <ActivityIndicator size="large" color={Colors.light.activityIndicator} /> ;
     }
 
     return (
@@ -69,7 +70,7 @@ const CardListScreen = () => {
                     />
                     <Pressable style={style.button} onPress={() =>
                         router.push({
-                            pathname: '/learn/apprendre',
+                            pathname: '/learn/cardLearning',
                             params: {cards: JSON.stringify(cards)}
                         })
                     }>

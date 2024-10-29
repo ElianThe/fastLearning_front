@@ -1,51 +1,60 @@
-import {ActivityIndicator} from "react-native";
+import {ActivityIndicator, Text, View} from "react-native";
 import React, {useCallback, useState} from "react";
-import Card from "@/components/review/Card";
+import FlashCard from "@/components/review/FlashCard";
 import {API_URL} from "@env";
 import axios from "axios";
 import ReviewDeck from "@/components/review/ReviewDeck";
 import {useFocusEffect} from "expo-router";
+import {Colors} from "@/constants/Colors";
 
-interface Card {
+type FlashCard = {
+    id: number;
     title: string;
     content: string;
     image_url: string;
 }
 
-const HomeScreen = () => {
-    const [data, setData] = useState<Card[]>([]);
+const ReviewFlashCardScreen = () => {
+    const [cards, setCards] = useState<FlashCard[]>([]);
     const [loading, setLoading] = useState(true);
 
-    const fetchData = async () => {
+    const fetchCards = async () => {
         try {
             const response = await axios.get(`${API_URL}/cards-to-review`);
-            // Vérifie le format de la réponse
             if (response.data.success) {
-                setData(response.data.data);
-            } else {
-                throw new Error('Invalid data format');
+                console.log('response success !')
+                setCards(response.data.data);
             }
         } catch (e: any) {
-            console.log(e.response.data.message);
+            setCards([]);
+            console.error(e.response.data.message);
         } finally {
             setLoading(false);
         }
     };
 
-    // Fetch the cards to review
     useFocusEffect(
-        useCallback(()=> {
-            fetchData();
+        useCallback(() => {
+            fetchCards();
         }, [])
     );
 
     if (loading) {
-        return <ActivityIndicator size="large" color="#0000ff"/>;
+        return <ActivityIndicator size="large" color={Colors.light.activityIndicator}/>;
     }
 
+    console.log(cards.length);
+
     return (
-        <ReviewDeck cards={data} />
+        <View style={{flex: 1}}>
+            {cards.length > 0 ?
+                <ReviewDeck cards={cards} handleNoMoreCard={() => setCards([])} /> :
+                <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
+                    <Text style={{fontSize: 20}}>Pas de carte à réviser !</Text>
+                </View>
+            }
+        </View>
     )
 }
 
-export default HomeScreen;
+export default ReviewFlashCardScreen;
