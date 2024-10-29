@@ -46,7 +46,7 @@ const RootLayout = () => {
             } else if (authState?.authenticated) {
                 router.replace('/learn');
             } else {
-                router.replace('/screens/homeAuthentificate');
+                router.replace('/screens/auth/HomeScreen');
             }
         };
 

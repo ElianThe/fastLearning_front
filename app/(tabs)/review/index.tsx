@@ -1,9 +1,9 @@
 import {ActivityIndicator} from "react-native";
 import React, {useCallback, useState} from "react";
-import Card from "@/components/Card";
+import Card from "@/components/review/Card";
 import {API_URL} from "@env";
 import axios from "axios";
-import ReviewDeck from "@/components/ReviewDeck";
+import ReviewDeck from "@/components/review/ReviewDeck";
 import {useFocusEffect} from "expo-router";
 
 interface Card {
@@ -12,7 +12,7 @@ interface Card {
     image_url: string;
 }
 
-export default function Home() {
+const HomeScreen = () => {
     const [data, setData] = useState<Card[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -47,3 +47,5 @@ export default function Home() {
         <ReviewDeck cards={data} />
     )
 }
+
+export default HomeScreen;

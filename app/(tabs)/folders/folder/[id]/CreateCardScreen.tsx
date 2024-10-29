@@ -9,7 +9,7 @@ import {
     TouchableWithoutFeedback, Keyboard
 } from "react-native";
 import {router, useLocalSearchParams} from "expo-router";
-import Label from "@/components/Label";
+import Label from "@/components/UI/Label";
 import React, {useState} from "react";
 import * as ImagePicker from 'expo-image-picker';
 import axios from "axios";
@@ -17,7 +17,7 @@ import {API_URL} from "@env";
 import {Ionicons} from "@expo/vector-icons";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 
-const CreateCard = () => {
+const CreateCardScreen = () => {
     const {id} = useLocalSearchParams<{ id: string }>();
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
@@ -124,7 +124,7 @@ const CreateCard = () => {
     );
 }
 
-export default CreateCard;
+export default CreateCardScreen;
 
 const styles = StyleSheet.create({
     container: {

@@ -1,7 +1,7 @@
 import {Tabs} from "expo-router";
 import {FontAwesome5} from "@expo/vector-icons";
 
-const Layout = () => {
+const TabsLayout = () => {
     return (
         /* barre d'onglets en bas de l'ecran */
         <Tabs
@@ -23,7 +23,7 @@ const Layout = () => {
                 tabBarIcon: ({color}) => <FontAwesome5 size={24} name="brain" color={color}/>,
                 tabBarLabel: 'Réviser'
             }}/>
-            <Tabs.Screen name="library" options={{
+            <Tabs.Screen name="folders" options={{
                 headerShown: false,
                 tabBarIcon: ({color}) => <FontAwesome5 size={24} name="book" color={color}/>,
                 tabBarLabel: 'Librairie'
@@ -37,4 +37,4 @@ const Layout = () => {
     );
 }
 
-export default Layout;
+export default TabsLayout;

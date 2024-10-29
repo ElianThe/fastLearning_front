@@ -1,20 +1,21 @@
 import React, {useEffect, useState} from "react";
 import {View, Text, TextInput, StyleSheet, TouchableWithoutFeedback, Keyboard, Pressable} from "react-native";
-import Label from "@/components/Label";
+import Label from "@/components/UI/Label";
 import axios from "axios";
 import {API_URL} from "@env";
 import {router, useLocalSearchParams} from "expo-router";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 
-const UpdateFolder = () => {
+const FolderEditScreen = () => {
     const {id} = useLocalSearchParams();
     const [name, setName] = useState('');
-
 
     const updateFolder = async () => {
         try {
             const response = await axios.patch(`${API_URL}/folders/${id}`, {
                 name
             });
+            router.back();
         } catch (err) {
             console.error(err);
         }
@@ -43,30 +44,35 @@ const UpdateFolder = () => {
             }}
         >
             <View style={styles.container}>
-                <Text style={styles.title}>Modifier le dossier {id}</Text>
-                <Label text={'Nom du dossier'}/>
+                <View style={{justifyContent: "space-between", alignItems: "center", flexDirection: "row"}}>
+                    <Pressable onPress={() => router.back()}>
+                        <FontAwesome name="times-circle" size={40} color="#780000"/>
+                    </Pressable>
+                    <Text style={{textAlign: "center", fontSize: 20, fontWeight: "bold"}}>
+                        Modifier ce dossier
+                    </Text>
+                    <Pressable onPress={() => {
+                        updateFolder();
+                    }}>
+                        <FontAwesome name="check-circle" size={40} color="#003049"/>
+                    </Pressable>
+                </View>
+                <Text style={{ marginVertical: 10,  }}>
+                    Nom du dossier
+                </Text>
                 <TextInput
                     style={styles.input}
-                    placeholder="Nom du dossier"
+                    placeholder="Les capitales"
                     placeholderTextColor={'gray'}
                     onChangeText={(text: string) => setName(text)}
                     value={name}
                     autoCapitalize="none"
                 />
-                <Pressable
-                    style={styles.button}
-                    onPress={() => {
-                        updateFolder();
-                        router.back();
-                    }}
-                >
-                    <Text style={styles.button}>Modifier</Text>
-                </Pressable>
             </View>
         </TouchableWithoutFeedback>
     );
 }
-export default UpdateFolder;
+export default FolderEditScreen;
 
 const styles = StyleSheet.create({
     title: {

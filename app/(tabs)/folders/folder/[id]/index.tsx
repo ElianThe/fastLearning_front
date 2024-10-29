@@ -3,10 +3,9 @@ import {router, useFocusEffect, useLocalSearchParams, useNavigation} from "expo-
 import React, {useCallback, useRef, useState} from "react";
 import axios from "axios";
 import {API_URL} from "@env";
-import {AntDesign} from "@expo/vector-icons";
 import Feather from "@expo/vector-icons/Feather";
 import {BottomSheetModal} from "@gorhom/bottom-sheet";
-import CustomBottomSheetModal from "@/components/CustomBottomSheetModal";
+import CustomBottomSheetModal from "@/components/UI/CustomBottomSheetModal";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 
 interface Card {
@@ -16,7 +15,7 @@ interface Card {
     folder_id: number;
 }
 
-const Folder = () => {
+const CardListScreen = () => {
     const {id, name} = useLocalSearchParams<{ id: string, name: string }>();
     const navigation = useNavigation();
     const [cards, setCards] = useState<Card[]>([]);
@@ -63,7 +62,7 @@ const Folder = () => {
                 )}
                 keyExtractor={item => item.id.toString()}
             />
-            <TouchableOpacity onPress={() => router.push({pathname: '/library/folder/[id]/createCard', params: {id}})}
+            <TouchableOpacity onPress={() => router.push({pathname: '/folders/folder/[id]/CreateCardScreen', params: {id}})}
                               style={{position: "absolute", bottom: 30, right: 30}}>
                 <FontAwesome5 name="plus-circle" size={60} color="#003049"/>
             </TouchableOpacity>
@@ -131,7 +130,7 @@ const Card = ({item, onDelete}: { item: Card, onDelete: (cardId: number) => void
     );
 }
 
-export default Folder;
+export default CardListScreen;
 
 const styles = StyleSheet.create({
     container: {

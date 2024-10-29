@@ -1,6 +1,6 @@
 import {Stack} from "expo-router";
 
-const StackLayout = () => {
+const LearnStackLayout = () => {
     return (
         <Stack>
             <Stack.Screen
@@ -11,7 +11,7 @@ const StackLayout = () => {
                 }}
             />
             <Stack.Screen
-                name='apprendre/index'
+                name='cardLearning/index'
                 options={{
                     headerTitle: 'Apprendre',
                     headerTitleAlign: 'center'
@@ -21,4 +21,4 @@ const StackLayout = () => {
     );
 }
 
-export default StackLayout;
+export default LearnStackLayout;

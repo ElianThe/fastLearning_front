@@ -1,7 +1,7 @@
 import {View, Text, Pressable, SafeAreaView} from "react-native";
 import {router} from "expo-router";
 
-const HomeAuthentificate = () => {
+const HomeScreen = () => {
     return (
         <SafeAreaView style={{ backgroundColor: "white", flex: 1, justifyContent: "flex-end", paddingVertical: 20, paddingHorizontal: 10 }}>
             <View style={{ margin: 10 }}>
@@ -11,7 +11,7 @@ const HomeAuthentificate = () => {
                     borderRadius: 5,
                     marginVertical: 20
                 }}
-                           onPress={() => router.push('screens/login')}
+                           onPress={() => router.push('screens/auth/LoginScreen')}
                 >
                     <Text style={{ textAlign: "center", color: "white", fontSize: 16 }}>
                         Se connecter
@@ -22,7 +22,7 @@ const HomeAuthentificate = () => {
                     backgroundColor: "#003049",
                     borderRadius: 5
                 }}
-                           onPress={() => router.push('screens/register')}
+                           onPress={() => router.push('screens/auth/RegisterScreen')}
                 >
                     <Text style={{ textAlign: "center", color: "white", fontSize: 16 }}>
                         S'inscrire
@@ -33,4 +33,4 @@ const HomeAuthentificate = () => {
     );
 }
 
-export default HomeAuthentificate;
+export default HomeScreen;

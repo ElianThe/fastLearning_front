@@ -12,7 +12,7 @@ export type TypeCard = {
     image_url: string
 }
 
-const Learn = () => {
+const CardListScreen = () => {
     const [cards, setCards] = useState<TypeCard[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -84,7 +84,7 @@ const Learn = () => {
     );
 }
 
-export default Learn;
+export default CardListScreen;
 
 const style = StyleSheet.create({
     container: {

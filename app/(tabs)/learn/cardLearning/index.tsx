@@ -1,7 +1,7 @@
-import ReviewDeck from "@/components/ReviewDeck";
+import ReviewDeck from "@/components/review/ReviewDeck";
 import {useLocalSearchParams} from "expo-router";
 
-const AutoEvaluation = () => {
+const AutoEvaluationScreen = () => {
     const {cards} = useLocalSearchParams<{ cards: string }>();
     const parsedCards = cards ? JSON.parse(cards) : [];
     return (
@@ -9,4 +9,4 @@ const AutoEvaluation = () => {
     );
 }
 
-export default AutoEvaluation;
+export default AutoEvaluationScreen;

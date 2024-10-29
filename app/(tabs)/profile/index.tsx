@@ -1,7 +1,7 @@
 import {Alert, Text, TouchableOpacity, View} from "react-native";
 import {useAuth} from "@/app/context/AuthContext";
 
-const Plus = () => {
+const ProfileScreen = () => {
     const {onLogout} = useAuth();
     const logout = async () => {
         const result = await onLogout!();
@@ -20,5 +20,4 @@ const Plus = () => {
     );
 }
 
-export default Plus;
-
+export default ProfileScreen;

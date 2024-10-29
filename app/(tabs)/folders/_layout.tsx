@@ -1,6 +1,6 @@
 import {Stack} from "expo-router";
 
-const StackLayout = () => {
+const FoldersStackLayout = () => {
     return (
         <Stack>
             <Stack.Screen
@@ -11,14 +11,14 @@ const StackLayout = () => {
                 }}
             />
              <Stack.Screen
-                name="updateFolder"
+                name="FolderEditScreen"
                 options={{
                     headerShown: false,
                     presentation: "modal"
                 }}
             />
             <Stack.Screen
-                name="createFolder"
+                name="CreateFolderScreen"
                 options={{
                     headerShown: false,
                     presentation: "modal"
@@ -31,7 +31,7 @@ const StackLayout = () => {
                 }}
             />
             <Stack.Screen
-                name="folder/[id]/createCard"
+                name="folder/[id]/CreateCardScreen"
                 options={{
                     headerShown: false,
                     presentation: "modal",
@@ -41,4 +41,4 @@ const StackLayout = () => {
     );
 }
 
-export default StackLayout;
+export default FoldersStackLayout;

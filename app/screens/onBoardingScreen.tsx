@@ -44,7 +44,7 @@ const slides: SlideProps[] = [
     },
     {
         id: "4",
-        image: require('@/assets/images/onBoarding/réviser.jpg'),
+        image: require('@/assets/images/onBoarding/reviser.jpg'),
         title: "Déplacement des cartes",
         subtitle: "Si tu choisis la bonne réponse, la carte passe au niveau suivant. Dans le cas contraire, la carte baisse d'un niveau",
     }

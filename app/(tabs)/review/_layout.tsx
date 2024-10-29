@@ -1,6 +1,6 @@
 import {Stack} from "expo-router";
 
-const StackLayout = () => {
+const ReviewStackLayout = () => {
     return (
         <Stack>
             <Stack.Screen
@@ -14,4 +14,4 @@ const StackLayout = () => {
     );
 }
 
-export default StackLayout;
+export default ReviewStackLayout;

@@ -1,12 +1,12 @@
 import React, {useState} from "react";
 import {View, Text, TextInput, StyleSheet, TouchableWithoutFeedback, Keyboard, Pressable} from "react-native";
-import Label from "@/components/Label";
+import Label from "@/components/UI/Label";
 import axios from "axios";
 import {API_URL} from "@env";
 import {router} from "expo-router";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 
-const CreateFolder = () => {
+const CreateFolderScreen = () => {
     const [name, setName] = useState('');
 
     const createFolder = async () => {
@@ -54,7 +54,7 @@ const CreateFolder = () => {
     );
 }
 
-export default CreateFolder;
+export default CreateFolderScreen;
 
 const styles = StyleSheet.create({
     title: {

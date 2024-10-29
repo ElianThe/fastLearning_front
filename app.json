@@ -1,11 +1,12 @@
 {
   "expo": {
-    "scheme": "fastLearning",
+    "scheme": "fastlearning",
     "name": "fast learning",
     "slug": "fast-learning",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+    "description": "Fast Learning est une application innovante qui facilite la création, la gestion, et surtout la mémorisation de flashcards grâce au système de répétition espacée. Conçue pour aider les utilisateurs à apprendre et retenir du vocabulaire ou de nouvelles informations, elle s’appuie sur une méthode d’apprentissage prouvée scientifiquement.\n\nL'interface de Fast Learning est intuitive et conviviale, permettant aux utilisateurs de créer facilement des cartes interactives, intégrant du texte et des images. Les cartes peuvent être organisées dans des boîtes personnalisables pour une gestion optimale de l’apprentissage.\n\nL'application utilise le système de Leitner, un principe de répétition espacée qui optimise la mémorisation. Cette méthode, validée scientifiquement, améliore l’apprentissage en permettant de revoir plus fréquemment les cartes les plus difficiles, tout en espaçant les révisions pour celles déjà maîtrisées.",
     "assetBundlePatterns": [
       "assets/fonts/*"
     ],
@@ -16,7 +17,8 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.elianthe.fastlearning"
     },
     "android": {
       "adaptiveIcon": {
@@ -24,6 +26,14 @@
         "backgroundColor": "#ffffff"
       }
     },
-    "plugins": ["expo-router"]
+    "plugins": [
+      "expo-router",
+      "expo-secure-store"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "a197bd30-e301-48f9-ba25-895b79b63806"
+      }
+    }
   }
 }
