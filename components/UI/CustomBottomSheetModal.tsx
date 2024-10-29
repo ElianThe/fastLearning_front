@@ -1,11 +1,17 @@
 import {BottomSheetBackdrop, BottomSheetFlatList, BottomSheetModal} from "@gorhom/bottom-sheet";
 import {View, StyleSheet, TouchableOpacity, Text} from "react-native";
-import {forwardRef, ReactNode, useCallback, useState} from "react";
-import useToggle from "@/hooks/useToggle";
+import {forwardRef, useCallback} from "react";
 
-export type Ref = BottomSheetModal;
+type ActionsType = {
+    key?: string;
+    title: string;
+    callback: () => void;
+}
 
-const CustomBottomSheetModal = forwardRef<Ref, any>(({data}: any, ref) => {
+type CustomBottomSheetModalProps = {
+    actions: ActionsType[];
+};
+const CustomBottomSheetModal = forwardRef<BottomSheetModal, CustomBottomSheetModalProps>(({actions}, ref) => {
     const renderBackdrop = useCallback((props : any) => <BottomSheetBackdrop
             appearsOnIndex={0} disappearsOnIndex={-1} {...props} />,
         []);
@@ -21,17 +27,15 @@ const CustomBottomSheetModal = forwardRef<Ref, any>(({data}: any, ref) => {
         >
             <View style={{ flex: 1 }}>
                 <BottomSheetFlatList
-                    data={data}
-                    renderItem={({item}: { item : any }) => <ActionBottomSheet title={item.title} callback={item.callback} />}
+                    data={actions}
+                    renderItem={({item}: { item : ActionsType }) => <ActionBottomSheet title={item.title} callback={item.callback} />}
                 />
             </View>
         </BottomSheetModal>
     );
 });
 
-const ActionBottomSheet = ({title, callback} : {title: string, callback: any}) => {
-
-    const [pressed, setPressed] = useState(false);
+const ActionBottomSheet = ({title, callback} : ActionsType) => {
 
     return <View style={{ backgroundColor: "#DDDDDD" }}>
         <TouchableOpacity onPress={callback} style={styles.containerAction}>
@@ -43,12 +47,7 @@ const ActionBottomSheet = ({title, callback} : {title: string, callback: any}) =
 }
 export default CustomBottomSheetModal;
 
-
 const styles = StyleSheet.create({
-    contentContainer: {
-        flex: 1,
-        textAlign: "center",
-    },
     containerAction: {
         flex: 1,
         padding: 20,

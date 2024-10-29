@@ -13,6 +13,12 @@ interface Card {
     folder_id: number;
 }
 
+type ActionsType = {
+    key: string;
+    title: string;
+    callback: () => void;
+}
+
 const CardItem = ({item, onDelete}: { item: Card, onDelete: (cardId: number) => void }) => {
 
     const bottomSheetRef = useRef<BottomSheetModal>(null);
@@ -40,7 +46,7 @@ const CardItem = ({item, onDelete}: { item: Card, onDelete: (cardId: number) => 
         handleClose();
     }
 
-    const data = [
+    const actionsBottomModal : ActionsType[] = [
         {
             key: "0",
             title: "Supprimer la carte",
@@ -68,7 +74,7 @@ const CardItem = ({item, onDelete}: { item: Card, onDelete: (cardId: number) => 
                     <Feather name="more-horizontal" size={24} color="black"/>
                 </Pressable>
             </Pressable>
-            <CustomBottomSheetModal ref={bottomSheetRef} data={data}/>
+            <CustomBottomSheetModal ref={bottomSheetRef} actions={actionsBottomModal}/>
         </>
     );
 }

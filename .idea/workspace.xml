@@ -4,42 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="801311f0-97b6-427e-8a4a-5aa4295ac0cc" name="Changes" comment="Modification des noms de fichiers">
-      <change afterPath="$PROJECT_DIR$/components/UI/Input.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/UI/Modal.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/folders/CardItem.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/folders/FolderItem.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/review/RatingCardButton.tsx" afterDir="false" />
+    <list default="true" id="801311f0-97b6-427e-8a4a-5aa4295ac0cc" name="Changes" comment="inputcolor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/folders/CreateFolderScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/folders/CreateFolderScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/folders/FolderEditScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/folders/FolderEditScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/folders/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/folders/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/folders/folder/[id]/CreateCardScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/folders/folder/[id]/CreateCardScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/folders/folder/[id]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/folders/folder/[id]/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/folders/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/folders/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/learn/cardLearning/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/learn/cardLearning/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/learn/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/learn/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/library/folder/[id]/updateCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/folders/folder/[id]/CardEditScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/profile/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/profile/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/review/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/review/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/auth/HomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/auth/HomeScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/auth/LoginScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/onBoardingScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/onBoardingScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/auth/RegisterScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/partial-react-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/react-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/react-logo@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/react-logo@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ButtonCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/review/FlipCardButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/review/FlashCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/CustomBottomSheetModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/UI/CustomBottomSheetModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ErrorView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/FeedBack/ErrorView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Label.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/UI/Label.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/RatingButtons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/review/RatingCardButtons.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ReviewDeck.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/review/ReviewDeck.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/Colors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/constants/Colors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/UI/CustomBottomSheetModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/UI/CustomBottomSheetModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/folders/CardItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/folders/CardItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/folders/FolderItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/folders/FolderItem.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +91,7 @@
       <workItem from="1730132112504" duration="2000000" />
       <workItem from="1730189073489" duration="15842000" />
       <workItem from="1730211249676" duration="1000" />
-      <workItem from="1730211421939" duration="4110000" />
+      <workItem from="1730211421939" duration="5782000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -172,7 +141,47 @@
       <option name="project" value="LOCAL" />
       <updated>1730195778677</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="suppression d'image non nécessaire">
+      <option name="closed" value="true" />
+      <created>1730215807723</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1730215807723</updated>
+    </task>
+    <task id="LOCAL-00008" summary="ajout de nouveaux composants">
+      <option name="closed" value="true" />
+      <created>1730215866936</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1730215866936</updated>
+    </task>
+    <task id="LOCAL-00009" summary="ajout de nouveaux composants">
+      <option name="closed" value="true" />
+      <created>1730215887539</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1730215887539</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Modification de quelques fichiers">
+      <option name="closed" value="true" />
+      <created>1730215916771</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1730215916771</updated>
+    </task>
+    <task id="LOCAL-00011" summary="inputcolor">
+      <option name="closed" value="true" />
+      <created>1730215956858</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1730215956858</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,7 +196,11 @@
     <MESSAGE value="Première version de carte avec linearGradient" />
     <MESSAGE value="Première version de l'application en route" />
     <MESSAGE value="Modification des noms de fichiers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modification des noms de fichiers" />
+    <MESSAGE value="suppression d'image non nécessaire" />
+    <MESSAGE value="ajout de nouveaux composants" />
+    <MESSAGE value="Modification de quelques fichiers" />
+    <MESSAGE value="inputcolor" />
+    <option name="LAST_COMMIT_MESSAGE" value="inputcolor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

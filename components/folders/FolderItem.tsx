@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react";
+import React, {useRef} from "react";
 import {BottomSheetModal} from "@gorhom/bottom-sheet";
 import axios from "axios";
 import {API_URL} from "@env";
@@ -39,7 +39,7 @@ const FolderItem = ({item, onDelete}: { item: FolderProps, onDelete: (folderId: 
         handleClose();
     }
 
-    const data = [
+    const actionsBottomModal  = [
         {
             key: "0",
             title: "Supprimer le dossier",
@@ -67,19 +67,13 @@ const FolderItem = ({item, onDelete}: { item: FolderProps, onDelete: (folderId: 
         <>
             <Pressable
                 style={{
-                    padding: 20,
-                    borderBottomWidth: 1,
-                    borderBottomColor: '#ccc',
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                    alignItems: "center"
+                    padding: 20, borderBottomWidth: 1, borderBottomColor: '#ccc', flexDirection: "row",
+                    justifyContent: "space-between", alignItems: "center"
                 }}
-                onPress={() =>
-                    router.push({
-                        pathname: '/folders/folder/[id]',
-                        params: {id: item.id, name: item.name}
-                    })
-                }
+                onPress={() => router.push({
+                    pathname: '/folders/folder/[id]',
+                    params: {id: item.id, name: item.name}
+                })}
             >
                 <Text>{item.name}</Text>
                 <Pressable onPress={handleOpen}>
@@ -88,7 +82,7 @@ const FolderItem = ({item, onDelete}: { item: FolderProps, onDelete: (folderId: 
             </Pressable>
 
             <CustomBottomSheetModal
-                ref={bottomSheetRef} data={data}/>
+                ref={bottomSheetRef} actions={actionsBottomModal} />
         </>
     );
 }
