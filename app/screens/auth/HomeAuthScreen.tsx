@@ -8,7 +8,7 @@ const HomeAuthScreen = () => {
             backgroundColor: "white", flex: 1, justifyContent: "flex-end", paddingVertical: 20,
             paddingHorizontal: 10
         }}>
-            <AuthButton isButtonEnabled={true} onPress={() => router.push('screens/auth/RegisterScreen')}
+            <AuthButton isButtonEnabled={true} onPress={() => router.push('screens/auth/LoginScreen')}
                         styleText={{fontSize: 16}}>Se connecter</AuthButton>
             <View style={{marginBottom: 20}}/>
             <AuthButton isButtonEnabled={true} onPress={() => router.push('screens/auth/RegisterScreen')}

@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="801311f0-97b6-427e-8a4a-5aa4295ac0cc" name="Changes" comment="modification de typescript">
-      <change afterPath="$PROJECT_DIR$/components/auth/AuthButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/auth/HomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/auth/HomeAuthScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/auth/LoginScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/auth/LoginScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/auth/RegisterScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/auth/RegisterScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/FeedBack/ErrorView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/FeedBack/ErrorView.tsx" afterDir="false" />
+    <list default="true" id="801311f0-97b6-427e-8a4a-5aa4295ac0cc" name="Changes" comment="Modification annexe">
+      <change beforePath="$PROJECT_DIR$/app/screens/auth/HomeAuthScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/auth/HomeAuthScreen.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +89,7 @@
       <workItem from="1730189073489" duration="15842000" />
       <workItem from="1730211249676" duration="1000" />
       <workItem from="1730211421939" duration="6093000" />
-      <workItem from="1730279337449" duration="2738000" />
+      <workItem from="1730279337449" duration="2875000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -194,7 +187,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730217566759</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Ajout d'un nouveau composant: AuthButton">
+      <option name="closed" value="true" />
+      <created>1730282207559</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1730282207559</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Modification annexe">
+      <option name="closed" value="true" />
+      <created>1730282220275</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1730282220275</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,6 +223,8 @@
     <MESSAGE value="Modification de quelques fichiers" />
     <MESSAGE value="inputcolor" />
     <MESSAGE value="modification de typescript" />
-    <option name="LAST_COMMIT_MESSAGE" value="modification de typescript" />
+    <MESSAGE value="Ajout d'un nouveau composant: AuthButton" />
+    <MESSAGE value="Modification annexe" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modification annexe" />
   </component>
 </project>
