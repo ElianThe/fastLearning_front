@@ -5,7 +5,7 @@ import AuthButton from "@/components/auth/AuthButton";
 const HomeAuthScreen = () => {
     return (
         <View style={{
-            backgroundColor: "white", flex: 1, justifyContent: "flex-end", paddingVertical: 20,
+            backgroundColor: "white", flex: 1, justifyContent: "flex-end", paddingVertical: 50,
             paddingHorizontal: 10
         }}>
             <AuthButton isButtonEnabled={true} onPress={() => router.push('screens/auth/LoginScreen')}
