@@ -18,7 +18,7 @@ const ScreensLayout = () => {
         <Stack.Screen name="onBoardingScreen" options={{
             headerShown: false
         }} />
-        <Stack.Screen name="auth/HomeScreen" options={{
+        <Stack.Screen name="auth/HomeAuthScreen" options={{
             headerShown: false
         }} />
     </Stack>

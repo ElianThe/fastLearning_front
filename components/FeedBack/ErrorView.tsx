@@ -2,7 +2,6 @@ import {View, Text, Pressable, StyleSheet} from "react-native";
 import {MaterialIcons} from "@expo/vector-icons";
 import React from "react";
 import {Colors} from "@/constants/Colors";
-import {router} from "expo-router";
 
 const ErrorView = ({text, onPress}: { text: string, onPress: () => void }) => {
     return (
@@ -12,7 +11,7 @@ const ErrorView = ({text, onPress}: { text: string, onPress: () => void }) => {
                 borderRadius: 5,
                 flexDirection: "row",
                 marginBottom: 20,
-                borderColor: Colors.light.gray
+                borderColor: "#f2f2f2"
             }}>
                 <View style={{
                     borderLeftWidth: 15,
