@@ -52,7 +52,7 @@ const CreateCardScreen = () => {
                     name: 'image.jpeg', // Un nom de fichier valide
                 };
 
-                formData.append('image_path', imageFile as any);
+                formData.append('image_path', imageFile as unknown as Blob);
             }
 
             // Envoyer la requête POST avec le FormData

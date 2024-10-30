@@ -22,7 +22,7 @@ const RatingCardButton = ({onPress, id, rating, backgroundColor, children}: Rati
                 throw new Error('Invalid data format');
             }
         } catch (e: any) {
-            console.log(e.response.data.message);
+            console.error(e.response.data.message);
         }
     }
 

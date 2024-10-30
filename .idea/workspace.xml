@@ -4,18 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="801311f0-97b6-427e-8a4a-5aa4295ac0cc" name="Changes" comment="modification des requêtes axios de Login et de Register">
+    <list default="true" id="801311f0-97b6-427e-8a4a-5aa4295ac0cc" name="Changes" comment="les cas d'erreur sont gérés">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/folders/CreateFolderScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/folders/CreateFolderScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/folders/FolderEditScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/folders/FolderEditScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(tabs)/folders/folder/[id]/CreateCardScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/folders/folder/[id]/CreateCardScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/folders/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/folders/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/learn/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/learn/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/profile/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/review/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/review/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/auth/LoginScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/auth/LoginScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/auth/RegisterScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/auth/RegisterScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/feedBack/ErrorView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/feedBack/ErrorView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/folders/CardItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/folders/CardItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/folders/FolderItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/folders/FolderItem.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +92,7 @@
       <workItem from="1730189073489" duration="15842000" />
       <workItem from="1730211249676" duration="1000" />
       <workItem from="1730211421939" duration="6093000" />
-      <workItem from="1730279337449" duration="11038000" />
+      <workItem from="1730279337449" duration="12120000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -245,7 +238,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730286368403</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="les cas d'erreur sont gérés">
+      <option name="closed" value="true" />
+      <created>1730295736595</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1730295736595</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,6 +271,7 @@
     <MESSAGE value="déplacement et changement de nom de certains dossiers" />
     <MESSAGE value="HomeAuthScreen" />
     <MESSAGE value="modification des requêtes axios de Login et de Register" />
-    <option name="LAST_COMMIT_MESSAGE" value="modification des requêtes axios de Login et de Register" />
+    <MESSAGE value="les cas d'erreur sont gérés" />
+    <option name="LAST_COMMIT_MESSAGE" value="les cas d'erreur sont gérés" />
   </component>
 </project>

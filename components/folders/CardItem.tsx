@@ -42,10 +42,6 @@ const CardItem = ({item, onDelete}: { item: Card, onDelete: (cardId: number) => 
         handleClose();
     }
 
-    const updateCard = () => {
-        handleClose();
-    }
-
     const actionsBottomModal : ActionsType[] = [
         {
             key: "0",

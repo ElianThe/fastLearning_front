@@ -12,7 +12,12 @@ type FolderProps = {
     name: string;
 };
 
-const FolderItem = ({item, onDelete}: { item: FolderProps, onDelete: (folderId: number) => void }) => {
+type FolderItemProps = {
+    item: FolderProps;
+    onDelete: (folderId: number) => void;
+}
+
+const FolderItem = ({item, onDelete}: FolderItemProps) => {
 
     const bottomSheetRef = useRef<BottomSheetModal>(null);
 
