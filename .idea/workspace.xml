@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="801311f0-97b6-427e-8a4a-5aa4295ac0cc" name="Changes" comment="déplacement et changement de nom de certains dossiers">
+    <list default="true" id="801311f0-97b6-427e-8a4a-5aa4295ac0cc" name="Changes" comment="HomeAuthScreen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/auth/HomeAuthScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/auth/HomeAuthScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/review/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/review/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/screens/auth/LoginScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/auth/LoginScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/screens/auth/RegisterScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/auth/RegisterScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/context/AuthContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/context/AuthContext.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +93,7 @@
       <workItem from="1730189073489" duration="15842000" />
       <workItem from="1730211249676" duration="1000" />
       <workItem from="1730211421939" duration="6093000" />
-      <workItem from="1730279337449" duration="3929000" />
+      <workItem from="1730279337449" duration="6754000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -220,7 +223,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730283231743</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="HomeAuthScreen">
+      <option name="closed" value="true" />
+      <created>1730283339269</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1730283339269</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,6 +254,7 @@
     <MESSAGE value="Ajout d'un nouveau composant: AuthButton" />
     <MESSAGE value="Modification annexe" />
     <MESSAGE value="déplacement et changement de nom de certains dossiers" />
-    <option name="LAST_COMMIT_MESSAGE" value="déplacement et changement de nom de certains dossiers" />
+    <MESSAGE value="HomeAuthScreen" />
+    <option name="LAST_COMMIT_MESSAGE" value="HomeAuthScreen" />
   </component>
 </project>

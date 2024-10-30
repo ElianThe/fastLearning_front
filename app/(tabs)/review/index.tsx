@@ -22,7 +22,6 @@ const ReviewFlashCardScreen = () => {
         try {
             const response = await axios.get(`${API_URL}/cards-to-review`);
             if (response.data.success) {
-                console.log('response success !')
                 setCards(response.data.data);
             }
         } catch (e: any) {
@@ -42,8 +41,6 @@ const ReviewFlashCardScreen = () => {
     if (loading) {
         return <ActivityIndicator size="large" color={Colors.light.activityIndicator}/>;
     }
-
-    console.log(cards.length);
 
     return (
         <View style={{flex: 1}}>

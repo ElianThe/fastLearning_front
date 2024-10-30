@@ -19,6 +19,7 @@ import {router} from "expo-router";
 import Input from "@/components/UI/Input";
 import AuthButton from "@/components/auth/AuthButton";
 import Label from "@/components/UI/Label";
+import {set} from "yaml/dist/schema/yaml-1.1/set";
 
 const USER_REGEX = /^[a-zA-Z0-9._-]{3,20}$/;
 const EMAIL_REGEX = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
@@ -53,18 +54,13 @@ const RegisterScreen = () => {
 
     // à refaire
     const register = async () => {
-        const result = await onRegister!(email, password, username);
-        if (result && result.error) {
-            // Récupérer la première clé de l'objet 'details'
-            const firstKey = Object.keys(result.details)[0];
-            // Récupérer le premier message d'erreur pour cette clé
-            const firstErrorMessage = result.details[firstKey][0];
-            setError(firstErrorMessage);
-        } else {
-            const result = await onLogin!(email, password);
-            if (result && result.error) {
-                setError(result.msg);
+        try {
+            const result = await onRegister!(email, password, username);
+            if (result) {
+                await onLogin!(email, password);
             }
+        } catch (err: any) {
+            setError(err.message);
         }
     }
 

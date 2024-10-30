@@ -35,8 +35,9 @@ const LoginScreen = () => {
     let isButtonEnabled = email !== "" && password !== "";
 
     const login = async () => {
-        const result = await onLogin!(email, password);
-        if (result && result.error) {
+        try {
+            await onLogin!(email, password);
+        } catch (err: any) {
             setError("L'email ou le mot de passe est incorrect. Veuillez réessayer.");
         }
     }

@@ -55,12 +55,8 @@ export const AuthProvider = ({children}: any) => {
         try {
             return await axios.post(`${API_URL}/register`, {email, password, username});
         } catch (e : any) {
-            console.error('Error response:', e.response.data);
-            return {
-                error: true,
-                msg: e.response.data.message || 'An error occurred',
-                details: e.response.data.errors || {} // Détails des erreurs de validation
-            };
+            console.error(e);
+            throw new Error(e.response.data.message);
         }
     }
 
@@ -83,13 +79,8 @@ export const AuthProvider = ({children}: any) => {
             console.log('Token saved successfully : '+ token);
             return result;
         } catch (e : any) {
-            // Le serveur a répondu avec un statut d'erreur
-            console.error('Error response:', e.response.data);
-            return {
-                error: true,
-                msg: e.response.data.message || 'An error occurred',
-                details: e.response.data.errors || {} // Détails des erreurs de validation
-            };
+            console.error(e.response.data);
+            throw new Error(e.response.data.message);
         }
     };
 
