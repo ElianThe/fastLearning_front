@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="801311f0-97b6-427e-8a4a-5aa4295ac0cc" name="Changes" comment="HomeAuthScreen">
+    <list default="true" id="801311f0-97b6-427e-8a4a-5aa4295ac0cc" name="Changes" comment="modification des requêtes axios de Login et de Register">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/folders/CreateFolderScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/folders/CreateFolderScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/folders/FolderEditScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/folders/FolderEditScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/folders/folder/[id]/CreateCardScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/folders/folder/[id]/CreateCardScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/folders/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/folders/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/learn/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/learn/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/profile/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(tabs)/review/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/review/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/screens/auth/LoginScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/auth/LoginScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/screens/auth/RegisterScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/auth/RegisterScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/context/AuthContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/context/AuthContext.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/feedBack/ErrorView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/feedBack/ErrorView.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +99,7 @@
       <workItem from="1730189073489" duration="15842000" />
       <workItem from="1730211249676" duration="1000" />
       <workItem from="1730211421939" duration="6093000" />
-      <workItem from="1730279337449" duration="6754000" />
+      <workItem from="1730279337449" duration="11038000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -231,7 +237,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730283339269</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="modification des requêtes axios de Login et de Register">
+      <option name="closed" value="true" />
+      <created>1730286368402</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1730286368403</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,6 +269,7 @@
     <MESSAGE value="Modification annexe" />
     <MESSAGE value="déplacement et changement de nom de certains dossiers" />
     <MESSAGE value="HomeAuthScreen" />
-    <option name="LAST_COMMIT_MESSAGE" value="HomeAuthScreen" />
+    <MESSAGE value="modification des requêtes axios de Login et de Register" />
+    <option name="LAST_COMMIT_MESSAGE" value="modification des requêtes axios de Login et de Register" />
   </component>
 </project>

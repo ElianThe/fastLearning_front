@@ -3,7 +3,7 @@ import {
     StyleSheet,
     TextInput,
     Text,
-    TouchableOpacity,
+    TouchableOpacity, Pressable,
 } from "react-native";
 import {Colors} from "@/constants/Colors";
 import React, {useRef, useState} from "react";
@@ -72,7 +72,17 @@ const RegisterScreen = () => {
         >
             {/* error */}
             {error &&
-                <ErrorView text={error} onPress={() => router.push('screens/login')}/>
+                <ErrorView>
+                    <>
+                        <Text>{error}</Text>
+                        <View style={{flexDirection: "row"}}>
+                            <Text>Vous avez déjà un compte ? </Text>
+                            <Pressable onPress={() => router.push('screens/auth/LoginScreen')}>
+                                <Text style={{color: 'blue'}}>Se connecter</Text>
+                            </Pressable>
+                        </View>
+                    </>
+                </ErrorView>
             }
 
             {/* email */}

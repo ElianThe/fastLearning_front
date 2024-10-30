@@ -18,12 +18,14 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import Input from "@/components/UI/Input";
 import Label from "@/components/UI/Label";
 import Modal from "@/components/UI/Modal";
+import ErrorView from "@/components/feedBack/ErrorView";
 
 const CreateCardScreen = () => {
     const {id} = useLocalSearchParams<{ id: string }>();
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [image, setImage] = useState('');
+    const [error, setError] = useState<string | null>(null);
 
     const handleImagePickerPress = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -65,12 +67,14 @@ const CreateCardScreen = () => {
                 console.log(response.data.message);
             }
         } catch (err: any) {
+            setError(err.response.data.message);
             console.error(err.response.data);
         }
     };
 
     return (
-        <Modal onPress={handleCreateCard} title={"Ajouter une nouvelle carte"} >
+        <Modal onPress={handleCreateCard} title={"Ajouter une nouvelle carte"}>
+            {error && <ErrorView><Text>{error}</Text></ErrorView>}
             <>
                 <Label>Recto de la carte</Label>
                 <Input placeholder="France" onChangeText={text => setTitle(text)} value={title}/>

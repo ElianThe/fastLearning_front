@@ -16,25 +16,33 @@ type FlashCard = {
 
 const ReviewFlashCardScreen = () => {
     const [cards, setCards] = useState<FlashCard[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
-    const fetchCards = async () => {
-        try {
-            const response = await axios.get(`${API_URL}/cards-to-review`);
-            if (response.data.success) {
-                setCards(response.data.data);
-            }
-        } catch (e: any) {
-            setCards([]);
-            console.error(e.response.data.message);
-        } finally {
-            setLoading(false);
-        }
-    };
 
     useFocusEffect(
         useCallback(() => {
+            const controller = new AbortController();
+            const fetchCards = async () => {
+                try {
+                    setLoading(true);
+                    const response = await axios.get(`${API_URL}/cards-to-review`, {
+                        signal: controller.signal
+                    });
+                    if (response.data.success) {
+                        setCards(response.data.data);
+                    } else {
+                        throw new Error(response.data.message);
+                    }
+                } catch (e: any) {
+                    setCards([]);
+                    console.error(e.response.data.message);
+                } finally {
+                    setLoading(false);
+                }
+            };
             fetchCards();
+
+            return () => controller.abort();
         }, [])
     );
 
@@ -45,7 +53,7 @@ const ReviewFlashCardScreen = () => {
     return (
         <View style={{flex: 1}}>
             {cards.length > 0 ?
-                <ReviewDeck cards={cards} handleNoMoreCard={() => setCards([])} /> :
+                <ReviewDeck cards={cards} handleNoMoreCard={() => setCards([])}/> :
                 <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
                     <Text style={{fontSize: 20}}>Pas de carte à réviser !</Text>
                 </View>

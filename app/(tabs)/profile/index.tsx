@@ -3,12 +3,8 @@ import {useAuth} from "@/context/AuthContext";
 
 const ProfileScreen = () => {
     const {onLogout} = useAuth();
-    const logout = async () => {
-        const result = await onLogout!();
-        if (result && result.error) {
-            Alert.alert('Error', result.msg);
-        }
-    }
+    const logout = async () => await onLogout!();
+
     return (
         <View>
             <TouchableOpacity onPress={logout} style={{ margin: 20 }}>

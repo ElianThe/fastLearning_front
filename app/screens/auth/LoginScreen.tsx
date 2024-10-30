@@ -3,7 +3,7 @@ import {
     StyleSheet,
     TextInput,
     Text,
-    TouchableOpacity
+    TouchableOpacity, Pressable
 } from "react-native";
 import {Colors} from "@/constants/Colors";
 import React, {useRef, useState} from "react";
@@ -47,7 +47,18 @@ const LoginScreen = () => {
             <KeyboardAwareScrollView keyboardShouldPersistTaps="handled" style={styles.container}
                                      contentContainerStyle={{flex: 1, justifyContent: "center"}}>
 
-                {error && <ErrorView text={error} onPress={() => router.push('/screens/Register')}/>}
+                {error && <ErrorView>
+                    <>
+                        <Text>{error}</Text>
+                        <View style={{flexDirection: "row"}}>
+                            <Text>Vous n'avez pas de compte ? </Text>
+                            <Pressable onPress={() => router.push('/screens/auth/RegisterScreen')}>
+                                <Text style={{color: 'blue'}}>S'inscrire</Text>
+                            </Pressable>
+                        </View>
+                    </>
+                </ErrorView>
+                }
                 <View style={styles.viewInput}>
                     <Label>E-mail</Label>
                     <Input onChangeText={(text) => setEmail(text)} value={email} ref={userRef}/>

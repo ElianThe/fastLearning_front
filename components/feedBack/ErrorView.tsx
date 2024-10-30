@@ -1,9 +1,12 @@
 import {View, Text, Pressable, StyleSheet} from "react-native";
 import {MaterialIcons} from "@expo/vector-icons";
-import React from "react";
-import {Colors} from "@/constants/Colors";
+import React, {PropsWithChildren} from "react";
 
-const ErrorView = ({text, onPress}: { text: string, onPress: () => void }) => {
+type ErrorViewProps = PropsWithChildren<{
+    onPress?: () => void;
+}>;
+
+const ErrorView = ({children, onPress}: ErrorViewProps) => {
     return (
         <View>
             <View style={{
@@ -22,15 +25,7 @@ const ErrorView = ({text, onPress}: { text: string, onPress: () => void }) => {
                 <View style={{flexDirection: "row", alignItems: "center", margin: 10, justifyContent: "space-around"}}>
                     <MaterialIcons name={'error'} size={24} color={'red'}/>
                     <View style={{flexDirection: "column", marginHorizontal: 15}}>
-                        <Text>{text}</Text>
-                        <>
-                            <View style={styles.viewSignup}>
-                                <Text>Vous n'avez pas de compte ? </Text>
-                                <Pressable onPress={onPress}>
-                                    <Text style={styles.textSignup}>S'inscrire</Text>
-                                </Pressable>
-                            </View>
-                        </>
+                        {children}
                     </View>
                 </View>
             </View>
@@ -40,11 +35,12 @@ const ErrorView = ({text, onPress}: { text: string, onPress: () => void }) => {
 
 export default ErrorView;
 
-const styles = StyleSheet.create({
-    viewSignup: {
-        flexDirection: 'row',
-    },
-    textSignup: {
-        color: 'blue'
-    },
-});
+/*
+*                       <Text>{text}</Text>
+                        <>
+                                <Text>Vous n'avez pas de compte ? </Text>
+                                <Pressable onPress={onPress}>
+                                    <Text style={styles.textSignup}>S'inscrire</Text>
+                                </Pressable>
+                            </View>
+                        </>*/

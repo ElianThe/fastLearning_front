@@ -29,20 +29,18 @@ const CardListScreen = () => {
                     if (response.data.success) {
                         setCards(response.data.data);
                     } else {
-                        throw new Error('Invalid data format')
+                        throw new Error(response.data.message)
                     }
                 } catch (e: any) {
                     console.error(e.response.data.message);
-                    setCards([])
+                    setCards([]);
                 } finally {
                     setLoading(false);
                 }
             }
             fetchLearnNewCards();
 
-            return () => {
-                controller.abort();
-            }
+            return () => controller.abort();
         }, [])
     );
 
