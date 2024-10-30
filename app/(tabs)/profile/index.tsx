@@ -1,5 +1,5 @@
 import {Alert, Text, TouchableOpacity, View} from "react-native";
-import {useAuth} from "@/app/context/AuthContext";
+import {useAuth} from "@/context/AuthContext";
 
 const ProfileScreen = () => {
     const {onLogout} = useAuth();

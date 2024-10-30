@@ -7,14 +7,14 @@ import {
 } from "react-native";
 import {Colors} from "@/constants/Colors";
 import React, {useRef, useState} from "react";
-import {useAuth} from "@/app/context/AuthContext";
+import {useAuth} from "@/context/AuthContext";
 import useFocusInputWithTime from "@/hooks/useFocusInputWithTime";
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import Icon from '@expo/vector-icons/FontAwesome';
 import useToggle from "@/hooks/useToggle";
 import {KeyboardAwareScrollView} from "react-native-keyboard-aware-scroll-view";
-import ErrorView from "@/components/FeedBack/ErrorView";
+import ErrorView from "@/components/feedBack/ErrorView";
 import {router} from "expo-router";
 import Input from "@/components/UI/Input";
 import AuthButton from "@/components/auth/AuthButton";

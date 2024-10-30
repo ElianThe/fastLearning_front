@@ -80,7 +80,7 @@ const OnBoardingScreen = () => {
                 <View style={{marginBottom: 20}}>
                     { currentSlideIndex === slides.length -1 ?
                         <View style={{ height: 50 }}>
-                            <TouchableOpacity style={[styles.btn]} onPress={() => router.replace('screens/homeAuthentificate')}>
+                            <TouchableOpacity style={[styles.btn]} onPress={() => router.replace('/screens/auth/HomeAuthScreen')}>
                                 <Text style={{fontSize: 15, fontWeight: "bold"}}>GET STARTED</Text>
                             </TouchableOpacity>
                         </View>

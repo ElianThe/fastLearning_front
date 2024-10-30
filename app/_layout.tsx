@@ -1,4 +1,4 @@
-import {AuthProvider, useAuth} from "@/app/context/AuthContext";
+import {AuthProvider, useAuth} from "@/context/AuthContext";
 import React, {useEffect, useState} from 'react';
 import {Slot, useRouter} from "expo-router";
 import {useFonts} from "expo-font";
