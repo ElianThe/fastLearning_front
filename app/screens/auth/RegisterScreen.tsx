@@ -17,6 +17,8 @@ import {KeyboardAwareScrollView} from "react-native-keyboard-aware-scroll-view";
 import ErrorView from "@/components/FeedBack/ErrorView";
 import {router} from "expo-router";
 import Input from "@/components/UI/Input";
+import AuthButton from "@/components/auth/AuthButton";
+import Label from "@/components/UI/Label";
 
 const USER_REGEX = /^[a-zA-Z0-9._-]{3,20}$/;
 const EMAIL_REGEX = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
@@ -49,6 +51,7 @@ const RegisterScreen = () => {
 
     const userRef = useFocusInputWithTime();
 
+    // à refaire
     const register = async () => {
         const result = await onRegister!(email, password, username);
         if (result && result.error) {
@@ -79,7 +82,7 @@ const RegisterScreen = () => {
             {/* email */}
             <View style={styles.viewInput}>
                 <View style={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
-                    <Text style={styles.label}>E-mail</Text>
+                    <Label>E-mail</Label>
                     {(emailValid && email) && <FontAwesome name="check" size={20} color="black"/>}
                     {(!emailValid && email) && <FontAwesome5 name="times" size={20} color="black"/>}
                 </View>
@@ -101,14 +104,17 @@ const RegisterScreen = () => {
             {/* username */}
             <View style={styles.viewInput}>
                 <View style={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
-                    <Text style={styles.label}>Nom d'utilisateur</Text>
+                    <Label>Nom d'utilisateur</Label>
                     {(usernameValid && username) && <FontAwesome name="check" size={20} color="black"/>}
                     {(!usernameValid && username) && <FontAwesome5 name="times" size={20} color="black"/>}
                 </View>
                 <Input onChangeText={(text) => {
                     setUsername(text);
                     setUsernameValid(USER_REGEX.test(text))
-                }} value={username} onFocus={() => setUsernameFocus(true)} onBlur={() => setUsernameFocus(false)}/>
+                }}
+                       value={username} onFocus={() => setUsernameFocus(true)}
+                       onBlur={() => setUsernameFocus(false)}
+                />
                 {(usernameFocus && !usernameValid) &&
                     <Text>Le nom d'utilisateur doit comporter entre 3 et 20 caractères.</Text>
                 }
@@ -117,7 +123,7 @@ const RegisterScreen = () => {
             {/* password */}
             <View style={styles.viewInput}>
                 <View style={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
-                    <Text style={styles.label}>Mot de passe</Text>
+                    <Label>Mot de passe</Label>
                     {(passwordValid && password) && <FontAwesome name="check" size={20} color="black"/>}
                     {(!passwordValid && password) && <FontAwesome5 name="times" size={20} color="black"/>}
                 </View>
@@ -144,7 +150,7 @@ const RegisterScreen = () => {
                     />
                     <TouchableOpacity onPress={togglePasswordVisibility} style={styles.iconContainer}>
                         <Icon
-                            name={showPassword ? 'eye-slash' : 'eye'} // Change l'icône en fonction de l'état
+                            name={showPassword ? 'eye-slash' : 'eye'}
                             size={20}
                             color="#000" // Couleur de l'icône
                         />
@@ -159,13 +165,7 @@ const RegisterScreen = () => {
             </View>
 
             {/* button sign up */}
-            <TouchableOpacity
-                disabled={!isButtonEnabled}
-                style={isButtonEnabled ? styles.buttonLogin : styles.buttonRegisterDisabled}
-                onPress={register}
-            >
-                <Text style={styles.textLogin}>S'inscrire</Text>
-            </TouchableOpacity>
+            <AuthButton isButtonEnabled={isButtonEnabled} onPress={register}>S'inscrire</AuthButton>
         </KeyboardAwareScrollView>
     );
 }
@@ -180,23 +180,9 @@ const styles = StyleSheet.create({
         height: '100%',
         width: '100%'
     },
-    title: {
-        textAlign: 'center',
-        color: 'black',
-        fontSize: 30,
-        marginBottom: 20
-
-    },
     viewInput: {
         width: '100%',
         marginBottom: 20,
-    },
-    label: {
-        marginBottom: 5
-    },
-    inputPassword: {
-        color: 'black',
-        width: 100
     },
     passwordContainer: {
         borderRadius: 5,
@@ -211,32 +197,4 @@ const styles = StyleSheet.create({
     iconContainer: {
         paddingHorizontal: 10,
     },
-    buttonLogin: {
-        backgroundColor: '#003049',
-        padding: 15,
-        borderRadius: 5
-    },
-
-    buttonRegisterDisabled: {
-        backgroundColor: 'gray',
-        padding: 15,
-        borderRadius: 5
-    },
-    textLogin: {
-        textAlign: 'center',
-        color: 'white',
-    },
-    error: {
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 10,
-        borderRadius: 15,
-        marginBottom: 20
-    },
-    errorText: {
-        color: 'red',
-        marginLeft: 10
-    }
 });

@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="801311f0-97b6-427e-8a4a-5aa4295ac0cc" name="Changes" comment="inputcolor">
+    <list default="true" id="801311f0-97b6-427e-8a4a-5aa4295ac0cc" name="Changes" comment="modification de typescript">
+      <change afterPath="$PROJECT_DIR$/components/auth/AuthButton.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/UI/CustomBottomSheetModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/UI/CustomBottomSheetModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/folders/CardItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/folders/CardItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/folders/FolderItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/folders/FolderItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/screens/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/screens/auth/HomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/auth/HomeAuthScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/screens/auth/LoginScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/auth/LoginScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/screens/auth/RegisterScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/auth/RegisterScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/FeedBack/ErrorView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/FeedBack/ErrorView.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +95,8 @@
       <workItem from="1730132112504" duration="2000000" />
       <workItem from="1730189073489" duration="15842000" />
       <workItem from="1730211249676" duration="1000" />
-      <workItem from="1730211421939" duration="5782000" />
+      <workItem from="1730211421939" duration="6093000" />
+      <workItem from="1730279337449" duration="2738000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -181,7 +186,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730215956858</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="modification de typescript">
+      <option name="closed" value="true" />
+      <created>1730217566759</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1730217566759</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,18 +213,7 @@
     <MESSAGE value="ajout de nouveaux composants" />
     <MESSAGE value="Modification de quelques fichiers" />
     <MESSAGE value="inputcolor" />
-    <option name="LAST_COMMIT_MESSAGE" value="inputcolor" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app/screens/auth/LoginScreen.tsx</url>
-          <line>132</line>
-          <option name="temporary" value="true" />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="modification de typescript" />
+    <option name="LAST_COMMIT_MESSAGE" value="modification de typescript" />
   </component>
 </project>
