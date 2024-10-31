@@ -7,25 +7,14 @@ type AuthButtonType = PropsWithChildren<{
     styleText?: {};
 }>;
 
-const AuthButton = ({
-    isButtonEnabled,
-    onPress,
-    children,
-    styleText,
-}: AuthButtonType) => {
+const AuthButton = ({ isButtonEnabled, onPress, children, styleText }: AuthButtonType) => {
     return (
         <TouchableOpacity
             disabled={!isButtonEnabled}
-            style={
-                isButtonEnabled
-                    ? styles.buttonAuthEnabled
-                    : styles.buttonAuthDisabled
-            }
+            style={isButtonEnabled ? styles.buttonAuthEnabled : styles.buttonAuthDisabled}
             onPress={onPress}
         >
-            <Text style={[styles.textLogin, styleText && styleText]}>
-                {children}
-            </Text>
+            <Text style={[styles.textLogin, styleText && styleText]}>{children}</Text>
         </TouchableOpacity>
     );
 };

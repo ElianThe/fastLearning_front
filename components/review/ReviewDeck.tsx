@@ -20,8 +20,7 @@ const ReviewDeck = ({ cards, handleNoMoreCard }: ReviewDeskProps) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const rotateAnim = useState(new Animated.Value(0))[0];
     const [flipped, setFlipped] = useState(false);
-    const [backgroundColorCard, setBackgroundColorCard] =
-        useState(getRandomColor());
+    const [backgroundColorCard, setBackgroundColorCard] = useState(getRandomColor());
 
     const flipCard = () => {
         Animated.timing(rotateAnim, {

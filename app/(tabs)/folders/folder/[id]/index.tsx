@@ -1,15 +1,5 @@
-import {
-    View,
-    FlatList,
-    ActivityIndicator,
-    TouchableOpacity,
-} from "react-native";
-import {
-    router,
-    useFocusEffect,
-    useLocalSearchParams,
-    useNavigation,
-} from "expo-router";
+import { View, FlatList, ActivityIndicator, TouchableOpacity } from "react-native";
+import { router, useFocusEffect, useLocalSearchParams, useNavigation } from "expo-router";
 import React, { useCallback, useState } from "react";
 import axios from "axios";
 import { API_URL } from "@env";
@@ -42,9 +32,7 @@ const CardListScreen = () => {
             });
             const fetchCards = async () => {
                 try {
-                    const response = await axios.get(
-                        `${API_URL}/folders/${id}/cards`,
-                    );
+                    const response = await axios.get(`${API_URL}/folders/${id}/cards`);
                     if (response.data.success) {
                         setCards(response.data.data);
                     } else {
@@ -61,12 +49,7 @@ const CardListScreen = () => {
     );
 
     if (loading) {
-        return (
-            <ActivityIndicator
-                size="large"
-                color={Colors.light.activityIndicator}
-            />
-        );
+        return <ActivityIndicator size="large" color={Colors.light.activityIndicator} />;
     }
     return (
         <View style={{ flex: 1, padding: 10, backgroundColor: "#f0f0f0" }}>
@@ -86,11 +69,7 @@ const CardListScreen = () => {
                 }
                 style={{ position: "absolute", bottom: 30, right: 30 }}
             >
-                <FontAwesome5
-                    name="plus-circle"
-                    size={60}
-                    color={Colors.light.icon}
-                />
+                <FontAwesome5 name="plus-circle" size={60} color={Colors.light.icon} />
             </TouchableOpacity>
         </View>
     );

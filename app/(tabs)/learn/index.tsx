@@ -1,11 +1,4 @@
-import {
-    View,
-    Text,
-    ActivityIndicator,
-    FlatList,
-    StyleSheet,
-    Pressable,
-} from "react-native";
+import { View, Text, ActivityIndicator, FlatList, StyleSheet, Pressable } from "react-native";
 import React, { useCallback, useState } from "react";
 import { API_URL } from "@env";
 import axios from "axios";
@@ -30,12 +23,9 @@ const CardListScreen = () => {
             const fetchLearnNewCards = async () => {
                 try {
                     setLoading(true);
-                    const response = await axios.get(
-                        `${API_URL}/learn-new-cards`,
-                        {
-                            signal: controller.signal,
-                        },
-                    );
+                    const response = await axios.get(`${API_URL}/learn-new-cards`, {
+                        signal: controller.signal,
+                    });
                     if (response.data.success) {
                         setCards(response.data.data);
                     } else {
@@ -55,12 +45,7 @@ const CardListScreen = () => {
     );
 
     if (loading) {
-        return (
-            <ActivityIndicator
-                size="large"
-                color={Colors.light.activityIndicator}
-            />
-        );
+        return <ActivityIndicator size="large" color={Colors.light.activityIndicator} />;
     }
 
     return (
@@ -72,9 +57,7 @@ const CardListScreen = () => {
                         renderItem={({ item }: { item: TypeCard }) => (
                             <View style={style.cardContainer}>
                                 <Text style={style.title}>{item.title}</Text>
-                                <Text style={style.content}>
-                                    {item.content}
-                                </Text>
+                                <Text style={style.content}>{item.content}</Text>
                             </View>
                         )}
                         keyExtractor={(item) => item.id.toString()}
@@ -99,9 +82,7 @@ const CardListScreen = () => {
                         alignItems: "center",
                     }}
                 >
-                    <Text style={{ fontSize: 20 }}>
-                        Pas de carte à apprendre
-                    </Text>
+                    <Text style={{ fontSize: 20 }}>Pas de carte à apprendre</Text>
                 </View>
             )}
         </View>

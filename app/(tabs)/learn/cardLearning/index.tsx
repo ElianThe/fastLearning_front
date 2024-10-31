@@ -18,12 +18,7 @@ const AutoEvaluationCardsScreen = () => {
         return null;
     }
 
-    return (
-        <ReviewDeck
-            cards={cardsToLearn}
-            handleNoMoreCard={() => setCardsToLearn([])}
-        />
-    );
+    return <ReviewDeck cards={cardsToLearn} handleNoMoreCard={() => setCardsToLearn([])} />;
 };
 
 export default AutoEvaluationCardsScreen;

@@ -1,11 +1,4 @@
-import {
-    View,
-    StyleSheet,
-    TextInput,
-    Text,
-    TouchableOpacity,
-    Pressable,
-} from "react-native";
+import { View, StyleSheet, TextInput, Text, TouchableOpacity, Pressable } from "react-native";
 import { Colors } from "@/constants/Colors";
 import React, { useRef, useState } from "react";
 import { useAuth } from "@/context/AuthContext";
@@ -38,10 +31,8 @@ const LoginScreen = () => {
         try {
             await onLogin!(email, password);
         } catch (err: any) {
+            setError("L'email ou le mot de passe est incorrect. Veuillez réessayer.");
             console.error(err.response.data.message);
-            setError(
-                "L'email ou le mot de passe est incorrect. Veuillez réessayer.",
-            );
         }
     };
 
@@ -59,15 +50,9 @@ const LoginScreen = () => {
                             <View style={{ flexDirection: "row" }}>
                                 <Text>Vous n'avez pas de compte ? </Text>
                                 <Pressable
-                                    onPress={() =>
-                                        router.push(
-                                            "/screens/auth/RegisterScreen",
-                                        )
-                                    }
+                                    onPress={() => router.push("/screens/auth/RegisterScreen")}
                                 >
-                                    <Text style={{ color: "blue" }}>
-                                        S'inscrire
-                                    </Text>
+                                    <Text style={{ color: "blue" }}>S'inscrire</Text>
                                 </Pressable>
                             </View>
                         </>
@@ -75,11 +60,7 @@ const LoginScreen = () => {
                 )}
                 <View style={styles.viewInput}>
                     <Label>E-mail</Label>
-                    <Input
-                        onChangeText={(text) => setEmail(text)}
-                        value={email}
-                        ref={userRef}
-                    />
+                    <Input onChangeText={(text) => setEmail(text)} value={email} ref={userRef} />
                 </View>
 
                 <View style={styles.viewInput}>
@@ -88,10 +69,7 @@ const LoginScreen = () => {
                         <Input
                             onChangeText={(text) => setPassword(text)}
                             value={password}
-                            onPress={() =>
-                                passwordRef.current &&
-                                passwordRef.current.focus()
-                            }
+                            onPress={() => passwordRef.current && passwordRef.current.focus()}
                             secureTextEntry={!showPassword}
                             ref={passwordRef}
                             style={{

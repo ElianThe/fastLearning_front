@@ -1,11 +1,4 @@
-import {
-    View,
-    StyleSheet,
-    TextInput,
-    Text,
-    TouchableOpacity,
-    Pressable,
-} from "react-native";
+import { View, StyleSheet, TextInput, Text, TouchableOpacity, Pressable } from "react-native";
 import { Colors } from "@/constants/Colors";
 import React, { useRef, useState } from "react";
 import { useAuth } from "@/context/AuthContext";
@@ -76,14 +69,8 @@ const RegisterScreen = () => {
                         <Text>{error}</Text>
                         <View style={{ flexDirection: "row" }}>
                             <Text>Vous avez déjà un compte ? </Text>
-                            <Pressable
-                                onPress={() =>
-                                    router.push("screens/auth/LoginScreen")
-                                }
-                            >
-                                <Text style={{ color: "blue" }}>
-                                    Se connecter
-                                </Text>
+                            <Pressable onPress={() => router.push("screens/auth/LoginScreen")}>
+                                <Text style={{ color: "blue" }}>Se connecter</Text>
                             </Pressable>
                         </View>
                     </>
@@ -100,12 +87,8 @@ const RegisterScreen = () => {
                     }}
                 >
                     <Label>E-mail</Label>
-                    {emailValid && email && (
-                        <FontAwesome name="check" size={20} color="black" />
-                    )}
-                    {!emailValid && email && (
-                        <FontAwesome5 name="times" size={20} color="black" />
-                    )}
+                    {emailValid && email && <FontAwesome name="check" size={20} color="black" />}
+                    {!emailValid && email && <FontAwesome5 name="times" size={20} color="black" />}
                 </View>
                 <Input
                     onChangeText={(text) => {
@@ -149,10 +132,7 @@ const RegisterScreen = () => {
                     onBlur={() => setUsernameFocus(false)}
                 />
                 {usernameFocus && !usernameValid && (
-                    <Text>
-                        Le nom d'utilisateur doit comporter entre 3 et 20
-                        caractères.
-                    </Text>
+                    <Text>Le nom d'utilisateur doit comporter entre 3 et 20 caractères.</Text>
                 )}
             </View>
 
@@ -192,9 +172,7 @@ const RegisterScreen = () => {
                         value={password}
                         onFocus={() => setPasswordFocus(true)}
                         onBlur={() => setPasswordFocus(false)}
-                        onPress={() =>
-                            passwordRef.current && passwordRef.current.focus()
-                        }
+                        onPress={() => passwordRef.current && passwordRef.current.focus()}
                         secureTextEntry={!showPassword}
                         ref={passwordRef}
                         style={{
@@ -217,9 +195,8 @@ const RegisterScreen = () => {
                 </View>
                 {!passwordValid && passwordFocus && (
                     <Text>
-                        Le mot de passe doit comporter entre 8 et 24 caractères
-                        et doit inclure au moins une majuscule, une minuscule et
-                        un chiffre.
+                        Le mot de passe doit comporter entre 8 et 24 caractères et doit inclure au
+                        moins une majuscule, une minuscule et un chiffre.
                     </Text>
                 )}
             </View>

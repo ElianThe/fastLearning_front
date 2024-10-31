@@ -1,9 +1,4 @@
-import {
-    ActivityIndicator,
-    FlatList,
-    View,
-    TouchableOpacity,
-} from "react-native";
+import { ActivityIndicator, FlatList, View, TouchableOpacity } from "react-native";
 import React, { useCallback, useState } from "react";
 import { API_URL } from "@env";
 import axios from "axios";
@@ -22,9 +17,7 @@ const FolderListScreen = () => {
     const [loading, setLoading] = useState(false);
 
     const handleDeleteFolder = (folderId: number) => {
-        const updatedFolders = folders.filter(
-            (folder) => folder.id !== folderId,
-        );
+        const updatedFolders = folders.filter((folder) => folder.id !== folderId);
         setFolders(updatedFolders);
     };
 
@@ -34,12 +27,9 @@ const FolderListScreen = () => {
             const fetchFolderList = async () => {
                 try {
                     setLoading(true);
-                    const response = await axios.get(
-                        `${API_URL}/folders-of-user`,
-                        {
-                            signal: controller.signal,
-                        },
-                    );
+                    const response = await axios.get(`${API_URL}/folders-of-user`, {
+                        signal: controller.signal,
+                    });
                     if (response.data.success) {
                         setFolders(response.data.data);
                     } else {
@@ -79,11 +69,7 @@ const FolderListScreen = () => {
                 onPress={() => router.push("/folders/CreateFolderScreen")}
                 style={{ position: "absolute", bottom: 30, right: 30 }}
             >
-                <FontAwesome5
-                    name="plus-circle"
-                    size={60}
-                    color={Colors.light.icon}
-                />
+                <FontAwesome5 name="plus-circle" size={60} color={Colors.light.icon} />
             </TouchableOpacity>
         </View>
     );

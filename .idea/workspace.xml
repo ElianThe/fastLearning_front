@@ -4,58 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="801311f0-97b6-427e-8a4a-5aa4295ac0cc" name="Changes" comment="typeScript">
-      <change afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
+    <list default="true" id="801311f0-97b6-427e-8a4a-5aa4295ac0cc" name="Changes" comment="ajout de prettierrc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/folders/CreateFolderScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/folders/CreateFolderScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/folders/FolderEditScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/folders/FolderEditScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/folders/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/folders/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/folders/folder/[id]/CardEditScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/folders/folder/[id]/CardEditScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/folders/folder/[id]/CreateCardScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/folders/folder/[id]/CreateCardScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/folders/folder/[id]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/folders/folder/[id]/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/folders/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/folders/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/learn/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/learn/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/learn/cardLearning/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/learn/cardLearning/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/learn/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/learn/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/profile/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/profile/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/profile/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/review/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/review/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/review/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/review/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/auth/HomeAuthScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/auth/HomeAuthScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/screens/auth/LoginScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/auth/LoginScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/auth/RegisterScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/auth/RegisterScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/onBoardingScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/onBoardingScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/UI/CustomBottomSheetModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/UI/CustomBottomSheetModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/UI/Input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/UI/Input.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/UI/Label.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/UI/Label.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/UI/Modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/UI/Modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/auth/AuthButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/auth/AuthButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/feedBack/ErrorView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/feedBack/ErrorView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/folders/CardItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/folders/CardItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/folders/FolderItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/folders/FolderItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/review/FlashCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/review/FlashCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/review/FlipCardButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/review/FlipCardButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/review/RatingCardButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/review/RatingCardButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/review/RatingCardButtons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/review/RatingCardButtons.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/review/ReviewDeck.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/review/ReviewDeck.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/Colors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/constants/Colors.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/context/AuthContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/context/AuthContext.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eas.json" beforeDir="false" afterPath="$PROJECT_DIR$/eas.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/env.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/useColorScheme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useColorScheme.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/useColorScheme.web.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useColorScheme.web.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/useFocusInputWithTime.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useFocusInputWithTime.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/useThemeColor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useThemeColor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/useToggle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useToggle.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -301,7 +253,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730296958301</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="ajout de prettierrc">
+      <option name="closed" value="true" />
+      <created>1730372369107</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1730372369107</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -328,6 +288,7 @@
     <MESSAGE value="modification des requêtes axios de Login et de Register" />
     <MESSAGE value="les cas d'erreur sont gérés" />
     <MESSAGE value="typeScript" />
-    <option name="LAST_COMMIT_MESSAGE" value="typeScript" />
+    <MESSAGE value="ajout de prettierrc" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout de prettierrc" />
   </component>
 </project>

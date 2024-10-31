@@ -6,10 +6,7 @@ interface RatingCardButtonsProps {
     id: number;
 }
 
-export default function RatingCardButtons({
-    onPress,
-    id,
-}: RatingCardButtonsProps) {
+export default function RatingCardButtons({ onPress, id }: RatingCardButtonsProps) {
     return (
         <View
             style={{
@@ -18,30 +15,15 @@ export default function RatingCardButtons({
                 marginTop: 20,
             }}
         >
-            <RatingCardButton
-                rating={-1}
-                onPress={onPress}
-                id={id}
-                backgroundColor={"#0594D0"}
-            >
+            <RatingCardButton rating={-1} onPress={onPress} id={id} backgroundColor={"#0594D0"}>
                 difficile
             </RatingCardButton>
 
-            <RatingCardButton
-                rating={0}
-                onPress={onPress}
-                id={id}
-                backgroundColor={"#003C57"}
-            >
+            <RatingCardButton rating={0} onPress={onPress} id={id} backgroundColor={"#003C57"}>
                 moyen
             </RatingCardButton>
 
-            <RatingCardButton
-                rating={1}
-                onPress={onPress}
-                id={id}
-                backgroundColor={"#051C24"}
-            >
+            <RatingCardButton rating={1} onPress={onPress} id={id} backgroundColor={"#051C24"}>
                 très facile
             </RatingCardButton>
         </View>

@@ -105,15 +105,9 @@ const OnBoardingScreen = () => {
                         <View style={{ height: 50 }}>
                             <TouchableOpacity
                                 style={[styles.btn]}
-                                onPress={() =>
-                                    router.replace(
-                                        "/screens/auth/HomeAuthScreen",
-                                    )
-                                }
+                                onPress={() => router.replace("/screens/auth/HomeAuthScreen")}
                             >
-                                <Text
-                                    style={{ fontSize: 15, fontWeight: "bold" }}
-                                >
+                                <Text style={{ fontSize: 15, fontWeight: "bold" }}>
                                     GET STARTED
                                 </Text>
                             </TouchableOpacity>
@@ -142,15 +136,8 @@ const OnBoardingScreen = () => {
                                 </Text>
                             </TouchableOpacity>
                             <View style={{ width: 15 }} />
-                            <TouchableOpacity
-                                style={[styles.btn]}
-                                onPress={goNextSlide}
-                            >
-                                <Text
-                                    style={{ fontSize: 15, fontWeight: "bold" }}
-                                >
-                                    NEXT
-                                </Text>
+                            <TouchableOpacity style={[styles.btn]} onPress={goNextSlide}>
+                                <Text style={{ fontSize: 15, fontWeight: "bold" }}>NEXT</Text>
                             </TouchableOpacity>
                         </View>
                     )}
@@ -159,9 +146,7 @@ const OnBoardingScreen = () => {
         );
     };
 
-    const updateCurrentSlideIndex = (
-        e: NativeSyntheticEvent<NativeScrollEvent>,
-    ) => {
+    const updateCurrentSlideIndex = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
         const contentOffsetX = e.nativeEvent.contentOffset.x;
         const currentIndex = Math.round(contentOffsetX / width);
         setCurrentSlideIndex(currentIndex);
@@ -192,9 +177,7 @@ const OnBoardingScreen = () => {
                 horizontal
                 showsVerticalScrollIndicator={false}
                 data={slides}
-                renderItem={({ item }: { item: SlideProps }) => (
-                    <Slide item={item} />
-                )}
+                renderItem={({ item }: { item: SlideProps }) => <Slide item={item} />}
                 keyExtractor={(item) => item.id}
                 pagingEnabled
             />

@@ -33,11 +33,7 @@ const Modal = ({ children, onPress, title }: ModalType) => {
                     }}
                 >
                     <Pressable onPress={() => router.back()}>
-                        <FontAwesome
-                            name="times-circle"
-                            size={40}
-                            color={Colors.light.iconAlert}
-                        />
+                        <FontAwesome name="times-circle" size={40} color={Colors.light.iconAlert} />
                     </Pressable>
                     <Text
                         style={{
@@ -53,11 +49,7 @@ const Modal = ({ children, onPress, title }: ModalType) => {
                             onPress();
                         }}
                     >
-                        <FontAwesome
-                            name="check-circle"
-                            size={40}
-                            color={Colors.light.icon}
-                        />
+                        <FontAwesome name="check-circle" size={40} color={Colors.light.icon} />
                     </Pressable>
                 </View>
                 {children}

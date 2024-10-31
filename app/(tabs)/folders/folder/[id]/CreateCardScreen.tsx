@@ -1,11 +1,4 @@
-import {
-    View,
-    Text,
-    Pressable,
-    TouchableOpacity,
-    StyleSheet,
-    Image,
-} from "react-native";
+import { View, Text, Pressable, TouchableOpacity, StyleSheet, Image } from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
 import React, { useState } from "react";
 import * as ImagePicker from "expo-image-picker";
@@ -78,11 +71,7 @@ const CreateCardScreen = () => {
             )}
             <>
                 <Label>Recto de la carte</Label>
-                <Input
-                    placeholder="France"
-                    onChangeText={(text) => setTitle(text)}
-                    value={title}
-                />
+                <Input placeholder="France" onChangeText={(text) => setTitle(text)} value={title} />
             </>
             <View style={{ marginTop: 20 }}>
                 <Label>Verso de la carte</Label>
@@ -95,10 +84,7 @@ const CreateCardScreen = () => {
             {image ? (
                 <View style={{ alignItems: "center", marginTop: 40 }}>
                     <View>
-                        <Image
-                            source={{ uri: image }}
-                            style={{ width: 300, height: 300 }}
-                        />
+                        <Image source={{ uri: image }} style={{ width: 300, height: 300 }} />
                         <Pressable
                             style={{
                                 position: "absolute",
@@ -108,11 +94,7 @@ const CreateCardScreen = () => {
                             }}
                             onPress={() => setImage("")}
                         >
-                            <Ionicons
-                                name="close-circle"
-                                size={30}
-                                color="white"
-                            />
+                            <Ionicons name="close-circle" size={30} color="white" />
                         </Pressable>
                     </View>
                 </View>

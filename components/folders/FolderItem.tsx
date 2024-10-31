@@ -30,9 +30,7 @@ const FolderItem = ({ item, onDelete }: FolderItemProps) => {
 
     const deleteFolder = async () => {
         try {
-            const response = await axios.delete(
-                `${API_URL}/folders/${item.id}`,
-            );
+            const response = await axios.delete(`${API_URL}/folders/${item.id}`);
             if (response.data.success) {
                 alert("suppression du dossier");
                 onDelete(item.id);
@@ -93,10 +91,7 @@ const FolderItem = ({ item, onDelete }: FolderItemProps) => {
                 </Pressable>
             </Pressable>
 
-            <CustomBottomSheetModal
-                ref={bottomSheetRef}
-                actions={actionsBottomModal}
-            />
+            <CustomBottomSheetModal ref={bottomSheetRef} actions={actionsBottomModal} />
         </>
     );
 };

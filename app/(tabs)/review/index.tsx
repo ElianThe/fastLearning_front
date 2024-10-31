@@ -23,12 +23,9 @@ const ReviewFlashCardScreen = () => {
             const fetchCards = async () => {
                 try {
                     setLoading(true);
-                    const response = await axios.get(
-                        `${API_URL}/cards-to-review`,
-                        {
-                            signal: controller.signal,
-                        },
-                    );
+                    const response = await axios.get(`${API_URL}/cards-to-review`, {
+                        signal: controller.signal,
+                    });
                     if (response.data.success) {
                         setCards(response.data.data);
                     } else {
@@ -48,21 +45,13 @@ const ReviewFlashCardScreen = () => {
     );
 
     if (loading) {
-        return (
-            <ActivityIndicator
-                size="large"
-                color={Colors.light.activityIndicator}
-            />
-        );
+        return <ActivityIndicator size="large" color={Colors.light.activityIndicator} />;
     }
 
     return (
         <View style={{ flex: 1 }}>
             {cards.length > 0 ? (
-                <ReviewDeck
-                    cards={cards}
-                    handleNoMoreCard={() => setCards([])}
-                />
+                <ReviewDeck cards={cards} handleNoMoreCard={() => setCards([])} />
             ) : (
                 <View
                     style={{
@@ -71,9 +60,7 @@ const ReviewFlashCardScreen = () => {
                         alignItems: "center",
                     }}
                 >
-                    <Text style={{ fontSize: 20 }}>
-                        Pas de carte à réviser !
-                    </Text>
+                    <Text style={{ fontSize: 20 }}>Pas de carte à réviser !</Text>
                 </View>
             )}
         </View>

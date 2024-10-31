@@ -18,11 +18,7 @@ const TabsLayout = () => {
                 options={{
                     headerShown: false,
                     tabBarIcon: ({ color }) => (
-                        <FontAwesome5
-                            size={24}
-                            name="graduation-cap"
-                            color={color}
-                        />
+                        <FontAwesome5 size={24} name="graduation-cap" color={color} />
                     ),
                     tabBarLabel: "Apprendre",
                 }}
@@ -41,9 +37,7 @@ const TabsLayout = () => {
                 name="folders"
                 options={{
                     headerShown: false,
-                    tabBarIcon: ({ color }) => (
-                        <FontAwesome5 size={24} name="book" color={color} />
-                    ),
+                    tabBarIcon: ({ color }) => <FontAwesome5 size={24} name="book" color={color} />,
                     tabBarLabel: "Librairie",
                 }}
             />
@@ -52,12 +46,7 @@ const TabsLayout = () => {
                 options={{
                     headerShown: false,
                     tabBarIcon: ({ color }) => (
-                        <FontAwesome5
-                            name="user-circle"
-                            size={24}
-                            color={color}
-                            solid
-                        />
+                        <FontAwesome5 name="user-circle" size={24} color={color} solid />
                     ),
                     tabBarLabel: "Profile",
                 }}

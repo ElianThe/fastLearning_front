@@ -7,11 +7,7 @@ import { API_URL, TOKEN_KEY } from "@env";
 // Interface définissant les propriétés du contexte d'authentification
 interface AuthProps {
     authState?: { token: string | null; authenticated: boolean | null }; //Etat de l'authentification
-    onRegister?: (
-        email: string,
-        password: string,
-        username: string,
-    ) => Promise<any>; // Fonction d'inscription
+    onRegister?: (email: string, password: string, username: string) => Promise<any>; // Fonction d'inscription
     onLogin?: (email: string, password: string) => Promise<any>; //Fonction de connexion
     onLogout?: () => Promise<any>; // Fonction de déconnexion
 }
@@ -42,8 +38,7 @@ export const AuthProvider = ({ children }: any) => {
 
             if (token) {
                 // Configure les en-têtes par défaut pour les requêtes HTTP avec le jeton d'authentification
-                axios.defaults.headers.common["Authorization"] =
-                    `Bearer ${token}`;
+                axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
                 // met à jour l'état d'auth si le jeton est présent
                 setAuthState({
                     token,
@@ -56,11 +51,7 @@ export const AuthProvider = ({ children }: any) => {
     }, []); // Dépendance vide pour s'exécuter une seule fois
 
     // Fonction pour enregistrer un nouvel utilisateur
-    const register = async (
-        email: string,
-        password: string,
-        username: string,
-    ) => {
+    const register = async (email: string, password: string, username: string) => {
         try {
             return await axios.post(`${API_URL}/register`, {
                 email,
@@ -116,7 +107,5 @@ export const AuthProvider = ({ children }: any) => {
         authState,
     };
     // Retourne le fournisseur de contexte avec les enfants
-    return (
-        <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
-    );
+    return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

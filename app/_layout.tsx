@@ -20,9 +20,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 const RootLayout = () => {
     const { authState } = useAuth();
-    const [isAppFirstLaunched, setIsAppFirstLaunched] = useState<
-        boolean | null
-    >(null);
+    const [isAppFirstLaunched, setIsAppFirstLaunched] = useState<boolean | null>(null);
     const router = useRouter();
 
     const checkFirstLaunch = async () => {

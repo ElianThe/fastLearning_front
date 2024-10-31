@@ -10,13 +10,7 @@ interface CardProps {
     randomColor: string;
 }
 
-const FlashCard = ({
-    rotateAnim,
-    title,
-    description,
-    image,
-    randomColor,
-}: CardProps) => {
+const FlashCard = ({ rotateAnim, title, description, image, randomColor }: CardProps) => {
     const rotateFront = rotateAnim.interpolate({
         inputRange: [0, 180],
         outputRange: ["0deg", "180deg"],
@@ -34,9 +28,7 @@ const FlashCard = ({
                 borderRadius: 20,
             }}
         >
-            <Animated.View
-                style={[styles.card, { transform: [{ rotateY: rotateFront }] }]}
-            >
+            <Animated.View style={[styles.card, { transform: [{ rotateY: rotateFront }] }]}>
                 <LinearGradient
                     colors={[randomColor, "#FFFFFF"]}
                     style={{
@@ -49,9 +41,7 @@ const FlashCard = ({
                     <Image style={styles.image} source={{ uri: image }} />
                 </LinearGradient>
             </Animated.View>
-            <Animated.View
-                style={[styles.card, { transform: [{ rotateY: rotateBack }] }]}
-            >
+            <Animated.View style={[styles.card, { transform: [{ rotateY: rotateBack }] }]}>
                 <LinearGradient
                     colors={[randomColor, "#FFFFFF"]}
                     style={{

@@ -19,13 +19,7 @@ type ActionsType = {
     callback: () => void;
 };
 
-const CardItem = ({
-    item,
-    onDelete,
-}: {
-    item: Card;
-    onDelete: (cardId: number) => void;
-}) => {
+const CardItem = ({ item, onDelete }: { item: Card; onDelete: (cardId: number) => void }) => {
     const bottomSheetRef = useRef<BottomSheetModal>(null);
 
     const handleClose = () => {
@@ -71,10 +65,7 @@ const CardItem = ({
                     <Feather name="more-horizontal" size={24} color="black" />
                 </Pressable>
             </Pressable>
-            <CustomBottomSheetModal
-                ref={bottomSheetRef}
-                actions={actionsBottomModal}
-            />
+            <CustomBottomSheetModal ref={bottomSheetRef} actions={actionsBottomModal} />
         </>
     );
 };
