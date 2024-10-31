@@ -1,4 +1,4 @@
-import {Alert, Text, TouchableOpacity, View} from "react-native";
+import {Text, TouchableOpacity, View} from "react-native";
 import {useAuth} from "@/context/AuthContext";
 
 const ProfileScreen = () => {

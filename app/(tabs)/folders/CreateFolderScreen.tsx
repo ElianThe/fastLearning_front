@@ -1,10 +1,9 @@
 import React, {useState} from "react";
-import {View, Text, TextInput, StyleSheet, TouchableWithoutFeedback, Keyboard, Pressable} from "react-native";
+import { Text} from "react-native";
 import Label from "@/components/UI/Label";
 import axios from "axios";
 import {API_URL} from "@env";
 import {router} from "expo-router";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
 import Input from "@/components/UI/Input";
 import Modal from "@/components/UI/Modal";
 import ErrorView from "@/components/feedBack/ErrorView";

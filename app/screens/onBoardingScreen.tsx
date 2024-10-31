@@ -2,7 +2,6 @@ import {
     Dimensions,
     FlatList,
     SafeAreaView,
-    StatusBar,
     Image,
     View,
     ImageSourcePropType,
@@ -120,7 +119,7 @@ const OnBoardingScreen = () => {
 
     const goNextSlide = () => {
         const nextSlideIndex = currentSlideIndex + 1;
-        if (nextSlideIndex != slides.length) {
+        if (nextSlideIndex !== slides.length) {
             const offset = nextSlideIndex * width;
             ref?.current?.scrollToOffset({offset});
             setCurrentSlideIndex(currentSlideIndex + 1);

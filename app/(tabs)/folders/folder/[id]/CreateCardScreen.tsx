@@ -1,12 +1,10 @@
 import {
     View,
     Text,
-    TextInput,
     Pressable,
     TouchableOpacity,
     StyleSheet,
     Image,
-    TouchableWithoutFeedback, Keyboard
 } from "react-native";
 import {router, useLocalSearchParams} from "expo-router";
 import React, {useState} from "react";
@@ -14,7 +12,6 @@ import * as ImagePicker from 'expo-image-picker';
 import axios from "axios";
 import {API_URL} from "@env";
 import {Ionicons} from "@expo/vector-icons";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
 import Input from "@/components/UI/Input";
 import Label from "@/components/UI/Label";
 import Modal from "@/components/UI/Modal";

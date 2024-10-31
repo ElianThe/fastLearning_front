@@ -7,7 +7,6 @@ import Input from "@/components/UI/Input";
 import Label from "@/components/UI/Label";
 import ErrorView from "@/components/feedBack/ErrorView";
 import {Text} from "react-native";
-import errorView from "@/components/feedBack/ErrorView";
 
 const FolderEditScreen = () => {
     const {id} = useLocalSearchParams();

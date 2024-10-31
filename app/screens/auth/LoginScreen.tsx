@@ -38,6 +38,7 @@ const LoginScreen = () => {
         try {
             await onLogin!(email, password);
         } catch (err: any) {
+            console.error(err.response.data.message);
             setError("L'email ou le mot de passe est incorrect. Veuillez réessayer.");
         }
     }

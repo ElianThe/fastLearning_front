@@ -19,7 +19,6 @@ import {router} from "expo-router";
 import Input from "@/components/UI/Input";
 import AuthButton from "@/components/auth/AuthButton";
 import Label from "@/components/UI/Label";
-import {set} from "yaml/dist/schema/yaml-1.1/set";
 
 const USER_REGEX = /^[a-zA-Z0-9._-]{3,20}$/;
 const EMAIL_REGEX = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;

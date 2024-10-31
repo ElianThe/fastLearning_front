@@ -1,4 +1,4 @@
-import {View, Text, ActivityIndicator, FlatList, StyleSheet, Button, Pressable, RefreshControl} from "react-native";
+import {View, Text, ActivityIndicator, FlatList, StyleSheet, Pressable} from "react-native";
 import React, {useCallback, useState} from "react";
 import {API_URL} from "@env";
 import axios from "axios";

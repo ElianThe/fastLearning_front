@@ -1,8 +1,6 @@
 import {AuthProvider, useAuth} from "@/context/AuthContext";
 import React, {useEffect, useState} from 'react';
 import {Slot, useRouter} from "expo-router";
-import {useFonts} from "expo-font";
-import * as SplashScreen from 'expo-splash-screen';
 import {ActivityIndicator} from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {BottomSheetModalProvider} from "@gorhom/bottom-sheet";

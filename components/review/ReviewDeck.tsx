@@ -4,21 +4,17 @@ import FlipCardButton from "@/components/review/FlipCardButton";
 import RatingCardButtons from "@/components/review/RatingCardButtons";
 import FlashCard from "@/components/review/FlashCard";
 import {colorsCardRandom} from "@/constants/Colors";
+import {FlashCardType} from "@/app/(tabs)/review";
 
 const getRandomColor = () => {
     const randomIndex = Math.floor(Math.random() * colorsCardRandom.length);
     return colorsCardRandom[randomIndex];
 };
 
-type FlashCard = {
-    id: number;
-    title: string;
-    content: string;
-    image_url: string;
-}
+
 
 type ReviewDeskProps = {
-    cards: FlashCard[];
+    cards: FlashCardType[];
     handleNoMoreCard: () => void;
 };
 

@@ -1,5 +1,5 @@
 import React, {PropsWithChildren} from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {Text, StyleSheet} from 'react-native';
 import {Colors} from "@/constants/Colors";
 
 type LabelProps = PropsWithChildren<{}>;

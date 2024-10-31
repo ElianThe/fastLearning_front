@@ -37,4 +37,5 @@ const Input = forwardRef<TextInput, InputProps>(({onChangeText, value, onPress, 
     />
 });
 
+Input.displayName = "Input";
 export default Input

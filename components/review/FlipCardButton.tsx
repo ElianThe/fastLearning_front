@@ -1,4 +1,4 @@
-import {TouchableOpacity, StyleSheet, Text, View} from "react-native";
+import {TouchableOpacity, StyleSheet, Text} from "react-native";
 
 interface onPressProps {
     onPress: () => void;

@@ -5,15 +5,16 @@ const useFocusInputWithTime = (time= 1000) => {
     const aRef = useRef<TextInput>(null);
 
     useEffect(() => {
+        const currentRef = aRef.current;
         const timer = setTimeout(() => {
-            if (aRef.current) {
-                aRef.current.focus();
+            if (currentRef) {
+                currentRef.focus();
             }
         }, time);
 
         return () => {
             clearTimeout(timer);
-            aRef.current?.blur();
+            currentRef?.blur();
         };
     }, []);
 

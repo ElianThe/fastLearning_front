@@ -1,13 +1,12 @@
 import {ActivityIndicator, Text, View} from "react-native";
 import React, {useCallback, useState} from "react";
-import FlashCard from "@/components/review/FlashCard";
 import {API_URL} from "@env";
 import axios from "axios";
 import ReviewDeck from "@/components/review/ReviewDeck";
 import {useFocusEffect} from "expo-router";
 import {Colors} from "@/constants/Colors";
 
-type FlashCard = {
+export type FlashCardType = {
     id: number;
     title: string;
     content: string;
@@ -15,7 +14,7 @@ type FlashCard = {
 }
 
 const ReviewFlashCardScreen = () => {
-    const [cards, setCards] = useState<FlashCard[]>([]);
+    const [cards, setCards] = useState<FlashCardType[]>([]);
     const [loading, setLoading] = useState(false);
 
 

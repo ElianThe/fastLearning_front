@@ -11,6 +11,7 @@ type ActionsType = {
 type CustomBottomSheetModalProps = {
     actions: ActionsType[];
 };
+
 const CustomBottomSheetModal = forwardRef<BottomSheetModal, CustomBottomSheetModalProps>(({actions}, ref) => {
     const renderBackdrop = useCallback((props : any) => <BottomSheetBackdrop
             appearsOnIndex={0} disappearsOnIndex={-1} {...props} />,
@@ -45,6 +46,8 @@ const ActionBottomSheet = ({title, callback} : ActionsType) => {
         </TouchableOpacity>
     </View>
 }
+
+CustomBottomSheetModal.displayName = "CustomBottomSheetModal";
 export default CustomBottomSheetModal;
 
 const styles = StyleSheet.create({
