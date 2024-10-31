@@ -1,24 +1,24 @@
-import {Stack} from "expo-router";
+import { Stack } from "expo-router";
 
 const LearnStackLayout = () => {
     return (
         <Stack>
             <Stack.Screen
-                name='index'
+                name="index"
                 options={{
-                    headerTitle: 'Apprendre',
-                    headerTitleAlign: 'center'
+                    headerTitle: "Apprendre",
+                    headerTitleAlign: "center",
                 }}
             />
             <Stack.Screen
-                name='cardLearning/index'
+                name="cardLearning/index"
                 options={{
-                    headerTitle: 'Apprendre',
-                    headerTitleAlign: 'center'
+                    headerTitle: "Apprendre",
+                    headerTitleAlign: "center",
                 }}
             />
         </Stack>
     );
-}
+};
 
 export default LearnStackLayout;

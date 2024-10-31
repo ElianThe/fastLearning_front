@@ -1,9 +1,9 @@
 import ReviewDeck from "@/components/review/ReviewDeck";
-import {router, useLocalSearchParams} from "expo-router";
-import {useEffect, useState} from "react";
+import { router, useLocalSearchParams } from "expo-router";
+import { useEffect, useState } from "react";
 
 const AutoEvaluationCardsScreen = () => {
-    const {cards} = useLocalSearchParams<{ cards: string }>();
+    const { cards } = useLocalSearchParams<{ cards: string }>();
     const parsedCards = cards ? JSON.parse(cards) : [];
 
     const [cardsToLearn, setCardsToLearn] = useState(parsedCards);
@@ -19,8 +19,11 @@ const AutoEvaluationCardsScreen = () => {
     }
 
     return (
-        <ReviewDeck cards={cardsToLearn} handleNoMoreCard={() => setCardsToLearn([])} />
+        <ReviewDeck
+            cards={cardsToLearn}
+            handleNoMoreCard={() => setCardsToLearn([])}
+        />
     );
-}
+};
 
 export default AutoEvaluationCardsScreen;

@@ -1,7 +1,9 @@
 // https://docs.expo.dev/guides/using-eslint/
 module.exports = {
-  extends: 'expo',
+    extends: ["expo", "prettier"],
+    plugins: ["prettier"],
     rules: {
-        'import/no-unresolved': 'off', // Pour éviter les erreurs sur les imports non résolus comme `@env`
-    }
+        "prettier/prettier": ["warn"],
+        "import/no-unresolved": "off", // Pour éviter les erreurs sur les imports non résolus comme `@env`
+    },
 };

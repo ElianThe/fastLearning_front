@@ -1,4 +1,4 @@
-import {Stack} from "expo-router";
+import { Stack } from "expo-router";
 
 const FoldersStackLayout = () => {
     return (
@@ -6,15 +6,15 @@ const FoldersStackLayout = () => {
             <Stack.Screen
                 name="index"
                 options={{
-                    headerTitle: 'Librairie',
-                    headerTitleAlign: 'center',
+                    headerTitle: "Librairie",
+                    headerTitleAlign: "center",
                 }}
             />
-             <Stack.Screen
+            <Stack.Screen
                 name="FolderEditScreen"
                 options={{
                     headerShown: false,
-                    presentation: "modal"
+                    presentation: "modal",
                 }}
             />
             <Stack.Screen
@@ -27,7 +27,7 @@ const FoldersStackLayout = () => {
             <Stack.Screen
                 name="folder/[id]/index"
                 options={{
-                    headerTitleAlign: 'center',
+                    headerTitleAlign: "center",
                 }}
             />
             <Stack.Screen
@@ -39,6 +39,6 @@ const FoldersStackLayout = () => {
             />
         </Stack>
     );
-}
+};
 
 export default FoldersStackLayout;

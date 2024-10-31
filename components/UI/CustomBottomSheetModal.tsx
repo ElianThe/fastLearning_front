@@ -1,21 +1,35 @@
-import {BottomSheetBackdrop, BottomSheetFlatList, BottomSheetModal} from "@gorhom/bottom-sheet";
-import {View, StyleSheet, TouchableOpacity, Text} from "react-native";
-import {forwardRef, useCallback} from "react";
+import {
+    BottomSheetBackdrop,
+    BottomSheetFlatList,
+    BottomSheetModal,
+} from "@gorhom/bottom-sheet";
+import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
+import { forwardRef, useCallback } from "react";
 
 type ActionsType = {
     key?: string;
     title: string;
     callback: () => void;
-}
+};
 
 type CustomBottomSheetModalProps = {
     actions: ActionsType[];
 };
 
-const CustomBottomSheetModal = forwardRef<BottomSheetModal, CustomBottomSheetModalProps>(({actions}, ref) => {
-    const renderBackdrop = useCallback((props : any) => <BottomSheetBackdrop
-            appearsOnIndex={0} disappearsOnIndex={-1} {...props} />,
-        []);
+const CustomBottomSheetModal = forwardRef<
+    BottomSheetModal,
+    CustomBottomSheetModalProps
+>(({ actions }, ref) => {
+    const renderBackdrop = useCallback(
+        (props: any) => (
+            <BottomSheetBackdrop
+                appearsOnIndex={0}
+                disappearsOnIndex={-1}
+                {...props}
+            />
+        ),
+        [],
+    );
 
     return (
         <BottomSheetModal
@@ -29,23 +43,27 @@ const CustomBottomSheetModal = forwardRef<BottomSheetModal, CustomBottomSheetMod
             <View style={{ flex: 1 }}>
                 <BottomSheetFlatList
                     data={actions}
-                    renderItem={({item}: { item : ActionsType }) => <ActionBottomSheet title={item.title} callback={item.callback} />}
+                    renderItem={({ item }: { item: ActionsType }) => (
+                        <ActionBottomSheet
+                            title={item.title}
+                            callback={item.callback}
+                        />
+                    )}
                 />
             </View>
         </BottomSheetModal>
     );
 });
 
-const ActionBottomSheet = ({title, callback} : ActionsType) => {
-
-    return <View style={{ backgroundColor: "#DDDDDD" }}>
-        <TouchableOpacity onPress={callback} style={styles.containerAction}>
-            <Text>
-                {title}
-            </Text>
-        </TouchableOpacity>
-    </View>
-}
+const ActionBottomSheet = ({ title, callback }: ActionsType) => {
+    return (
+        <View style={{ backgroundColor: "#DDDDDD" }}>
+            <TouchableOpacity onPress={callback} style={styles.containerAction}>
+                <Text>{title}</Text>
+            </TouchableOpacity>
+        </View>
+    );
+};
 
 CustomBottomSheetModal.displayName = "CustomBottomSheetModal";
 export default CustomBottomSheetModal;
@@ -57,6 +75,6 @@ const styles = StyleSheet.create({
         alignItems: "center",
         backgroundColor: "white",
         borderTopWidth: 1,
-        borderTopColor: '#ccc'
-    }
+        borderTopColor: "#ccc",
+    },
 });

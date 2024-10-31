@@ -1,5 +1,5 @@
-import {Text, TouchableOpacity, StyleSheet} from "react-native";
-import React, {PropsWithChildren} from "react";
+import { Text, TouchableOpacity, StyleSheet } from "react-native";
+import React, { PropsWithChildren } from "react";
 
 type AuthButtonType = PropsWithChildren<{
     isButtonEnabled: boolean;
@@ -7,34 +7,45 @@ type AuthButtonType = PropsWithChildren<{
     styleText?: {};
 }>;
 
-const AuthButton = ({isButtonEnabled, onPress, children, styleText}: AuthButtonType) => {
+const AuthButton = ({
+    isButtonEnabled,
+    onPress,
+    children,
+    styleText,
+}: AuthButtonType) => {
     return (
         <TouchableOpacity
             disabled={!isButtonEnabled}
-            style={isButtonEnabled ? styles.buttonAuthEnabled : styles.buttonAuthDisabled}
+            style={
+                isButtonEnabled
+                    ? styles.buttonAuthEnabled
+                    : styles.buttonAuthDisabled
+            }
             onPress={onPress}
         >
-            <Text style={[styles.textLogin, styleText && styleText]}>{children}</Text>
+            <Text style={[styles.textLogin, styleText && styleText]}>
+                {children}
+            </Text>
         </TouchableOpacity>
     );
-}
-export default AuthButton
+};
+export default AuthButton;
 
 const styles = StyleSheet.create({
     buttonAuthEnabled: {
-        backgroundColor: '#003049',
+        backgroundColor: "#003049",
         padding: 15,
-        borderRadius: 5
+        borderRadius: 5,
     },
 
     buttonAuthDisabled: {
-        backgroundColor: 'gray',
+        backgroundColor: "gray",
         padding: 15,
-        borderRadius: 5
+        borderRadius: 5,
     },
 
     textLogin: {
-        textAlign: 'center',
-        color: 'white',
-    }
+        textAlign: "center",
+        color: "white",
+    },
 });

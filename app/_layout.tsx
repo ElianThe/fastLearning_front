@@ -1,10 +1,10 @@
-import {AuthProvider, useAuth} from "@/context/AuthContext";
-import React, {useEffect, useState} from 'react';
-import {Slot, useRouter} from "expo-router";
-import {ActivityIndicator} from "react-native";
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import {BottomSheetModalProvider} from "@gorhom/bottom-sheet";
-import {GestureHandlerRootView} from "react-native-gesture-handler";
+import { AuthProvider, useAuth } from "@/context/AuthContext";
+import React, { useEffect, useState } from "react";
+import { Slot, useRouter } from "expo-router";
+import { ActivityIndicator } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 /*
      const clearAsyncStorage = async () => {
@@ -19,15 +19,17 @@ import {GestureHandlerRootView} from "react-native-gesture-handler";
 */
 
 const RootLayout = () => {
-    const {authState} = useAuth();
-    const [isAppFirstLaunched, setIsAppFirstLaunched] = useState<boolean | null>(null);
+    const { authState } = useAuth();
+    const [isAppFirstLaunched, setIsAppFirstLaunched] = useState<
+        boolean | null
+    >(null);
     const router = useRouter();
 
     const checkFirstLaunch = async () => {
-        const appData = await AsyncStorage.getItem('isAppFirstLaunched');
+        const appData = await AsyncStorage.getItem("isAppFirstLaunched");
         if (appData === null) {
             setIsAppFirstLaunched(true);
-            AsyncStorage.setItem('isAppFirstLaunched', 'false');
+            AsyncStorage.setItem("isAppFirstLaunched", "false");
         } else {
             setIsAppFirstLaunched(false);
         }
@@ -40,26 +42,32 @@ const RootLayout = () => {
             }
 
             if (isAppFirstLaunched) {
-                router.replace('/screens/onBoardingScreen');
+                router.replace("/screens/onBoardingScreen");
             } else if (authState?.authenticated) {
-                router.replace('/learn');
+                router.replace("/learn");
             } else {
-                router.replace('/screens/auth/HomeAuthScreen');
+                router.replace("/screens/auth/HomeAuthScreen");
             }
         };
 
         checkFirstLaunch().then(handleNavigation);
-
     }, [authState, isAppFirstLaunched]);
 
     if (isAppFirstLaunched === null) {
-        return <ActivityIndicator size="large" color="#0000ff"
-                                  style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}/>;
+        return (
+            <ActivityIndicator
+                size="large"
+                color="#0000ff"
+                style={{
+                    flex: 1,
+                    justifyContent: "center",
+                    alignItems: "center",
+                }}
+            />
+        );
     }
 
-    return (
-        <Slot/>
-    );
+    return <Slot />;
 };
 
 const App = () => {
@@ -67,12 +75,12 @@ const App = () => {
         <GestureHandlerRootView>
             <BottomSheetModalProvider>
                 <AuthProvider>
-                    <RootLayout/>
+                    <RootLayout />
                 </AuthProvider>
             </BottomSheetModalProvider>
         </GestureHandlerRootView>
     );
-}
+};
 
 export default App;
 

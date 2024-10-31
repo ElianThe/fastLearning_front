@@ -1,31 +1,31 @@
-import {TouchableOpacity, StyleSheet, Text} from "react-native";
+import { TouchableOpacity, StyleSheet, Text } from "react-native";
 
 interface onPressProps {
     onPress: () => void;
 }
 
-export default function FlipCardButton({onPress} : onPressProps) {
+export default function FlipCardButton({ onPress }: onPressProps) {
     return (
         <>
             <TouchableOpacity
                 style={styles.button}
-                onPress={() => {onPress();}}
+                onPress={() => {
+                    onPress();
+                }}
             >
-                <Text style={styles.text}>
-                    Retourner la carte
-                </Text>
+                <Text style={styles.text}>Retourner la carte</Text>
             </TouchableOpacity>
         </>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
     button: {
         marginTop: 10,
         padding: 15,
-        backgroundColor: '#003049',
+        backgroundColor: "#003049",
         borderRadius: 10,
-        alignItems: 'center',
+        alignItems: "center",
     },
     text: {
         fontSize: 16,

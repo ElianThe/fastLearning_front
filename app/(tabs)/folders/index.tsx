@@ -4,13 +4,13 @@ import {
     View,
     TouchableOpacity,
 } from "react-native";
-import React, {useCallback, useState} from "react";
-import {API_URL} from "@env";
+import React, { useCallback, useState } from "react";
+import { API_URL } from "@env";
 import axios from "axios";
-import {router, useFocusEffect} from "expo-router";
-import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import { router, useFocusEffect } from "expo-router";
+import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import FolderItem from "@/components/folders/FolderItem";
-import {Colors} from "@/constants/Colors";
+import { Colors } from "@/constants/Colors";
 
 type FolderProps = {
     id: number;
@@ -22,7 +22,9 @@ const FolderListScreen = () => {
     const [loading, setLoading] = useState(false);
 
     const handleDeleteFolder = (folderId: number) => {
-        const updatedFolders = folders.filter(folder => folder.id !== folderId);
+        const updatedFolders = folders.filter(
+            (folder) => folder.id !== folderId,
+        );
         setFolders(updatedFolders);
     };
 
@@ -32,9 +34,12 @@ const FolderListScreen = () => {
             const fetchFolderList = async () => {
                 try {
                     setLoading(true);
-                    const response = await axios.get(`${API_URL}/folders-of-user`, {
-                        signal: controller.signal
-                    });
+                    const response = await axios.get(
+                        `${API_URL}/folders-of-user`,
+                        {
+                            signal: controller.signal,
+                        },
+                    );
                     if (response.data.success) {
                         setFolders(response.data.data);
                     } else {
@@ -45,28 +50,40 @@ const FolderListScreen = () => {
                 } finally {
                     setLoading(false);
                 }
-            }
+            };
             fetchFolderList();
             return () => controller.abort();
-        }, [])
+        }, []),
     );
 
     if (loading) {
-        return <ActivityIndicator size="large" color={Colors.light.activityIndicator} style={{ alignItems: "center", flex: 1 }}/>
+        return (
+            <ActivityIndicator
+                size="large"
+                color={Colors.light.activityIndicator}
+                style={{ alignItems: "center", flex: 1 }}
+            />
+        );
     }
 
     return (
-        <View style={{position: "relative", flex: 1}}>
+        <View style={{ position: "relative", flex: 1 }}>
             <FlatList
                 data={folders}
-                renderItem={({item}: { item: FolderProps }) => (
+                renderItem={({ item }: { item: FolderProps }) => (
                     <FolderItem item={item} onDelete={handleDeleteFolder} />
                 )}
-                keyExtractor={item => item.id.toString()}
+                keyExtractor={(item) => item.id.toString()}
             />
-            <TouchableOpacity onPress={(() => router.push('/folders/CreateFolderScreen'))}
-                              style={{position: "absolute", bottom: 30, right: 30}}>
-                <FontAwesome5 name="plus-circle" size={60} color={Colors.light.icon}/>
+            <TouchableOpacity
+                onPress={() => router.push("/folders/CreateFolderScreen")}
+                style={{ position: "absolute", bottom: 30, right: 30 }}
+            >
+                <FontAwesome5
+                    name="plus-circle"
+                    size={60}
+                    color={Colors.light.icon}
+                />
             </TouchableOpacity>
         </View>
     );

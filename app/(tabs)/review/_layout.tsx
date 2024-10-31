@@ -1,4 +1,4 @@
-import {Stack} from "expo-router";
+import { Stack } from "expo-router";
 
 const ReviewStackLayout = () => {
     return (
@@ -6,12 +6,12 @@ const ReviewStackLayout = () => {
             <Stack.Screen
                 name="index"
                 options={{
-                    headerTitle: 'Réviser',
-                    headerTitleAlign: 'center',
+                    headerTitle: "Réviser",
+                    headerTitleAlign: "center",
                 }}
             />
         </Stack>
     );
-}
+};
 
 export default ReviewStackLayout;

@@ -1,7 +1,7 @@
-import {useEffect, useRef} from "react";
-import {TextInput} from "react-native";
+import { useEffect, useRef } from "react";
+import { TextInput } from "react-native";
 
-const useFocusInputWithTime = (time= 1000) => {
+const useFocusInputWithTime = (time = 1000) => {
     const aRef = useRef<TextInput>(null);
 
     useEffect(() => {
@@ -19,6 +19,6 @@ const useFocusInputWithTime = (time= 1000) => {
     }, []);
 
     return aRef;
-}
+};
 
 export default useFocusInputWithTime;

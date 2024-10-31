@@ -1,18 +1,18 @@
 // fichier de configuration pour compiler les fichiers TypeScript en JavaScript
 {
-  "extends": "expo/tsconfig.base", //hérite de la configuration de base d'Expo
-  "compilerOptions": {
-    "strict": true, // impose des règles de typage strictes
-    "paths": { // permet de définir des alias pour les chemins d'accès pour simplifier l'import de fichiers
-      "@/*": [
-        "./*"
-      ]
-    }
-  },
-  "include": [ // indique les fichiers à inclure dans la compilation
-    "**/*.ts",
-    "**/*.tsx"
-  ]
+    "extends": "expo/tsconfig.base", //hérite de la configuration de base d'Expo
+    "compilerOptions": {
+        "strict": true, // impose des règles de typage strictes
+        "paths": {
+            // permet de définir des alias pour les chemins d'accès pour simplifier l'import de fichiers
+            "@/*": ["./*"]
+        }
+    },
+    "include": [
+        // indique les fichiers à inclure dans la compilation
+        "**/*.ts",
+        "**/*.tsx"
+    ]
 }
 
 // Les étapes de processus de compilation sont les suivantes :
