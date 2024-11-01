@@ -27,31 +27,31 @@ type SlideProps = {
 const slides: SlideProps[] = [
     {
         id: "1",
-        image: require("@/assets/images/onBoarding/AddFolder.jpg"),
-        title: "Créer une box",
-        subtitle: "La première chose à faire c'est créer une box",
+        image: require("@/assets/images/onBoarding/addFolder.png"),
+        title: "Créer un dossier",
+        subtitle: "La première chose à faire c'est créer un dossier.",
     },
     {
         id: "2",
-        image: require("@/assets/images/onBoarding/addCard.jpg"),
+        image: require("@/assets/images/onBoarding/newCard.png"),
         title: "Créer une carte",
         subtitle:
-            "Puis, vous pouvez créer une carte qui contient les informations dont tu as besoin.",
+            "Puis, créer une carte qui contient les informations dont tu as besoin.",
     },
     {
         id: "3",
-        image: require("@/assets/images/onBoarding/apprendre.jpg"),
+        image: require("@/assets/images/onBoarding/review.png"),
         title: "Révision des cartes",
         subtitle:
-            "Toutes les cartes commence au niveau 0. Ton but est de te connecter à l'application tous les jours et de réviser les cartes.",
+            "Ton but est de te connecter à l'application tous les jours et de réviser les cartes.",
     },
-    {
+    /*{
         id: "4",
         image: require("@/assets/images/onBoarding/reviser.jpg"),
         title: "Déplacement des cartes",
         subtitle:
             "Si tu choisis la bonne réponse, la carte passe au niveau suivant. Dans le cas contraire, la carte baisse d'un niveau",
-    },
+    },*/
 ];
 
 const Slide = ({ item }: { item: SlideProps }) => {

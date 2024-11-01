@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="801311f0-97b6-427e-8a4a-5aa4295ac0cc" name="Changes" comment="modification des icons et du texte">
+    <list default="true" id="801311f0-97b6-427e-8a4a-5aa4295ac0cc" name="Changes" comment="modification des &quot;interfaces&quot; en type">
+      <change afterPath="$PROJECT_DIR$/assets/images/onBoarding/addFolder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/onBoarding/newCard.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/onBoarding/review.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/folders/folder/[id]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/folders/folder/[id]/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/UI/Modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/UI/Modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/review/FlashCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/review/FlashCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/screens/onBoardingScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/onBoardingScreen.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,11 +49,11 @@
       <recent name="C:\Users\elian.guiffault\Desktop\perso\fastLearning_front\app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\elian\Bureau\fastLearning_front\assets\images\onBoarding" />
       <recent name="C:\Users\elian\Bureau\fastLearning_front" />
       <recent name="C:\Users\elian\Bureau\fastLearning_front\app\(tabs)\folders\folder" />
       <recent name="C:\Users\elian\Bureau\fastLearning_front\components\review" />
       <recent name="C:\Users\elian\Bureau\fastLearning_front\components\FeedBack" />
-      <recent name="C:\Users\elian\Bureau\fastLearning_front\components\UI" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -278,7 +280,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730451518568</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="text carte centré">
+      <option name="closed" value="true" />
+      <created>1730452292243</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1730452292243</updated>
+    </task>
+    <task id="LOCAL-00025" summary="modification des &quot;interfaces&quot; en type">
+      <option name="closed" value="true" />
+      <created>1730452595666</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1730452595666</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,6 +325,8 @@
     <MESSAGE value="typeScript" />
     <MESSAGE value="ajout de prettierrc" />
     <MESSAGE value="modification des icons et du texte" />
-    <option name="LAST_COMMIT_MESSAGE" value="modification des icons et du texte" />
+    <MESSAGE value="text carte centré" />
+    <MESSAGE value="modification des &quot;interfaces&quot; en type" />
+    <option name="LAST_COMMIT_MESSAGE" value="modification des &quot;interfaces&quot; en type" />
   </component>
 </project>
