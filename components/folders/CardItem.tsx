@@ -49,7 +49,7 @@ const CardItem = ({ item, onDelete }: { item: Card; onDelete: (cardId: number) =
         },
         {
             key: "2",
-            title: "close",
+            title: "Annuler",
             callback: handleClose,
         },
     ];

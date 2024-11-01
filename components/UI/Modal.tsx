@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { router } from "expo-router";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import AntDesign from '@expo/vector-icons/AntDesign';
 import { Colors } from "@/constants/Colors";
 
 type ModalType = PropsWithChildren<{
@@ -33,7 +34,7 @@ const Modal = ({ children, onPress, title }: ModalType) => {
                     }}
                 >
                     <Pressable onPress={() => router.back()}>
-                        <FontAwesome name="times-circle" size={40} color={Colors.light.iconAlert} />
+                        <AntDesign name="closecircle" size={40} color={Colors.light.iconAlert} />
                     </Pressable>
                     <Text
                         style={{
@@ -49,7 +50,7 @@ const Modal = ({ children, onPress, title }: ModalType) => {
                             onPress();
                         }}
                     >
-                        <FontAwesome name="check-circle" size={40} color={Colors.light.icon} />
+                        <AntDesign name="checkcircle" size={40} color={Colors.light.icon} />
                     </Pressable>
                 </View>
                 {children}

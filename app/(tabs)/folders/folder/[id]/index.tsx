@@ -6,6 +6,7 @@ import { API_URL } from "@env";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import CardItem from "@/components/folders/CardItem";
 import { Colors } from "@/constants/Colors";
+import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 
 interface Card {
     id: number;
@@ -69,7 +70,7 @@ const CardListScreen = () => {
                 }
                 style={{ position: "absolute", bottom: 30, right: 30 }}
             >
-                <FontAwesome5 name="plus-circle" size={60} color={Colors.light.icon} />
+                <FontAwesome6 name="circle-plus" size={50} color={Colors.light.icon} />
             </TouchableOpacity>
         </View>
     );

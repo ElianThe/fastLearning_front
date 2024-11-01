@@ -3,9 +3,9 @@ import React, { useCallback, useState } from "react";
 import { API_URL } from "@env";
 import axios from "axios";
 import { router, useFocusEffect } from "expo-router";
-import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import FolderItem from "@/components/folders/FolderItem";
 import { Colors } from "@/constants/Colors";
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 
 type FolderProps = {
     id: number;
@@ -69,7 +69,8 @@ const FolderListScreen = () => {
                 onPress={() => router.push("/folders/CreateFolderScreen")}
                 style={{ position: "absolute", bottom: 30, right: 30 }}
             >
-                <FontAwesome5 name="plus-circle" size={60} color={Colors.light.icon} />
+                <FontAwesome6 name="circle-plus" size={50} color={Colors.light.icon} />
+
             </TouchableOpacity>
         </View>
     );

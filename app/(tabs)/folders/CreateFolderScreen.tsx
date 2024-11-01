@@ -27,7 +27,7 @@ const CreateFolderScreen = () => {
         }
     };
     return (
-        <Modal onPress={createFolder} title={"Ajouter un nouveau dossier"}>
+        <Modal onPress={createFolder} title={"Nouveau dossier"}>
             {error !== null && (
                 <ErrorView>
                     <Text>{error}</Text>

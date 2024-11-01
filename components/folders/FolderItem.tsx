@@ -62,7 +62,7 @@ const FolderItem = ({ item, onDelete }: FolderItemProps) => {
         },
         {
             key: "2",
-            title: "Fermer",
+            title: "Annuler",
             callback: handleClose,
         },
     ];

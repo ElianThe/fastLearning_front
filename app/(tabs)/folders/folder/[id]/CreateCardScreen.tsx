@@ -63,7 +63,7 @@ const CreateCardScreen = () => {
     };
 
     return (
-        <Modal onPress={handleCreateCard} title={"Ajouter une nouvelle carte"}>
+        <Modal onPress={handleCreateCard} title={"Nouvelle carte"}>
             {error && (
                 <ErrorView>
                     <Text>{error}</Text>
