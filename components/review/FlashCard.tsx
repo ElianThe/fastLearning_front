@@ -29,7 +29,7 @@ const FlashCard = ({ rotateAnim, title, description, image }: CardProps) => {
         >
             <Animated.View style={[styles.card, { transform: [{ rotateY: rotateFront }] }]}>
                 <LinearGradient
-                    colors={['#136B8A', "#051C24"]}
+                    colors={["#136B8A", "#051C24"]}
                     style={[
                         {
                             borderRadius: 20,

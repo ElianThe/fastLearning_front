@@ -35,8 +35,7 @@ const slides: SlideProps[] = [
         id: "2",
         image: require("@/assets/images/onBoarding/newCard.png"),
         title: "Créer une carte",
-        subtitle:
-            "Puis, créer une carte qui contient les informations dont tu as besoin.",
+        subtitle: "Puis, créer une carte qui contient les informations dont tu as besoin.",
     },
     {
         id: "3",
