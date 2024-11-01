@@ -3,13 +3,7 @@ import { Animated, View } from "react-native";
 import FlipCardButton from "@/components/review/FlipCardButton";
 import RatingCardButtons from "@/components/review/RatingCardButtons";
 import FlashCard from "@/components/review/FlashCard";
-import { colorsCardRandom } from "@/constants/Colors";
 import { FlashCardType } from "@/app/(tabs)/review";
-
-const getRandomColor = () => {
-    const randomIndex = Math.floor(Math.random() * colorsCardRandom.length);
-    return colorsCardRandom[randomIndex];
-};
 
 type ReviewDeskProps = {
     cards: FlashCardType[];
@@ -20,7 +14,6 @@ const ReviewDeck = ({ cards, handleNoMoreCard }: ReviewDeskProps) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const rotateAnim = useState(new Animated.Value(0))[0];
     const [flipped, setFlipped] = useState(false);
-    const [backgroundColorCard, setBackgroundColorCard] = useState(getRandomColor());
 
     const flipCard = () => {
         Animated.timing(rotateAnim, {
@@ -38,7 +31,6 @@ const ReviewDeck = ({ cards, handleNoMoreCard }: ReviewDeskProps) => {
         } else {
             setCurrentIndex(nextIndex);
             setFlipped(false);
-            setBackgroundColorCard(getRandomColor());
             rotateAnim.setValue(0);
         }
     };
@@ -51,7 +43,6 @@ const ReviewDeck = ({ cards, handleNoMoreCard }: ReviewDeskProps) => {
                 title={currentCard.title}
                 image={currentCard.image_url}
                 description={currentCard.content}
-                randomColor={backgroundColorCard}
                 rotateAnim={rotateAnim}
             />
             {!flipped ? (

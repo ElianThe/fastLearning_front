@@ -7,10 +7,9 @@ type CardProps = {
     title: string;
     description: string;
     image: string;
-    randomColor: string;
 };
 
-const FlashCard = ({ rotateAnim, title, description, image, randomColor }: CardProps) => {
+const FlashCard = ({ rotateAnim, title, description, image }: CardProps) => {
     const rotateFront = rotateAnim.interpolate({
         inputRange: [0, 180],
         outputRange: ["0deg", "180deg"],
@@ -30,7 +29,7 @@ const FlashCard = ({ rotateAnim, title, description, image, randomColor }: CardP
         >
             <Animated.View style={[styles.card, { transform: [{ rotateY: rotateFront }] }]}>
                 <LinearGradient
-                    colors={[randomColor, "#FFFFFF"]}
+                    colors={['#136B8A', "#051C24"]}
                     style={[
                         {
                             borderRadius: 20,
@@ -48,7 +47,7 @@ const FlashCard = ({ rotateAnim, title, description, image, randomColor }: CardP
             </Animated.View>
             <Animated.View style={[styles.card, { transform: [{ rotateY: rotateBack }] }]}>
                 <LinearGradient
-                    colors={[randomColor, "#FFFFFF"]}
+                    colors={["#136B8A", "#051C24"]}
                     style={{
                         borderRadius: 20,
                         width: "100%",
@@ -85,6 +84,7 @@ const styles = StyleSheet.create({
         textAlign: "center",
         fontSize: 24,
         fontWeight: "bold",
+        color: "#FFFFFF",
     },
     image: {
         marginTop: 80,

@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="801311f0-97b6-427e-8a4a-5aa4295ac0cc" name="Changes" comment="modification des &quot;interfaces&quot; en type">
-      <change afterPath="$PROJECT_DIR$/assets/images/onBoarding/addFolder.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/onBoarding/newCard.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/onBoarding/review.png" afterDir="false" />
+    <list default="true" id="801311f0-97b6-427e-8a4a-5aa4295ac0cc" name="Changes" comment="modification du onBoardingScreen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/onBoardingScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/onBoardingScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/review/FlashCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/review/FlashCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/review/ReviewDeck.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/review/ReviewDeck.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -296,7 +293,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730452595666</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="modification du onBoardingScreen">
+      <option name="closed" value="true" />
+      <created>1730466341427</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1730466341427</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,6 +332,7 @@
     <MESSAGE value="modification des icons et du texte" />
     <MESSAGE value="text carte centré" />
     <MESSAGE value="modification des &quot;interfaces&quot; en type" />
-    <option name="LAST_COMMIT_MESSAGE" value="modification des &quot;interfaces&quot; en type" />
+    <MESSAGE value="modification du onBoardingScreen" />
+    <option name="LAST_COMMIT_MESSAGE" value="modification du onBoardingScreen" />
   </component>
 </project>
