@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="801311f0-97b6-427e-8a4a-5aa4295ac0cc" name="Changes" comment="modification de la couleur des cartes">
-      <change beforePath="$PROJECT_DIR$/components/review/FlashCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/review/FlashCard.tsx" afterDir="false" />
+    <list default="true" id="801311f0-97b6-427e-8a4a-5aa4295ac0cc" name="Changes" comment="prettier execute">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/readme/backCard.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/readme/folder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/readme/frontCard.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/readme/librairie.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,11 +50,11 @@
       <recent name="C:\Users\elian.guiffault\Desktop\perso\fastLearning_front\app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\elian\Bureau\fastLearning_front\assets\readme" />
       <recent name="C:\Users\elian\Bureau\fastLearning_front\assets\images\onBoarding" />
       <recent name="C:\Users\elian\Bureau\fastLearning_front" />
       <recent name="C:\Users\elian\Bureau\fastLearning_front\app\(tabs)\folders\folder" />
       <recent name="C:\Users\elian\Bureau\fastLearning_front\components\review" />
-      <recent name="C:\Users\elian\Bureau\fastLearning_front\components\FeedBack" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -307,7 +313,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730466622369</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="prettier execute">
+      <option name="closed" value="true" />
+      <created>1730466688292</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1730466688292</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -340,6 +354,7 @@
     <MESSAGE value="modification des &quot;interfaces&quot; en type" />
     <MESSAGE value="modification du onBoardingScreen" />
     <MESSAGE value="modification de la couleur des cartes" />
-    <option name="LAST_COMMIT_MESSAGE" value="modification de la couleur des cartes" />
+    <MESSAGE value="prettier execute" />
+    <option name="LAST_COMMIT_MESSAGE" value="prettier execute" />
   </component>
 </project>
