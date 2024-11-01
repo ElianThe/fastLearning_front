@@ -31,14 +31,19 @@ const FlashCard = ({ rotateAnim, title, description, image, randomColor }: CardP
             <Animated.View style={[styles.card, { transform: [{ rotateY: rotateFront }] }]}>
                 <LinearGradient
                     colors={[randomColor, "#FFFFFF"]}
-                    style={{
-                        borderRadius: 20,
-                        width: "100%",
-                        height: "100%",
-                    }}
+                    style={[
+                        {
+                            borderRadius: 20,
+                            width: "100%",
+                            height: "100%",
+                        },
+                        image === null && { justifyContent: "center" },
+                    ]}
                 >
-                    <Text style={styles.cardText}>{title}</Text>
-                    <Image style={styles.image} source={{ uri: image }} />
+                    <Text style={[styles.cardText, image !== null && { paddingTop: 20 }]}>
+                        {title}
+                    </Text>
+                    {image && <Image style={styles.image} source={{ uri: image }} />}
                 </LinearGradient>
             </Animated.View>
             <Animated.View style={[styles.card, { transform: [{ rotateY: rotateBack }] }]}>
@@ -48,9 +53,12 @@ const FlashCard = ({ rotateAnim, title, description, image, randomColor }: CardP
                         borderRadius: 20,
                         width: "100%",
                         height: "100%",
+                        justifyContent: "center",
                     }}
                 >
-                    <Text style={styles.cardText}>{description}</Text>
+                    <Text style={[styles.cardText, image !== null && { paddingTop: 20 }]}>
+                        {description}
+                    </Text>
                 </LinearGradient>
             </Animated.View>
         </View>
@@ -74,7 +82,6 @@ const styles = StyleSheet.create({
         elevation: 4,
     },
     cardText: {
-        paddingTop: 20,
         textAlign: "center",
         fontSize: 24,
         fontWeight: "bold",

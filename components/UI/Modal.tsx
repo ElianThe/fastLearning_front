@@ -8,8 +8,7 @@ import {
     Text,
 } from "react-native";
 import { router } from "expo-router";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
-import AntDesign from '@expo/vector-icons/AntDesign';
+import AntDesign from "@expo/vector-icons/AntDesign";
 import { Colors } from "@/constants/Colors";
 
 type ModalType = PropsWithChildren<{

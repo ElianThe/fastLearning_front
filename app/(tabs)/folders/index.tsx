@@ -5,7 +5,7 @@ import axios from "axios";
 import { router, useFocusEffect } from "expo-router";
 import FolderItem from "@/components/folders/FolderItem";
 import { Colors } from "@/constants/Colors";
-import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 
 type FolderProps = {
     id: number;
@@ -70,7 +70,6 @@ const FolderListScreen = () => {
                 style={{ position: "absolute", bottom: 30, right: 30 }}
             >
                 <FontAwesome6 name="circle-plus" size={50} color={Colors.light.icon} />
-
             </TouchableOpacity>
         </View>
     );

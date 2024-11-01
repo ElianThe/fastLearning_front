@@ -3,7 +3,6 @@ import { router, useFocusEffect, useLocalSearchParams, useNavigation } from "exp
 import React, { useCallback, useState } from "react";
 import axios from "axios";
 import { API_URL } from "@env";
-import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import CardItem from "@/components/folders/CardItem";
 import { Colors } from "@/constants/Colors";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
