@@ -1,10 +1,10 @@
 import { View } from "react-native";
 import RatingCardButton from "@/components/review/RatingCardButton";
 
-interface RatingCardButtonsProps {
+type RatingCardButtonsProps = {
     onPress: () => void;
     id: number;
-}
+};
 
 export default function RatingCardButtons({ onPress, id }: RatingCardButtonsProps) {
     return (

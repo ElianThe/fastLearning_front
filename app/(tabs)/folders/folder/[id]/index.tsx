@@ -7,12 +7,12 @@ import CardItem from "@/components/folders/CardItem";
 import { Colors } from "@/constants/Colors";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 
-interface Card {
+type Card = {
     id: number;
     title: string;
     content: string;
     folder_id: number;
-}
+};
 
 const CardListScreen = () => {
     const { id, name } = useLocalSearchParams<{ id: string; name: string }>();

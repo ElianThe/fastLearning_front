@@ -6,12 +6,12 @@ import { Pressable, Text, View, StyleSheet } from "react-native";
 import Feather from "@expo/vector-icons/Feather";
 import CustomBottomSheetModal from "@/components/UI/CustomBottomSheetModal";
 
-interface Card {
+type Card = {
     id: number;
     title: string;
     content: string;
     folder_id: number;
-}
+};
 
 type ActionsType = {
     key: string;

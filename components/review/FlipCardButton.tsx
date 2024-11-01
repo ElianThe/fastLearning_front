@@ -1,8 +1,8 @@
 import { TouchableOpacity, StyleSheet, Text } from "react-native";
 
-interface onPressProps {
+type onPressProps = {
     onPress: () => void;
-}
+};
 
 export default function FlipCardButton({ onPress }: onPressProps) {
     return (

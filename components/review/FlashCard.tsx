@@ -2,13 +2,13 @@ import React from "react";
 import { View, Text, StyleSheet, Animated, Image } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
-interface CardProps {
+type CardProps = {
     rotateAnim: Animated.Value;
     title: string;
     description: string;
     image: string;
     randomColor: string;
-}
+};
 
 const FlashCard = ({ rotateAnim, title, description, image, randomColor }: CardProps) => {
     const rotateFront = rotateAnim.interpolate({

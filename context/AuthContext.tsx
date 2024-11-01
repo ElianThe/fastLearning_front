@@ -5,12 +5,12 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { API_URL, TOKEN_KEY } from "@env";
 
 // Interface définissant les propriétés du contexte d'authentification
-interface AuthProps {
+type AuthProps = {
     authState?: { token: string | null; authenticated: boolean | null }; //Etat de l'authentification
     onRegister?: (email: string, password: string, username: string) => Promise<any>; // Fonction d'inscription
     onLogin?: (email: string, password: string) => Promise<any>; //Fonction de connexion
     onLogout?: () => Promise<any>; // Fonction de déconnexion
-}
+};
 
 // Création d'un contexte d'authentification avec les propriétés définies par AuthProps
 const AuthContext = createContext<AuthProps>({});
