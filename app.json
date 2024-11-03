@@ -17,7 +17,7 @@
         "ios": {
             "supportsTablet": true,
             "bundleIdentifier": "com.elianthe.fastlearning",
-          "buildNumber": "8"
+            "buildNumber": "8"
         },
         "android": {
             "adaptiveIcon": {
