@@ -6,10 +6,7 @@
             "@/*": ["./*"]
         }
     },
-    "include": [
-        "**/*.ts",
-        "**/*.tsx"
-    ]
+    "include": ["**/*.ts", "**/*.tsx"]
 }
 
 // Les étapes de processus de compilation sont les suivantes :

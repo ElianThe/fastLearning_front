@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="801311f0-97b6-427e-8a4a-5aa4295ac0cc" name="Changes" comment="Premier test effectué">
+    <list default="true" id="801311f0-97b6-427e-8a4a-5aa4295ac0cc" name="Changes" comment="configuration du fichier jest pour utiliser le coverage">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/__tests__/auth/AuthButton-test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/__tests__/auth/AuthButton-test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/jest.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +114,7 @@
       <workItem from="1730279337449" duration="17276000" />
       <workItem from="1730537747439" duration="6324000" />
       <workItem from="1730564453537" duration="12263000" />
-      <workItem from="1730708420784" duration="3352000" />
+      <workItem from="1730708420784" duration="4450000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -363,7 +364,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730644065267</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="configuration du fichier jest pour utiliser le coverage">
+      <option name="closed" value="true" />
+      <created>1730731421289</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1730731421289</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -373,7 +382,6 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Première version de carte avec linearGradient" />
     <MESSAGE value="Première version de l'application en route" />
     <MESSAGE value="Modification des noms de fichiers" />
     <MESSAGE value="suppression d'image non nécessaire" />
@@ -398,6 +406,7 @@
     <MESSAGE value="Ajout des nouvelles images du on Boarding" />
     <MESSAGE value="Ajout du readme" />
     <MESSAGE value="Premier test effectué" />
-    <option name="LAST_COMMIT_MESSAGE" value="Premier test effectué" />
+    <MESSAGE value="configuration du fichier jest pour utiliser le coverage" />
+    <option name="LAST_COMMIT_MESSAGE" value="configuration du fichier jest pour utiliser le coverage" />
   </component>
 </project>
