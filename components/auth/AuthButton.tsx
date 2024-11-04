@@ -2,16 +2,17 @@ import { Text, TouchableOpacity, StyleSheet } from "react-native";
 import React, { PropsWithChildren } from "react";
 
 type AuthButtonType = PropsWithChildren<{
-    isButtonEnabled: boolean;
+    isButtonDisabled: boolean;
     onPress: () => void;
     styleText?: {};
 }>;
 
-const AuthButton = ({ isButtonEnabled, onPress, children, styleText }: AuthButtonType) => {
+const AuthButton = ({ isButtonDisabled, onPress, children, styleText }: AuthButtonType) => {
     return (
         <TouchableOpacity
-            disabled={!isButtonEnabled}
-            style={isButtonEnabled ? styles.buttonAuthEnabled : styles.buttonAuthDisabled}
+            accessibilityRole={"button"}
+            disabled={isButtonDisabled}
+            style={ isButtonDisabled ? styles.buttonAuthDisabled : styles.buttonAuthEnabled }
             onPress={onPress}
         >
             <Text style={[styles.textLogin, styleText && styleText]}>{children}</Text>

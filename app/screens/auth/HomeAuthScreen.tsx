@@ -14,7 +14,7 @@ const HomeAuthScreen = () => {
             }}
         >
             <AuthButton
-                isButtonEnabled={true}
+                isButtonDisabled={false}
                 onPress={() => router.push("screens/auth/LoginScreen")}
                 styleText={{ fontSize: 16 }}
             >
@@ -22,7 +22,7 @@ const HomeAuthScreen = () => {
             </AuthButton>
             <View style={{ marginBottom: 20 }} />
             <AuthButton
-                isButtonEnabled={true}
+                isButtonDisabled={false}
                 onPress={() => router.push("screens/auth/RegisterScreen")}
                 styleText={{ fontSize: 16 }}
             >

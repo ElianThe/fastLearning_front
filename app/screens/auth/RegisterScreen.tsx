@@ -36,7 +36,7 @@ const RegisterScreen = () => {
 
     const [showPassword, togglePasswordVisibility] = useToggle(false);
 
-    let isButtonEnabled = emailValid && usernameValid && passwordValid;
+    let isButtonDisabled = !emailValid || !usernameValid || !passwordValid;
 
     const { onRegister, onLogin } = useAuth();
 
@@ -202,7 +202,7 @@ const RegisterScreen = () => {
             </View>
 
             {/* button sign up */}
-            <AuthButton isButtonEnabled={isButtonEnabled} onPress={register}>
+            <AuthButton isButtonDisabled={isButtonDisabled} onPress={register}>
                 S'inscrire
             </AuthButton>
         </KeyboardAwareScrollView>

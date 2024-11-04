@@ -25,7 +25,7 @@ const LoginScreen = () => {
 
     const { onLogin } = useAuth();
 
-    let isButtonEnabled = email !== "" && password !== "";
+    let isButtonDisabled = email !== "" && password !== "";
 
     const login = async () => {
         try {
@@ -94,7 +94,7 @@ const LoginScreen = () => {
                 </View>
 
                 {/* button login */}
-                <AuthButton isButtonEnabled={isButtonEnabled} onPress={login}>
+                <AuthButton isButtonDisabled={!isButtonDisabled} onPress={login}>
                     Se connecter
                 </AuthButton>
             </KeyboardAwareScrollView>
