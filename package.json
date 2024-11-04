@@ -10,7 +10,7 @@
         "web": "expo start --web",
         "lint": "eslint .",
         "test": "jest --watchAll",
-        "coverage": "jest --watchAll --coverage --collectCoverageFrom='!./*.{types, constants, test}.{tx, tsx}'"
+        "coverage": "jest --watchAll --coverage"
     },
     "dependencies": {
         "@gorhom/bottom-sheet": "^4.6.4",
