@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="801311f0-97b6-427e-8a4a-5aa4295ac0cc" name="Changes" comment="configuration du fichier jest pour utiliser le coverage">
+    <list default="true" id="801311f0-97b6-427e-8a4a-5aa4295ac0cc" name="Changes" comment="changement du bouton enabled en disabled">
+      <change afterPath="$PROJECT_DIR$/components/__tests__/feedBack/ErrorView-test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/__tests__/auth/AuthButton-test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/__tests__/auth/AuthButton-test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/feedBack/ErrorView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/feedBack/ErrorView.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/jest.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,11 +49,11 @@
       <recent name="C:\Users\elian.guiffault\Desktop\perso\fastLearning_front\app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\elian\Bureau\fastLearning_front\components\__tests__\feedBack" />
+      <recent name="C:\Users\elian\Bureau\fastLearning_front\components\__tests__" />
       <recent name="C:\Users\elian\Bureau\fastLearning_front\src" />
       <recent name="C:\Users\elian\Bureau\fastLearning_front\assets\readme" />
       <recent name="C:\Users\elian\Bureau\fastLearning_front\assets\images\onBoarding" />
-      <recent name="C:\Users\elian\Bureau\fastLearning_front" />
-      <recent name="C:\Users\elian\Bureau\fastLearning_front\app\(tabs)\folders\folder" />
     </key>
   </component>
   <component name="RunManager">
@@ -114,7 +114,7 @@
       <workItem from="1730279337449" duration="17276000" />
       <workItem from="1730537747439" duration="6324000" />
       <workItem from="1730564453537" duration="12263000" />
-      <workItem from="1730708420784" duration="4450000" />
+      <workItem from="1730708420784" duration="12236000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -372,7 +372,31 @@
       <option name="project" value="LOCAL" />
       <updated>1730731421289</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="modification de prettier pour qu'il accepte les saut de ligne windows">
+      <option name="closed" value="true" />
+      <created>1730732089005</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1730732089005</updated>
+    </task>
+    <task id="LOCAL-00034" summary="ajout de prettier au script package.json">
+      <option name="closed" value="true" />
+      <created>1730732164195</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1730732164195</updated>
+    </task>
+    <task id="LOCAL-00035" summary="changement du bouton enabled en disabled">
+      <option name="closed" value="true" />
+      <created>1730736067338</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1730736067338</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -382,9 +406,6 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Première version de l'application en route" />
-    <MESSAGE value="Modification des noms de fichiers" />
-    <MESSAGE value="suppression d'image non nécessaire" />
     <MESSAGE value="ajout de nouveaux composants" />
     <MESSAGE value="Modification de quelques fichiers" />
     <MESSAGE value="inputcolor" />
@@ -407,6 +428,9 @@
     <MESSAGE value="Ajout du readme" />
     <MESSAGE value="Premier test effectué" />
     <MESSAGE value="configuration du fichier jest pour utiliser le coverage" />
-    <option name="LAST_COMMIT_MESSAGE" value="configuration du fichier jest pour utiliser le coverage" />
+    <MESSAGE value="modification de prettier pour qu'il accepte les saut de ligne windows" />
+    <MESSAGE value="ajout de prettier au script package.json" />
+    <MESSAGE value="changement du bouton enabled en disabled" />
+    <option name="LAST_COMMIT_MESSAGE" value="changement du bouton enabled en disabled" />
   </component>
 </project>

@@ -2,11 +2,9 @@ import { View } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import React, { PropsWithChildren } from "react";
 
-type ErrorViewProps = PropsWithChildren<{
-    onPress?: () => void;
-}>;
+type ErrorViewProps = PropsWithChildren<{}>;
 
-const ErrorView = ({ children, onPress }: ErrorViewProps) => {
+const ErrorView = ({ children }: ErrorViewProps) => {
     return (
         <View>
             <View
@@ -50,13 +48,3 @@ const ErrorView = ({ children, onPress }: ErrorViewProps) => {
 };
 
 export default ErrorView;
-
-/*
-*                       <Text>{text}</Text>
-                        <>
-                                <Text>Vous n'avez pas de compte ? </Text>
-                                <Pressable onPress={onPress}>
-                                    <Text style={styles.textSignup}>S'inscrire</Text>
-                                </Pressable>
-                            </View>
-                        </>*/
