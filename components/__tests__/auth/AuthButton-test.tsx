@@ -1,32 +1,67 @@
 import { fireEvent, render, screen } from "@testing-library/react-native";
 import { describe } from "@jest/globals";
 import AuthButton from "@/components/auth/AuthButton";
+import "@testing-library/react-native/extend-expect";
 
 describe("Auth Button", () => {
-    test("affiche le texte correctement", () => {
+    test("le texte est correctement affiché", () => {
+        // access render UI
         render(
             <AuthButton isButtonDisabled={false} onPress={() => {}}>
                 auth button
             </AuthButton>,
         );
-        const textButton = screen.getByText("auth button");
-        expect(textButton).toBeTruthy();
+        const textButton = screen.getByRole("button", {
+            name: "auth button"
+        });
+
+        // assertions
+        expect(textButton).toBeOnTheScreen();
     });
 
-    test("le bouton est cliquable quand isButtonDisabled est false", () => {
+    test("le bouton est pressable et bleu quand isButtonDisabled est false", () => {
+        // setup
         const mockOnPress = jest.fn();
-        render(<AuthButton isButtonDisabled={false} onPress={mockOnPress}>auth button</AuthButton>);
-        const button = screen.getByRole("button");
+
+        // access render UI
+        render(
+            <AuthButton isButtonDisabled={false} onPress={mockOnPress}>
+                auth button
+            </AuthButton>,
+        );
+        const button = screen.getByRole("button", {
+            name: "auth button"
+        });
+
+        // action
         fireEvent.press(button);
+
+        // assertions
         expect(mockOnPress).toHaveBeenCalled();
+        expect(button).toHaveStyle({ backgroundColor: "#003049" });
     });
 
-    test("le bouton n'est pas cliquable quand isButtonDisabled est true", () => {
+    test("le bouton n'est pas pressable et gris quand isButtonDisabled est true", () => {
+        // setup
         const mockOnPress = jest.fn();
-        render(<AuthButton isButtonDisabled={true} onPress={mockOnPress}>auth button</AuthButton>);
-        const button = screen.getByRole("button");
+
+        // access render UI
+        render(
+            <AuthButton isButtonDisabled={true} onPress={mockOnPress}>
+                auth button
+            </AuthButton>,
+        );
+        const button = screen.getByRole("button", {
+            name: "auth button"
+        });
+
+        // action
         fireEvent.press(button);
+
+        // assertions
         expect(mockOnPress).not.toHaveBeenCalled();
+        expect(button).toHaveStyle({ backgroundColor: "gray" });
     });
 
+    // verifier que le style personnalise est present
 });

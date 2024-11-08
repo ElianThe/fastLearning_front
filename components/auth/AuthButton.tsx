@@ -12,7 +12,7 @@ const AuthButton = ({ isButtonDisabled, onPress, children, styleText }: AuthButt
         <TouchableOpacity
             accessibilityRole={"button"}
             disabled={isButtonDisabled}
-            style={ isButtonDisabled ? styles.buttonAuthDisabled : styles.buttonAuthEnabled }
+            style={isButtonDisabled ? styles.buttonAuthDisabled : styles.buttonAuthEnabled}
             onPress={onPress}
         >
             <Text style={[styles.textLogin, styleText && styleText]}>{children}</Text>
