@@ -5,7 +5,11 @@ import { Colors } from "@/constants/Colors";
 type LabelProps = PropsWithChildren<{}>;
 
 const Label = ({ children }: LabelProps) => {
-    return <Text style={styles.labelText}>{children}</Text>;
+    return (
+        <Text accessibilityRole={"text"} style={styles.labelText}>
+            {children}
+        </Text>
+    );
 };
 
 const styles = StyleSheet.create({

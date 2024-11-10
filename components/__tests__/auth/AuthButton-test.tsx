@@ -12,7 +12,7 @@ describe("Auth Button", () => {
             </AuthButton>,
         );
         const textButton = screen.getByRole("button", {
-            name: "auth button"
+            name: "auth button",
         });
 
         // assertions
@@ -30,7 +30,7 @@ describe("Auth Button", () => {
             </AuthButton>,
         );
         const button = screen.getByRole("button", {
-            name: "auth button"
+            name: "auth button",
         });
 
         // action
@@ -52,7 +52,7 @@ describe("Auth Button", () => {
             </AuthButton>,
         );
         const button = screen.getByRole("button", {
-            name: "auth button"
+            name: "auth button",
         });
 
         // action

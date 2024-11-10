@@ -4,9 +4,16 @@ import ErrorView from "@/components/feedBack/ErrorView";
 import { Text } from "react-native";
 
 describe("ErrorView", () => {
-    test("affiche le texte correctement", () => {
-        render(<ErrorView><Text>Error Text</Text></ErrorView>);
-        const textError = screen.getByText("Error Text");
-        expect(textError).toBeTruthy();
+    test("le texte est correctement affiché", () => {
+        // access render UI
+        render(
+            <ErrorView>
+                <Text accessibilityRole={"text"}>Error Text</Text>
+            </ErrorView>,
+        );
+        const textError = screen.getByRole("text", {
+            name: "Error Text",
+        });
+        expect(textError).toBeOnTheScreen();
     });
 });

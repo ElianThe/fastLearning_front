@@ -38,6 +38,7 @@ const ErrorView = ({ children }: ErrorViewProps) => {
                             flexDirection: "column",
                             marginHorizontal: 15,
                         }}
+                        /*accessibilityRole={"text"}*/
                     >
                         {children}
                     </View>
