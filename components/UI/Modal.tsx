@@ -19,6 +19,7 @@ type ModalType = PropsWithChildren<{
 const Modal = ({ children, onPress, title }: ModalType) => {
     return (
         <TouchableWithoutFeedback
+            accessibilityLabel={"Modal"}
             onPress={() => {
                 Keyboard.dismiss();
             }}
@@ -32,10 +33,11 @@ const Modal = ({ children, onPress, title }: ModalType) => {
                         marginBottom: 20,
                     }}
                 >
-                    <Pressable onPress={() => router.back()}>
+                    <Pressable accessibilityLabel={"closebutton"} onPress={() => router.back()} accessibilityRole={"button"}>
                         <AntDesign name="closecircle" size={40} color={Colors.light.iconAlert} />
                     </Pressable>
                     <Text
+                        accessibilityRole={"text"}
                         style={{
                             textAlign: "center",
                             fontSize: 20,
@@ -44,11 +46,7 @@ const Modal = ({ children, onPress, title }: ModalType) => {
                     >
                         {title}
                     </Text>
-                    <Pressable
-                        onPress={() => {
-                            onPress();
-                        }}
-                    >
+                    <Pressable accessibilityLabel={"checkbutton"} onPress={() => onPress()}>
                         <AntDesign name="checkcircle" size={40} color={Colors.light.icon} />
                     </Pressable>
                 </View>
