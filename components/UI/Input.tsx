@@ -12,6 +12,7 @@ type InputProps = {
     onBlur?: () => void;
     placeholder?: string;
     autoCapitalize?: "none" | "sentences" | "words" | "characters" | undefined;
+    multiline? : boolean;
 };
 
 const Input = forwardRef<TextInput, InputProps>(
@@ -26,8 +27,9 @@ const Input = forwardRef<TextInput, InputProps>(
             onFocus,
             placeholder,
             autoCapitalize,
+            multiline
         },
-        ref,
+        ref
     ) => {
         return (
             <TextInput
@@ -35,12 +37,12 @@ const Input = forwardRef<TextInput, InputProps>(
                     style
                         ? style
                         : {
-                              paddingLeft: 10,
-                              height: 40,
-                              borderRadius: 5,
-                              color: "black",
-                              backgroundColor: Colors.light.inputColor,
-                          },
+                            paddingHorizontal: 10,
+                            paddingVertical: 10,
+                            borderRadius: 5,
+                            color: "black",
+                            backgroundColor: Colors.light.inputColor,
+                        }
                 ]}
                 onChangeText={(text) => onChangeText(text)}
                 onPress={onPress}
@@ -52,9 +54,10 @@ const Input = forwardRef<TextInput, InputProps>(
                 placeholder={placeholder}
                 autoCapitalize={autoCapitalize}
                 placeholderTextColor={"gray"}
+                multiline={multiline}
             />
         );
-    },
+    }
 );
 
 Input.displayName = "Input";

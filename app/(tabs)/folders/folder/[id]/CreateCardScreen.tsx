@@ -79,6 +79,7 @@ const CreateCardScreen = () => {
                     onChangeText={(content) => setContent(content)}
                     placeholder="Paris"
                     value={content}
+                    multiline={true}
                 />
             </View>
             {image ? (
