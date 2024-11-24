@@ -8,7 +8,7 @@ import { Ionicons } from "@expo/vector-icons";
 import Input from "@/components/UI/Input";
 import Label from "@/components/UI/Label";
 import Modal from "@/components/UI/Modal";
-import ErrorView from "@/components/feedBack/ErrorView";
+import ErrorView from "@/components/feedBack/ErrorView/ErrorView";
 
 const CreateCardScreen = () => {
     const { id } = useLocalSearchParams<{ id: string }>();

@@ -5,7 +5,7 @@ import { router, useLocalSearchParams } from "expo-router";
 import Modal from "@/components/UI/Modal";
 import Input from "@/components/UI/Input";
 import Label from "@/components/UI/Label";
-import ErrorView from "@/components/feedBack/ErrorView";
+import ErrorView from "@/components/feedBack/ErrorView/ErrorView";
 import { Text } from "react-native";
 
 const FolderEditScreen = () => {

@@ -70,6 +70,7 @@ const FolderItem = ({ item, onDelete }: FolderItemProps) => {
     return (
         <>
             <Pressable
+                accessibilityRole={"button"}
                 style={{
                     padding: 20,
                     borderBottomWidth: 1,
@@ -86,7 +87,7 @@ const FolderItem = ({ item, onDelete }: FolderItemProps) => {
                 }
             >
                 <Text>{item.name}</Text>
-                <Pressable onPress={handleOpen}>
+                <Pressable accessibilityLabel={"More options"} onPress={handleOpen}>
                     <Feather name="more-horizontal" size={24} color="black" />
                 </Pressable>
             </Pressable>

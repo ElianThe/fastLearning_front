@@ -1,64 +1,20 @@
-import { TextInput } from "react-native";
-import React, { forwardRef } from "react";
 import { Colors } from "@/constants/Colors";
+import styled from "styled-components/native";
+import { Ref } from "react";
+import { TextInput } from "react-native";
 
-type InputProps = {
-    onChangeText: (text: string) => void;
-    onPress?: () => void;
-    secureTextEntry?: boolean;
-    value: string;
-    style?: {};
-    onFocus?: () => void;
-    onBlur?: () => void;
-    placeholder?: string;
-    autoCapitalize?: "none" | "sentences" | "words" | "characters" | undefined;
-    multiline? : boolean;
+type TypeInput = {
+    passwordStyle?: boolean;
+    ref?: Ref<TextInput>;
 };
 
-const Input = forwardRef<TextInput, InputProps>(
-    (
-        {
-            onChangeText,
-            value,
-            onPress,
-            secureTextEntry = false,
-            style,
-            onBlur,
-            onFocus,
-            placeholder,
-            autoCapitalize,
-            multiline
-        },
-        ref
-    ) => {
-        return (
-            <TextInput
-                style={[
-                    style
-                        ? style
-                        : {
-                            paddingHorizontal: 10,
-                            paddingVertical: 10,
-                            borderRadius: 5,
-                            color: "black",
-                            backgroundColor: Colors.light.inputColor,
-                        }
-                ]}
-                onChangeText={(text) => onChangeText(text)}
-                onPress={onPress}
-                value={value}
-                secureTextEntry={secureTextEntry}
-                ref={ref}
-                onFocus={onFocus}
-                onBlur={onBlur}
-                placeholder={placeholder}
-                autoCapitalize={autoCapitalize}
-                placeholderTextColor={"gray"}
-                multiline={multiline}
-            />
-        );
-    }
-);
+const Input = styled.TextInput<TypeInput>`
+    padding: 10px 10px;
+    border-radius: 5px;
+    color: black;
+    background-color: ${Colors.light.inputColor};
+    font-size: 14px;
+    ${(props) => (props.passwordStyle ? "flex : 1;" : "" )};
+`;
 
-Input.displayName = "Input";
 export default Input;

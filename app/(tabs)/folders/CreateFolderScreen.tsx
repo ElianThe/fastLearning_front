@@ -6,7 +6,7 @@ import { API_URL } from "@env";
 import { router } from "expo-router";
 import Input from "@/components/UI/Input";
 import Modal from "@/components/UI/Modal";
-import ErrorView from "@/components/feedBack/ErrorView";
+import ErrorView from "@/components/feedBack/ErrorView/ErrorView";
 
 const CreateFolderScreen = () => {
     const [name, setName] = useState("");

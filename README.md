@@ -14,7 +14,8 @@
 -   installer expo go sur le téléphone et scanner le qr code
 
 ## Les commandes utiles pour travailler
-
+-   
+-   
 -   expo lint (pour lancer les linters)
 -   npx prettier --write . (pour cleaner le code)
 
