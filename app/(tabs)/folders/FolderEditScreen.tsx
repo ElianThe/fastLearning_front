@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { API_URL } from "@env";
 import { router, useLocalSearchParams } from "expo-router";
-import Modal from "@/components/UI/Modal";
+import Modal from "@/components/UI/Modal/Modal";
 import Input from "@/components/UI/Input";
 import Label from "@/components/UI/Label";
 import ErrorView from "@/components/feedBack/ErrorView/ErrorView";

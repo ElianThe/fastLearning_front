@@ -6,6 +6,7 @@ import { router } from "expo-router";
 import { Pressable, Text } from "react-native";
 import Feather from "@expo/vector-icons/Feather";
 import CustomBottomSheetModal from "@/components/UI/BottomSheetModal/CustomBottomSheetModal";
+import styled from "styled-components/native";
 
 type FolderProps = {
     id: number;
@@ -69,16 +70,7 @@ const FolderItem = ({ item, onDelete }: FolderItemProps) => {
 
     return (
         <>
-            <Pressable
-                accessibilityRole={"button"}
-                style={{
-                    padding: 20,
-                    borderBottomWidth: 1,
-                    borderBottomColor: "#ccc",
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                }}
+            <FolderItemPressable
                 onPress={() =>
                     router.push({
                         pathname: "/folders/folder/[id]",
@@ -90,7 +82,7 @@ const FolderItem = ({ item, onDelete }: FolderItemProps) => {
                 <Pressable accessibilityLabel={"More options"} onPress={handleOpen}>
                     <Feather name="more-horizontal" size={24} color="black" />
                 </Pressable>
-            </Pressable>
+            </FolderItemPressable>
 
             <CustomBottomSheetModal ref={bottomSheetRef} actions={actionsBottomModal} />
         </>
@@ -98,3 +90,12 @@ const FolderItem = ({ item, onDelete }: FolderItemProps) => {
 };
 
 export default FolderItem;
+
+const FolderItemPressable = styled.Pressable`
+    padding: 20px;
+    border-bottom-width: 1px;
+    border-bottom-color: #ccc;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+`;

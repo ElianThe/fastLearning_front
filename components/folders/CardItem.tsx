@@ -2,9 +2,10 @@ import React, { useRef } from "react";
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
 import axios from "axios";
 import { API_URL } from "@env";
-import { Pressable, Text, View, StyleSheet } from "react-native";
+import { Pressable, View } from "react-native";
 import Feather from "@expo/vector-icons/Feather";
 import CustomBottomSheetModal from "@/components/UI/BottomSheetModal/CustomBottomSheetModal";
+import styled from "styled-components/native";
 
 type Card = {
     id: number;
@@ -56,41 +57,40 @@ const CardItem = ({ item, onDelete }: { item: Card; onDelete: (cardId: number) =
 
     return (
         <>
-            <Pressable style={styles.card}>
+            <CardItemUpdate>
                 <View>
-                    <Text style={styles.title}>{item.title}</Text>
-                    <Text style={styles.subTitle}>{item.content}</Text>
+                    <Title>{item.title}</Title>
+                    <SubTitle numberOfLines={1}>{item.content}</SubTitle>
                 </View>
                 <Pressable onPress={() => bottomSheetRef.current?.present()}>
                     <Feather name="more-horizontal" size={24} color="black" />
                 </Pressable>
-            </Pressable>
+            </CardItemUpdate>
             <CustomBottomSheetModal ref={bottomSheetRef} actions={actionsBottomModal} />
         </>
     );
 };
 
-const styles = StyleSheet.create({
-    card: {
-        flex: 1,
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: 15,
-        marginVertical: 10,
-        marginHorizontal: 5,
-        borderRadius: 5,
-        borderBottomColor: "#ccc",
-        backgroundColor: "#fff",
-    },
-    title: {
-        fontSize: 20,
-        color: "#000",
-    },
-    subTitle: {
-        fontSize: 15,
-        color: "#666",
-    },
-});
-
 export default CardItem;
+
+const CardItemUpdate = styled.Pressable`
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border-bottom-color: #ccc;
+    background-color: #fff;
+`;
+
+const Title = styled.Text`
+    font-size: 20px;
+    color: #000;
+`;
+
+const SubTitle = styled.Text`
+    font-size: 15px;
+    color: #666;
+`;

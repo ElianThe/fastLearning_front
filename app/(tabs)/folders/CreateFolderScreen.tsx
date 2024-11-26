@@ -5,7 +5,7 @@ import axios from "axios";
 import { API_URL } from "@env";
 import { router } from "expo-router";
 import Input from "@/components/UI/Input";
-import Modal from "@/components/UI/Modal";
+import Modal from "@/components/UI/Modal/Modal";
 import ErrorView from "@/components/feedBack/ErrorView/ErrorView";
 
 const CreateFolderScreen = () => {

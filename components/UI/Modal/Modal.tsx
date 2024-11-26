@@ -7,7 +7,7 @@ import {
 import { router } from "expo-router";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { Colors } from "@/constants/Colors";
-import { TitleModal, ViewHeader, ViewModalContainer } from "@/components/UI/Modal-styles";
+import { TitleModal, ViewHeader, ViewModalContainer } from "@/components/UI/Modal/Modal-styles";
 
 type ModalType = PropsWithChildren<{
     onPress: () => void;

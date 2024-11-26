@@ -7,7 +7,7 @@ import { API_URL } from "@env";
 import { Ionicons } from "@expo/vector-icons";
 import Input from "@/components/UI/Input";
 import Label from "@/components/UI/Label";
-import Modal from "@/components/UI/Modal";
+import Modal from "@/components/UI/Modal/Modal";
 import ErrorView from "@/components/feedBack/ErrorView/ErrorView";
 
 const CreateCardScreen = () => {

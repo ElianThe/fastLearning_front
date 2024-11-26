@@ -1,6 +1,6 @@
 import { describe } from "@jest/globals";
 import { fireEvent, render, screen } from "@testing-library/react-native";
-import Modal from "@/components/UI/Modal";
+import Modal from "@/components/UI/Modal/Modal";
 import { Keyboard, Text } from "react-native";
 
 // tester
