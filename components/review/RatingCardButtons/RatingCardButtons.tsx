@@ -1,20 +1,14 @@
-import { View } from "react-native";
-import RatingCardButton from "@/components/review/RatingCardButton";
+import RatingCardButton from "@/components/review/RatingCardButtons/RatingCardButton/RatingCardButton";
+import styled from "styled-components/native";
 
 type RatingCardButtonsProps = {
     onPress: () => void;
     id: number;
 };
 
-export default function RatingCardButtons({ onPress, id }: RatingCardButtonsProps) {
+const RatingCardButtons =({ onPress, id }: RatingCardButtonsProps) => {
     return (
-        <View
-            style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-                marginTop: 20,
-            }}
-        >
+        <ViewContainerRatingCards>
             <RatingCardButton rating={-1} onPress={onPress} id={id} backgroundColor={"#0594D0"}>
                 difficile
             </RatingCardButton>
@@ -26,6 +20,14 @@ export default function RatingCardButtons({ onPress, id }: RatingCardButtonsProp
             <RatingCardButton rating={1} onPress={onPress} id={id} backgroundColor={"#051C24"}>
                 très facile
             </RatingCardButton>
-        </View>
+        </ViewContainerRatingCards>
     );
 }
+
+export default RatingCardButtons;
+
+const ViewContainerRatingCards = styled.View`
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+`;

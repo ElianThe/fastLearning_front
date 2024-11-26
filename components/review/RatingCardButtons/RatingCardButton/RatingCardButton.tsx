@@ -1,7 +1,7 @@
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import axios from "axios";
 import { API_URL } from "@env";
 import { PropsWithChildren } from "react";
+import styled from "styled-components/native";
 
 type RatingCardButtonProps = PropsWithChildren<{
     onPress: () => void;
@@ -32,27 +32,27 @@ const RatingCardButton = ({
     };
 
     return (
-        <TouchableOpacity
-            style={[styles.button, { backgroundColor: backgroundColor }]}
+        <RatingButtonCard backgroundColor={backgroundColor}
             onPress={() => {
                 postRating(rating);
                 onPress();
             }}
         >
-            <Text style={styles.text}>{children}</Text>
-        </TouchableOpacity>
+            <TextRatingButtonCard>{children}</TextRatingButtonCard>
+        </RatingButtonCard>
     );
 };
 
 export default RatingCardButton;
 
-const styles = StyleSheet.create({
-    button: {
-        backgroundColor: "lightgray",
-        paddingVertical: 10,
-        width: 85,
-        alignItems: "center",
-        borderRadius: 10,
-    },
-    text: { color: "white" },
-});
+const RatingButtonCard = styled.TouchableOpacity<{backgroundColor: string}>`
+    background-color: ${({backgroundColor}) => backgroundColor};
+    padding: 10px;
+    width: 85px;
+    align-items: center;
+    border-radius: 10px;
+`;
+
+const TextRatingButtonCard = styled.Text`
+    color: white;
+`;

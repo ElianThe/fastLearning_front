@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Animated, View } from "react-native";
-import FlipCardButton from "@/components/review/FlipCardButton";
-import RatingCardButtons from "@/components/review/RatingCardButtons";
+import FlipCardButton from "@/components/review/FlipCardButton/FlipCardButton";
+import RatingCardButtons from "@/components/review/RatingCardButtons/RatingCardButtons";
 import FlashCard from "@/components/review/FlashCard/FlashCard";
 import { FlashCardType } from "@/app/(tabs)/review";
+import styled from "styled-components/native";
 
 type ReviewDeskProps = {
     cards: FlashCardType[];
@@ -38,7 +39,7 @@ const ReviewDeck = ({ cards, handleNoMoreCard }: ReviewDeskProps) => {
     const currentCard = cards[currentIndex];
 
     return (
-        <View style={{ flex: 1, margin: 20 }}>
+        <ViewContainer>
             <FlashCard
                 title={currentCard.title}
                 image={currentCard.image_url}
@@ -50,8 +51,14 @@ const ReviewDeck = ({ cards, handleNoMoreCard }: ReviewDeskProps) => {
             ) : (
                 <RatingCardButtons onPress={nextCard} id={currentCard.id} />
             )}
-        </View>
+        </ViewContainer>
     );
 };
 
 export default ReviewDeck;
+
+const ViewContainer = styled.View`
+    flex: 1;
+    padding: 20px;
+    background-color: white;
+`;
