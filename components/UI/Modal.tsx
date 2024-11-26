@@ -2,14 +2,12 @@ import React, { PropsWithChildren } from "react";
 import {
     Keyboard,
     TouchableWithoutFeedback,
-    View,
-    StyleSheet,
     Pressable,
-    Text,
 } from "react-native";
 import { router } from "expo-router";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { Colors } from "@/constants/Colors";
+import { TitleModal, ViewHeader, ViewModalContainer } from "@/components/UI/Modal-styles";
 
 type ModalType = PropsWithChildren<{
     onPress: () => void;
@@ -18,51 +16,23 @@ type ModalType = PropsWithChildren<{
 
 const Modal = ({ children, onPress, title }: ModalType) => {
     return (
-        <TouchableWithoutFeedback
-            accessibilityLabel={"Modal"}
-            onPress={() => {
-                Keyboard.dismiss();
-            }}
-        >
-            <View style={styles.container}>
-                <View
-                    style={{
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        flexDirection: "row",
-                        marginBottom: 20,
-                    }}
-                >
+        <TouchableWithoutFeedback accessibilityLabel={"Modal"} onPress={() => Keyboard.dismiss()}>
+            <ViewModalContainer>
+                <ViewHeader>
                     <Pressable accessibilityLabel={"closebutton"} onPress={() => router.back()} accessibilityRole={"button"}>
                         <AntDesign name="closecircle" size={40} color={Colors.light.iconAlert} />
                     </Pressable>
-                    <Text
-                        accessibilityRole={"text"}
-                        style={{
-                            textAlign: "center",
-                            fontSize: 20,
-                            fontWeight: "bold",
-                        }}
-                    >
+                    <TitleModal accessibilityRole={"text"}>
                         {title}
-                    </Text>
+                    </TitleModal>
                     <Pressable accessibilityLabel={"checkbutton"} onPress={() => onPress()}>
                         <AntDesign name="checkcircle" size={40} color={Colors.light.icon} />
                     </Pressable>
-                </View>
+                </ViewHeader>
                 {children}
-            </View>
+            </ViewModalContainer>
         </TouchableWithoutFeedback>
     );
 };
 
 export default Modal;
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        padding: 20,
-        paddingVertical: 30,
-        backgroundColor: "#FFFFFF",
-    },
-});

@@ -5,7 +5,7 @@ import { API_URL } from "@env";
 import { router } from "expo-router";
 import { Pressable, Text } from "react-native";
 import Feather from "@expo/vector-icons/Feather";
-import CustomBottomSheetModal from "@/components/UI/CustomBottomSheetModal";
+import CustomBottomSheetModal from "@/components/UI/BottomSheetModal/CustomBottomSheetModal";
 
 type FolderProps = {
     id: number;

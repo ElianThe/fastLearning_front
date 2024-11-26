@@ -4,7 +4,7 @@ import axios from "axios";
 import { API_URL } from "@env";
 import { Pressable, Text, View, StyleSheet } from "react-native";
 import Feather from "@expo/vector-icons/Feather";
-import CustomBottomSheetModal from "@/components/UI/CustomBottomSheetModal";
+import CustomBottomSheetModal from "@/components/UI/BottomSheetModal/CustomBottomSheetModal";
 
 type Card = {
     id: number;

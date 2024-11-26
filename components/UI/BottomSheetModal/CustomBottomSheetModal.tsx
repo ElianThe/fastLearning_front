@@ -1,12 +1,7 @@
 import { BottomSheetBackdrop, BottomSheetFlatList, BottomSheetModal } from "@gorhom/bottom-sheet";
-import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
+import { View } from "react-native";
 import { forwardRef, useCallback } from "react";
-
-type ActionsType = {
-    key?: string;
-    title: string;
-    callback: () => void;
-};
+import ActionBottomSheet, { ActionsType } from "@/components/UI/BottomSheetModal/ActionBottomSheet";
 
 type CustomBottomSheetModalProps = {
     actions: ActionsType[];
@@ -43,26 +38,5 @@ const CustomBottomSheetModal = forwardRef<BottomSheetModal, CustomBottomSheetMod
     },
 );
 
-const ActionBottomSheet = ({ title, callback }: ActionsType) => {
-    return (
-        <View style={{ backgroundColor: "#DDDDDD" }}>
-            <TouchableOpacity onPress={callback} style={styles.containerAction}>
-                <Text>{title}</Text>
-            </TouchableOpacity>
-        </View>
-    );
-};
-
 CustomBottomSheetModal.displayName = "CustomBottomSheetModal";
 export default CustomBottomSheetModal;
-
-const styles = StyleSheet.create({
-    containerAction: {
-        flex: 1,
-        padding: 20,
-        alignItems: "center",
-        backgroundColor: "white",
-        borderTopWidth: 1,
-        borderTopColor: "#ccc",
-    },
-});

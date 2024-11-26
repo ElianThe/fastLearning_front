@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Animated, View } from "react-native";
 import FlipCardButton from "@/components/review/FlipCardButton";
 import RatingCardButtons from "@/components/review/RatingCardButtons";
-import FlashCard from "@/components/review/FlashCard";
+import FlashCard from "@/components/review/FlashCard/FlashCard";
 import { FlashCardType } from "@/app/(tabs)/review";
 
 type ReviewDeskProps = {
