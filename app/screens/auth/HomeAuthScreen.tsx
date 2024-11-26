@@ -16,7 +16,6 @@ const HomeAuthScreen = () => {
             <AuthButton
                 isButtonDisabled={false}
                 onPress={() => router.push("screens/auth/LoginScreen")}
-                styleText={{ fontSize: 16 }}
             >
                 Se connecter
             </AuthButton>
@@ -24,7 +23,6 @@ const HomeAuthScreen = () => {
             <AuthButton
                 isButtonDisabled={false}
                 onPress={() => router.push("screens/auth/RegisterScreen")}
-                styleText={{ fontSize: 16 }}
             >
                 S'inscrire
             </AuthButton>
