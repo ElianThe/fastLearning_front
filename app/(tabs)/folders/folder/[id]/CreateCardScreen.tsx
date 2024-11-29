@@ -23,7 +23,7 @@ const CreateCardScreen = () => {
             mediaTypes: ImagePicker.MediaTypeOptions.All,
             allowsEditing: true,
             aspect: [1, 1],
-            quality: 1
+            quality: 1,
         });
         if (!result.canceled) {
             setImage(result.assets[0].uri);
@@ -40,7 +40,7 @@ const CreateCardScreen = () => {
                 const imageFile = {
                     uri: image,
                     type: "image/jpeg", // Le type MIME doit correspondre au type de fichier
-                    name: "image.jpeg" // Un nom de fichier valide
+                    name: "image.jpeg", // Un nom de fichier valide
                 };
 
                 formData.append("image_path", imageFile as unknown as Blob);
@@ -49,8 +49,8 @@ const CreateCardScreen = () => {
             // Envoyer la requête POST avec le FormData
             const response = await axios.post(`${API_URL}/cards`, formData, {
                 headers: {
-                    "Content-Type": "multipart/form-data"
-                }
+                    "Content-Type": "multipart/form-data",
+                },
             });
             if (response.data.success) {
                 router.back();

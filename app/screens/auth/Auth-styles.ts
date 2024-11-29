@@ -15,5 +15,5 @@ export const ViewInputPassword = styled.View`
 `;
 
 export const EyeSlashStyled = styled.TouchableOpacity`
-    padding: 0 10px; 
+    padding: 0 10px;
 `;

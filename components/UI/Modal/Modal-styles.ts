@@ -3,7 +3,7 @@ import styled from "styled-components/native";
 export const ViewModalContainer = styled.View`
     flex: 1;
     padding: 30px 20px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
 `;
 
 export const ViewHeader = styled.View`

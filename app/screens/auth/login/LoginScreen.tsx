@@ -39,21 +39,17 @@ const LoginScreen = () => {
     return (
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
             <KeyboardAvoidingViewContainer behavior={"padding"}>
-                {error &&
+                {error && (
                     <ErrorViewAuth
                         error={error}
                         text={"Vous n'avez pas de compte ?"}
                         routerLink={() => router.push("/screens/auth/register/RegisterScreen")}
                         textLink={"S'inscrire"}
                     />
-                }
+                )}
                 <ViewInput>
                     <Label>E-mail</Label>
-                    <Input
-                        onChangeText={(text) => setEmail(text)}
-                        value={email}
-                        ref={userRef}
-                    />
+                    <Input onChangeText={(text) => setEmail(text)} value={email} ref={userRef} />
                 </ViewInput>
 
                 <ViewInput>

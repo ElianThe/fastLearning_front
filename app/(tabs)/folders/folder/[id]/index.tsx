@@ -30,7 +30,7 @@ const CardListScreen = () => {
     useFocusEffect(
         useCallback(() => {
             navigation.setOptions({
-                headerTitle: `${name}`
+                headerTitle: `${name}`,
             });
             const fetchCards = async () => {
                 try {
@@ -47,7 +47,7 @@ const CardListScreen = () => {
                 }
             };
             fetchCards();
-        }, [])
+        }, []),
     );
 
     if (loading) {
@@ -66,7 +66,7 @@ const CardListScreen = () => {
                 onPress={() =>
                     router.push({
                         pathname: "/folders/folder/[id]/CreateCardScreen",
-                        params: { id }
+                        params: { id },
                     })
                 }
             >

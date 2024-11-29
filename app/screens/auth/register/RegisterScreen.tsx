@@ -10,7 +10,10 @@ import { router } from "expo-router";
 import Input from "@/components/UI/Input";
 import AuthButton from "@/components/auth/AuthButton";
 import Label from "@/components/UI/Label";
-import { StyledKeyboardAwareScrollView, ViewLabelWithIcon } from "@/app/screens/auth/register/RegisterScreen-styles";
+import {
+    StyledKeyboardAwareScrollView,
+    ViewLabelWithIcon,
+} from "@/app/screens/auth/register/RegisterScreen-styles";
 import ErrorViewAuth from "@/components/feedBack/ErrorView/ErrorViewAuth";
 import { EyeSlashStyled, ViewInput, ViewInputPassword } from "@/app/screens/auth/Auth-styles";
 

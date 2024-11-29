@@ -48,9 +48,7 @@ const FolderListScreen = () => {
     );
 
     if (loading) {
-        return (
-            <ActivityIndicator />
-        );
+        return <ActivityIndicator />;
     }
 
     return (

@@ -52,9 +52,7 @@ const RootLayout = () => {
     }, [authState, isAppFirstLaunched]);
 
     if (isAppFirstLaunched === null) {
-        return (
-            <ActivityIndicator />
-        );
+        return <ActivityIndicator />;
     }
 
     return <Slot />;

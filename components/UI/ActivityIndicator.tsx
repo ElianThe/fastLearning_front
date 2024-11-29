@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 import { Colors } from "@/constants/Colors";
 
 const ActivityIndicator = () => {
-    return <StyledActivityIndicator size="large" color={Colors.light.activityIndicator} />
+    return <StyledActivityIndicator size="large" color={Colors.light.activityIndicator} />;
 };
 
 export default ActivityIndicator;

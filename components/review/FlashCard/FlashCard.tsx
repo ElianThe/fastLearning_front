@@ -1,10 +1,11 @@
 import React from "react";
 import { Animated } from "react-native";
 import {
-    AnimatedViewStyled, ImageCard,
+    AnimatedViewStyled,
+    ImageCard,
     LinearGradientStyled,
     TextCard,
-    ViewContainer
+    ViewContainer,
 } from "@/components/review/FlashCard/FlashCard-styles";
 
 type CardProps = {
@@ -28,18 +29,14 @@ const FlashCard = ({ rotateAnim, title, description, image }: CardProps) => {
     return (
         <ViewContainer>
             <AnimatedViewStyled style={{ transform: [{ rotateY: rotateFront }] }}>
-                <LinearGradientStyled image={image !==null} colors={["#136B8A", "#051C24"]}>
-                    <TextCard image={image !== null}>
-                        {title}
-                    </TextCard>
+                <LinearGradientStyled image={image !== null} colors={["#136B8A", "#051C24"]}>
+                    <TextCard image={image !== null}>{title}</TextCard>
                     {image && <ImageCard source={{ uri: image }} />}
                 </LinearGradientStyled>
             </AnimatedViewStyled>
             <AnimatedViewStyled style={{ transform: [{ rotateY: rotateBack }] }}>
                 <LinearGradientStyled colors={["#136B8A", "#051C24"]}>
-                    <TextCard>
-                        {description}
-                    </TextCard>
+                    <TextCard>{description}</TextCard>
                 </LinearGradientStyled>
             </AnimatedViewStyled>
         </ViewContainer>

@@ -24,7 +24,7 @@ export default AuthButton;
 const ButtonAuth = styled.TouchableOpacity<{ backgroundColor: string }>`
     padding: 15px;
     border-radius: 5px;
-    background-color: ${({backgroundColor}) => backgroundColor};
+    background-color: ${({ backgroundColor }) => backgroundColor};
 `;
 
 const TextLogin = styled.Text<{ inAuthPage?: boolean }>`

@@ -24,7 +24,7 @@ type TypeLinearGradientFront = {
 };
 
 export const LinearGradientStyled = styled(LinearGradient)<TypeLinearGradientFront>`
-    justify-content: ${({ image }) => image ? "start" : "center"};
+    justify-content: ${({ image }) => (image ? "start" : "center")};
     border-radius: 20px;
     width: 100%;
     height: 100%;
@@ -35,11 +35,11 @@ type TypeTextCard = {
 };
 
 export const TextCard = styled.Text<TypeTextCard>`
-    padding: ${({image}) => image ? "30px" : "0"};
+    padding: ${({ image }) => (image ? "30px" : "0")};
     text-align: center;
     font-size: 24px;
     font-weight: bold;
-    color: #FFFFFF;
+    color: #ffffff;
 `;
 
 export const ImageCard = styled.Image`

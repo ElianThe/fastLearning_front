@@ -32,7 +32,8 @@ const RatingCardButton = ({
     };
 
     return (
-        <RatingButtonCard backgroundColor={backgroundColor}
+        <RatingButtonCard
+            backgroundColor={backgroundColor}
             onPress={() => {
                 postRating(rating);
                 onPress();
@@ -45,8 +46,8 @@ const RatingCardButton = ({
 
 export default RatingCardButton;
 
-const RatingButtonCard = styled.TouchableOpacity<{backgroundColor: string}>`
-    background-color: ${({backgroundColor}) => backgroundColor};
+const RatingButtonCard = styled.TouchableOpacity<{ backgroundColor: string }>`
+    background-color: ${({ backgroundColor }) => backgroundColor};
     padding: 10px;
     width: 85px;
     align-items: center;

@@ -25,7 +25,7 @@ const CardListScreen = () => {
                 try {
                     setLoading(true);
                     const response = await axios.get(`${API_URL}/learn-new-cards`, {
-                        signal: controller.signal
+                        signal: controller.signal,
                     });
                     if (response.data.success) {
                         setCards(response.data.data);
@@ -42,7 +42,7 @@ const CardListScreen = () => {
             fetchLearnNewCards();
 
             return () => controller.abort();
-        }, [])
+        }, []),
     );
 
     if (loading) {
@@ -67,7 +67,7 @@ const CardListScreen = () => {
                         onPress={() =>
                             router.push({
                                 pathname: "/learn/cardLearning",
-                                params: { cards: JSON.stringify(cards) }
+                                params: { cards: JSON.stringify(cards) },
                             })
                         }
                     >
@@ -94,7 +94,7 @@ const ViewCardList = styled.View`
     flex: 1;
     flex-direction: column;
     justify-content: space-around;
-    background-color: #F2F2F2;
+    background-color: #f2f2f2;
     margin: 10px;
     border-radius: 10px;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
@@ -132,6 +132,6 @@ const ButtonLearn = styled.Pressable`
 
 const TextLearn = styled.Text`
     text-align: center;
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 16px;
 `;

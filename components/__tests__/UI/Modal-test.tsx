@@ -10,7 +10,7 @@ import { Keyboard, Text } from "react-native";
 // 4) Test du gestion du clavier v
 
 // Mock du Keyboard pour tester le dismiss
-jest.spyOn(Keyboard, 'dismiss');
+jest.spyOn(Keyboard, "dismiss");
 
 describe("Modal", () => {
     test("renders test", () => {
@@ -22,7 +22,7 @@ describe("Modal", () => {
 
         // access title
         const title = screen.getByRole("text", {
-            name: "Title"
+            name: "Title",
         });
 
         // access checkbutton
@@ -36,7 +36,11 @@ describe("Modal", () => {
 
     test("render children", () => {
         // access render UI
-        render(<Modal onPress={() => {}} title={"Title"}><Text>Coucou, ici la modale !</Text></Modal>);
+        render(
+            <Modal onPress={() => {}} title={"Title"}>
+                <Text>Coucou, ici la modale !</Text>
+            </Modal>,
+        );
 
         // assert
         expect("Coucou, ici la modale !").toBeTruthy();
@@ -71,7 +75,7 @@ describe("Modal", () => {
         // access render UI
         render(<Modal onPress={() => {}} title={"Title"} />);
         const title = screen.getByRole("text", {
-            name: "Title"
+            name: "Title",
         });
 
         // action
@@ -80,5 +84,4 @@ describe("Modal", () => {
         // assert
         expect(Keyboard.dismiss).toHaveBeenCalledTimes(1);
     });
-
 });

@@ -4,7 +4,7 @@ import {
     ViewBorderLeftRed,
     ViewContainer,
     ViewContent,
-    ViewRight
+    ViewRight,
 } from "@/components/feedBack/ErrorView/ErrorView-styles";
 
 type ErrorViewProps = PropsWithChildren<{}>;
@@ -15,9 +15,7 @@ const ErrorView = ({ children }: ErrorViewProps) => {
             <ViewBorderLeftRed />
             <ViewRight>
                 <MaterialIcons name={"error"} size={24} color={"red"} />
-                <ViewContent>
-                    {children}
-                </ViewContent>
+                <ViewContent>{children}</ViewContent>
             </ViewRight>
         </ViewContainer>
     );

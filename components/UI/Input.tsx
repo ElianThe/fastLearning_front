@@ -14,7 +14,7 @@ const Input = styled.TextInput<TypeInput>`
     color: black;
     background-color: ${Colors.light.inputColor};
     font-size: 14px;
-    ${(props) => (props.passwordStyle ? "flex : 1;" : "" )};
+    ${(props) => (props.passwordStyle ? "flex : 1;" : "")};
 `;
 
 export default Input;

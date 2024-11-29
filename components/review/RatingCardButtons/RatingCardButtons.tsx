@@ -6,7 +6,7 @@ type RatingCardButtonsProps = {
     id: number;
 };
 
-const RatingCardButtons =({ onPress, id }: RatingCardButtonsProps) => {
+const RatingCardButtons = ({ onPress, id }: RatingCardButtonsProps) => {
     return (
         <ViewContainerRatingCards>
             <RatingCardButton rating={-1} onPress={onPress} id={id} backgroundColor={"#0594D0"}>
@@ -22,7 +22,7 @@ const RatingCardButtons =({ onPress, id }: RatingCardButtonsProps) => {
             </RatingCardButton>
         </ViewContainerRatingCards>
     );
-}
+};
 
 export default RatingCardButtons;
 

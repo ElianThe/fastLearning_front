@@ -8,10 +8,10 @@ type TypeErrorViewAuth = {
     error: string;
     text: string;
     routerLink: () => void;
-    textLink : string;
+    textLink: string;
 };
 
-const ErrorViewAuth = ({error, text, routerLink, textLink}: TypeErrorViewAuth) => {
+const ErrorViewAuth = ({ error, text, routerLink, textLink }: TypeErrorViewAuth) => {
     return (
         <ErrorView>
             <>

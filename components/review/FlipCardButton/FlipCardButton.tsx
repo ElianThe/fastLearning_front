@@ -24,5 +24,5 @@ const FlipButtonCard = styled.TouchableOpacity`
 
 const TextFlipCard = styled.Text`
     font-size: 16px;
-    color: #FFFFFF;
+    color: #ffffff;
 `;
