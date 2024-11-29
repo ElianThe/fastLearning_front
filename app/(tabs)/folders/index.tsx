@@ -1,4 +1,4 @@
-import { ActivityIndicator, FlatList, View, TouchableOpacity } from "react-native";
+import { FlatList, View, TouchableOpacity } from "react-native";
 import React, { useCallback, useState } from "react";
 import { API_URL } from "@env";
 import axios from "axios";
@@ -6,6 +6,7 @@ import { router, useFocusEffect } from "expo-router";
 import FolderItem from "@/components/folders/FolderItem";
 import { Colors } from "@/constants/Colors";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
+import ActivityIndicator from "@/components/UI/ActivityIndicator";
 
 type FolderProps = {
     id: number;
@@ -48,11 +49,7 @@ const FolderListScreen = () => {
 
     if (loading) {
         return (
-            <ActivityIndicator
-                size="large"
-                color={Colors.light.activityIndicator}
-                style={{ alignItems: "center", flex: 1 }}
-            />
+            <ActivityIndicator />
         );
     }
 

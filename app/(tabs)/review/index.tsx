@@ -1,10 +1,10 @@
-import { ActivityIndicator, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import React, { useCallback, useState } from "react";
 import { API_URL } from "@env";
 import axios from "axios";
 import ReviewDeck from "@/components/review/ReviewDeck";
 import { useFocusEffect } from "expo-router";
-import { Colors } from "@/constants/Colors";
+import ActivityIndicator from "@/components/UI/ActivityIndicator";
 
 export type FlashCardType = {
     id: number;
@@ -45,7 +45,7 @@ const ReviewFlashCardScreen = () => {
     );
 
     if (loading) {
-        return <ActivityIndicator size="large" color={Colors.light.activityIndicator} />;
+        return <ActivityIndicator />;
     }
 
     return (

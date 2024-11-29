@@ -10,7 +10,6 @@ export const ViewHeader = styled.View`
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
-    margin-bottom: 20px;
 `;
 
 export const TitleModal = styled.Text`

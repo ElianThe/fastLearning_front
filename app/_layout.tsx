@@ -1,10 +1,10 @@
 import { AuthProvider, useAuth } from "@/context/AuthContext";
 import React, { useEffect, useState } from "react";
 import { Slot, useRouter } from "expo-router";
-import { ActivityIndicator } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import ActivityIndicator from "@/components/UI/ActivityIndicator";
 
 /*
      const clearAsyncStorage = async () => {
@@ -53,15 +53,7 @@ const RootLayout = () => {
 
     if (isAppFirstLaunched === null) {
         return (
-            <ActivityIndicator
-                size="large"
-                color="#0000ff"
-                style={{
-                    flex: 1,
-                    justifyContent: "center",
-                    alignItems: "center",
-                }}
-            />
+            <ActivityIndicator />
         );
     }
 

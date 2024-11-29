@@ -1,4 +1,4 @@
-import { View, FlatList, ActivityIndicator, TouchableOpacity } from "react-native";
+import { FlatList } from "react-native";
 import { router, useFocusEffect, useLocalSearchParams, useNavigation } from "expo-router";
 import React, { useCallback, useState } from "react";
 import axios from "axios";
@@ -6,6 +6,8 @@ import { API_URL } from "@env";
 import CardItem from "@/components/folders/CardItem";
 import { Colors } from "@/constants/Colors";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
+import ActivityIndicator from "@/components/UI/ActivityIndicator";
+import styled from "styled-components/native";
 
 type Card = {
     id: number;
@@ -28,7 +30,7 @@ const CardListScreen = () => {
     useFocusEffect(
         useCallback(() => {
             navigation.setOptions({
-                headerTitle: `${name}`,
+                headerTitle: `${name}`
             });
             const fetchCards = async () => {
                 try {
@@ -45,14 +47,14 @@ const CardListScreen = () => {
                 }
             };
             fetchCards();
-        }, []),
+        }, [])
     );
 
     if (loading) {
-        return <ActivityIndicator size="large" color={Colors.light.activityIndicator} />;
+        return <ActivityIndicator />;
     }
     return (
-        <View style={{ flex: 1, padding: 10, backgroundColor: "#f0f0f0" }}>
+        <ViewContainer>
             <FlatList
                 data={cards}
                 renderItem={({ item }: { item: Card }) => (
@@ -60,19 +62,30 @@ const CardListScreen = () => {
                 )}
                 keyExtractor={(item) => item.id.toString()}
             />
-            <TouchableOpacity
+            <ButtonCirclePlus
                 onPress={() =>
                     router.push({
                         pathname: "/folders/folder/[id]/CreateCardScreen",
-                        params: { id },
+                        params: { id }
                     })
                 }
-                style={{ position: "absolute", bottom: 30, right: 30 }}
             >
-                <FontAwesome6 name="circle-plus" size={50} color={Colors.light.icon} />
-            </TouchableOpacity>
-        </View>
+                <FontAwesome6 name="circle-plus" style={{}} size={50} color={Colors.light.icon} />
+            </ButtonCirclePlus>
+        </ViewContainer>
     );
 };
 
 export default CardListScreen;
+
+const ViewContainer = styled.View`
+    flex: 1;
+    padding: 10px;
+    background-color: #f0f0f0;
+`;
+
+const ButtonCirclePlus = styled.TouchableOpacity`
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+`;

@@ -54,7 +54,6 @@ const FolderEditScreen = () => {
                 placeholder="Les capitales"
                 onChangeText={(text: string) => setName(text)}
                 value={name}
-                autoCapitalize="none"
             />
         </Modal>
     );

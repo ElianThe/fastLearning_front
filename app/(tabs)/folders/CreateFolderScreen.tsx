@@ -7,6 +7,7 @@ import { router } from "expo-router";
 import Input from "@/components/UI/Input";
 import Modal from "@/components/UI/Modal/Modal";
 import ErrorView from "@/components/feedBack/ErrorView/ErrorView";
+import styled from "styled-components/native";
 
 const CreateFolderScreen = () => {
     const [name, setName] = useState("");
@@ -33,15 +34,20 @@ const CreateFolderScreen = () => {
                     <Text>{error}</Text>
                 </ErrorView>
             )}
-            <Label>Nom du dossier</Label>
-            <Input
-                placeholder="Les capitales"
-                onChangeText={(text: string) => setName(text)}
-                value={name}
-                autoCapitalize="none"
-            />
+            <ViewInput>
+                <Label>Nom du dossier</Label>
+                <Input
+                    placeholder="Les capitales"
+                    onChangeText={(text: string) => setName(text)}
+                    value={name}
+                />
+            </ViewInput>
         </Modal>
     );
 };
 
 export default CreateFolderScreen;
+
+const ViewInput = styled.View`
+    margin-top: 20px;
+`;

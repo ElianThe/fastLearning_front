@@ -1,4 +1,4 @@
-import { View, Text, Pressable, TouchableOpacity, StyleSheet, Image } from "react-native";
+import { Text } from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
 import React, { useState } from "react";
 import * as ImagePicker from "expo-image-picker";
@@ -9,6 +9,7 @@ import Input from "@/components/UI/Input";
 import Label from "@/components/UI/Label";
 import Modal from "@/components/UI/Modal/Modal";
 import ErrorView from "@/components/feedBack/ErrorView/ErrorView";
+import styled from "styled-components/native";
 
 const CreateCardScreen = () => {
     const { id } = useLocalSearchParams<{ id: string }>();
@@ -22,7 +23,7 @@ const CreateCardScreen = () => {
             mediaTypes: ImagePicker.MediaTypeOptions.All,
             allowsEditing: true,
             aspect: [1, 1],
-            quality: 1,
+            quality: 1
         });
         if (!result.canceled) {
             setImage(result.assets[0].uri);
@@ -39,7 +40,7 @@ const CreateCardScreen = () => {
                 const imageFile = {
                     uri: image,
                     type: "image/jpeg", // Le type MIME doit correspondre au type de fichier
-                    name: "image.jpeg", // Un nom de fichier valide
+                    name: "image.jpeg" // Un nom de fichier valide
                 };
 
                 formData.append("image_path", imageFile as unknown as Blob);
@@ -48,8 +49,8 @@ const CreateCardScreen = () => {
             // Envoyer la requête POST avec le FormData
             const response = await axios.post(`${API_URL}/cards`, formData, {
                 headers: {
-                    "Content-Type": "multipart/form-data",
-                },
+                    "Content-Type": "multipart/form-data"
+                }
             });
             if (response.data.success) {
                 router.back();
@@ -69,11 +70,11 @@ const CreateCardScreen = () => {
                     <Text>{error}</Text>
                 </ErrorView>
             )}
-            <>
+            <ViewInput>
                 <Label>Recto de la carte</Label>
                 <Input placeholder="France" onChangeText={(text) => setTitle(text)} value={title} />
-            </>
-            <View style={{ marginTop: 20 }}>
+            </ViewInput>
+            <ViewInput>
                 <Label>Verso de la carte</Label>
                 <Input
                     onChangeText={(content) => setContent(content)}
@@ -81,35 +82,21 @@ const CreateCardScreen = () => {
                     value={content}
                     multiline={true}
                 />
-            </View>
-            {image ? (
-                <View style={{ alignItems: "center", marginTop: 40 }}>
-                    <View>
-                        <Image source={{ uri: image }} style={{ width: 300, height: 300 }} />
-                        <Pressable
-                            style={{
-                                position: "absolute",
-                                top: 5,
-                                right: 5,
-                                zIndex: 1,
-                            }}
-                            onPress={() => setImage("")}
-                        >
-                            <Ionicons name="close-circle" size={30} color="white" />
-                        </Pressable>
-                    </View>
-                </View>
-            ) : (
-                <View style={{ marginTop: 20 }}>
+            </ViewInput>
+            {!image ? (
+                <ViewInput>
                     <Label>Image de la carte</Label>
-                    <TouchableOpacity
-                        style={[styles.image]}
-                        activeOpacity={0.8}
-                        onPress={handleImagePickerPress}
-                    >
-                        <Text style={styles.imageText}>Choisir une image</Text>
-                    </TouchableOpacity>
-                </View>
+                    <PressablePickImage onPress={handleImagePickerPress}>
+                        <TextImage>Choisir une image</TextImage>
+                    </PressablePickImage>
+                </ViewInput>
+            ) : (
+                <ViewImage>
+                    <ImageCard source={{ uri: image }} />
+                    <CloseCircle onPress={() => setImage("")}>
+                        <Ionicons name="close-circle" size={30} color="white" />
+                    </CloseCircle>
+                </ViewImage>
             )}
         </Modal>
     );
@@ -117,15 +104,35 @@ const CreateCardScreen = () => {
 
 export default CreateCardScreen;
 
-const styles = StyleSheet.create({
-    image: {
-        paddingVertical: 30,
-        borderWidth: 1,
-        borderStyle: "dashed",
-        borderRadius: 10,
-        marginVertical: 10,
-    },
-    imageText: {
-        textAlign: "center",
-    },
-});
+const ViewInput = styled.View`
+    margin-top: 20px;
+`;
+
+const ViewImage = styled.View`
+    align-items: center;
+    margin-top: 40px;
+`;
+
+const PressablePickImage = styled.TouchableOpacity`
+    padding: 30px 0;
+    border-width: 1px;
+    border-style: dashed;
+    border-radius: 10px;
+    margin: 10px 0;
+`;
+
+const TextImage = styled.Text`
+    text-align: center;
+`;
+
+const ImageCard = styled.Image`
+    width: 300px;
+    height: 300px;
+`;
+
+const CloseCircle = styled.Pressable`
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 1;
+`;
