@@ -8,12 +8,8 @@ import Icon from "@expo/vector-icons/FontAwesome";
 import Input from "@/components/UI/Input";
 import Label from "@/components/UI/Label";
 import AuthButton from "@/components/auth/AuthButton";
-import {
-    KeyboardAvoidingViewContainer,
-    TouchableOpacityStyled,
-    ViewInput,
-    ViewInputPassword
-} from "@/app/screens/auth/LoginScreen-styles";
+import { KeyboardAvoidingViewContainer } from "@/app/screens/auth/login/LoginScreen-styles";
+import { EyeSlashStyled, ViewInput, ViewInputPassword } from "@/app/screens/auth/Auth-styles";
 import ErrorViewAuth from "@/components/feedBack/ErrorView/ErrorViewAuth";
 
 const LoginScreen = () => {
@@ -47,7 +43,7 @@ const LoginScreen = () => {
                     <ErrorViewAuth
                         error={error}
                         text={"Vous n'avez pas de compte ?"}
-                        routerLink={() => router.push("/screens/auth/RegisterScreen")}
+                        routerLink={() => router.push("/screens/auth/register/RegisterScreen")}
                         textLink={"S'inscrire"}
                     />
                 }
@@ -72,13 +68,13 @@ const LoginScreen = () => {
                             ref={passwordRef}
                         />
 
-                        <TouchableOpacityStyled onPress={togglePasswordVisibility}>
+                        <EyeSlashStyled onPress={togglePasswordVisibility}>
                             <Icon
                                 name={showPassword ? "eye-slash" : "eye"}
                                 size={20}
                                 color="#000"
                             />
-                        </TouchableOpacityStyled>
+                        </EyeSlashStyled>
                     </ViewInputPassword>
                 </ViewInput>
 

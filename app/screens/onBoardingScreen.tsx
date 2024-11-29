@@ -104,7 +104,7 @@ const OnBoardingScreen = () => {
                         <View style={{ height: 50 }}>
                             <TouchableOpacity
                                 style={[styles.btn]}
-                                onPress={() => router.replace("/screens/auth/HomeAuthScreen")}
+                                onPress={() => router.replace("/screens/auth/HomeAuth/HomeAuthScreen")}
                             >
                                 <Text style={{ fontSize: 15, fontWeight: "bold" }}>
                                     GET STARTED

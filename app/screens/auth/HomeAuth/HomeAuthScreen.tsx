@@ -1,32 +1,25 @@
 import { View } from "react-native";
 import { router } from "expo-router";
 import AuthButton from "@/components/auth/AuthButton";
+import { ViewContainer } from "@/app/screens/auth/HomeAuth/HomeAuth-styles";
 
 const HomeAuthScreen = () => {
     return (
-        <View
-            style={{
-                backgroundColor: "white",
-                flex: 1,
-                justifyContent: "flex-end",
-                paddingVertical: 50,
-                paddingHorizontal: 10,
-            }}
-        >
+        <ViewContainer>
             <AuthButton
                 isButtonDisabled={false}
-                onPress={() => router.push("screens/auth/LoginScreen")}
+                onPress={() => router.push("screens/auth/login/LoginScreen")}
             >
                 Se connecter
             </AuthButton>
             <View style={{ marginBottom: 20 }} />
             <AuthButton
                 isButtonDisabled={false}
-                onPress={() => router.push("screens/auth/RegisterScreen")}
+                onPress={() => router.push("screens/auth/register/RegisterScreen")}
             >
                 S'inscrire
             </AuthButton>
-        </View>
+        </ViewContainer>
     );
 };
 

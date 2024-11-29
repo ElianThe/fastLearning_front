@@ -4,7 +4,7 @@ const ScreensLayout = () => {
     return (
         <Stack>
             <Stack.Screen
-                name="auth/LoginScreen"
+                name="auth/login/LoginScreen"
                 options={{
                     headerTitle: "Se connecter",
                     headerTitleAlign: "center",
@@ -13,7 +13,7 @@ const ScreensLayout = () => {
                 }}
             />
             <Stack.Screen
-                name="auth/RegisterScreen"
+                name="auth/register/RegisterScreen"
                 options={{
                     headerTitle: "Inscription",
                     headerTitleAlign: "center",
@@ -28,7 +28,7 @@ const ScreensLayout = () => {
                 }}
             />
             <Stack.Screen
-                name="auth/HomeAuthScreen"
+                name="auth/HomeAuth/HomeAuthScreen"
                 options={{
                     headerShown: false,
                 }}

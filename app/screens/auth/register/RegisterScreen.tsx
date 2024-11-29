@@ -1,5 +1,4 @@
-import { View, StyleSheet, TextInput, Text, TouchableOpacity, Pressable } from "react-native";
-import { Colors } from "@/constants/Colors";
+import { TextInput, Text } from "react-native";
 import React, { useRef, useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import useFocusInputWithTime from "@/hooks/useFocusInputWithTime";
@@ -7,12 +6,13 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import Icon from "@expo/vector-icons/FontAwesome";
 import useToggle from "@/hooks/useToggle";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import ErrorView from "@/components/feedBack/ErrorView/ErrorView";
 import { router } from "expo-router";
 import Input from "@/components/UI/Input";
 import AuthButton from "@/components/auth/AuthButton";
 import Label from "@/components/UI/Label";
+import { StyledKeyboardAwareScrollView, ViewLabelWithIcon } from "@/app/screens/auth/register/RegisterScreen-styles";
+import ErrorViewAuth from "@/components/feedBack/ErrorView/ErrorViewAuth";
+import { EyeSlashStyled, ViewInput, ViewInputPassword } from "@/app/screens/auth/Auth-styles";
 
 const USER_REGEX = /^[a-zA-Z0-9._-]{3,20}$/;
 const EMAIL_REGEX = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
@@ -44,7 +44,6 @@ const RegisterScreen = () => {
 
     const userRef = useFocusInputWithTime();
 
-    // à refaire
     const register = async () => {
         try {
             const result = await onRegister!(email, password, username);
@@ -57,39 +56,27 @@ const RegisterScreen = () => {
     };
 
     return (
-        <KeyboardAwareScrollView
-            style={styles.container}
+        <StyledKeyboardAwareScrollView
             contentContainerStyle={{ flex: 1, justifyContent: "center" }}
             keyboardShouldPersistTaps="handled"
         >
             {/* error */}
             {error && (
-                <ErrorView>
-                    <>
-                        <Text>{error}</Text>
-                        <View style={{ flexDirection: "row" }}>
-                            <Text>Vous avez déjà un compte ? </Text>
-                            <Pressable onPress={() => router.push("screens/auth/LoginScreen")}>
-                                <Text style={{ color: "blue" }}>Se connecter</Text>
-                            </Pressable>
-                        </View>
-                    </>
-                </ErrorView>
+                <ErrorViewAuth
+                    error={error}
+                    text={"Vous avez déjà un compte ?"}
+                    routerLink={() => router.push("screens/auth/login/LoginScreen")}
+                    textLink={"Se connecter"}
+                />
             )}
 
             {/* email */}
-            <View style={styles.viewInput}>
-                <View
-                    style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        justifyContent: "space-between",
-                    }}
-                >
+            <ViewInput>
+                <ViewLabelWithIcon>
                     <Label>E-mail</Label>
                     {emailValid && email && <FontAwesome name="check" size={20} color="black" />}
                     {!emailValid && email && <FontAwesome5 name="times" size={20} color="black" />}
-                </View>
+                </ViewLabelWithIcon>
                 <Input
                     onChangeText={(text) => {
                         setEmail(text);
@@ -103,17 +90,11 @@ const RegisterScreen = () => {
                 {emailFocus && !emailValid && (
                     <Text>Veuillez entrer une adresse email valide.</Text>
                 )}
-            </View>
+            </ViewInput>
 
             {/* username */}
-            <View style={styles.viewInput}>
-                <View
-                    style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        justifyContent: "space-between",
-                    }}
-                >
+            <ViewInput>
+                <ViewLabelWithIcon>
                     <Label>Nom d'utilisateur</Label>
                     {usernameValid && username && (
                         <FontAwesome name="check" size={20} color="black" />
@@ -121,7 +102,7 @@ const RegisterScreen = () => {
                     {!usernameValid && username && (
                         <FontAwesome5 name="times" size={20} color="black" />
                     )}
-                </View>
+                </ViewLabelWithIcon>
                 <Input
                     onChangeText={(text) => {
                         setUsername(text);
@@ -134,17 +115,11 @@ const RegisterScreen = () => {
                 {usernameFocus && !usernameValid && (
                     <Text>Le nom d'utilisateur doit comporter entre 3 et 20 caractères.</Text>
                 )}
-            </View>
+            </ViewInput>
 
             {/* password */}
-            <View style={styles.viewInput}>
-                <View
-                    style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        justifyContent: "space-between",
-                    }}
-                >
+            <ViewInput>
+                <ViewLabelWithIcon>
                     <Label>Mot de passe</Label>
                     {passwordValid && password && (
                         <FontAwesome name="check" size={20} color="black" />
@@ -152,17 +127,8 @@ const RegisterScreen = () => {
                     {!passwordValid && password && (
                         <FontAwesome5 name="times" size={20} color="black" />
                     )}
-                </View>
-                <View
-                    style={{
-                        flexDirection: "row",
-                        alignItems: "center",
-                        borderRadius: 5,
-                        backgroundColor: Colors.light.inputColor,
-                        paddingRight: 10,
-                        paddingHorizontal: 10,
-                    }}
-                >
+                </ViewLabelWithIcon>
+                <ViewInputPassword>
                     <Input
                         passwordStyle
                         onChangeText={(text) => {
@@ -176,58 +142,28 @@ const RegisterScreen = () => {
                         secureTextEntry={!showPassword}
                         ref={passwordRef}
                     />
-                    <TouchableOpacity
-                        onPress={togglePasswordVisibility}
-                        style={styles.iconContainer}
-                    >
+                    <EyeSlashStyled onPress={togglePasswordVisibility}>
                         <Icon
                             name={showPassword ? "eye-slash" : "eye"}
                             size={20}
                             color="#000" // Couleur de l'icône
                         />
-                    </TouchableOpacity>
-                </View>
+                    </EyeSlashStyled>
+                </ViewInputPassword>
                 {!passwordValid && passwordFocus && (
                     <Text>
                         Le mot de passe doit comporter entre 8 et 24 caractères et doit inclure au
                         moins une majuscule, une minuscule et un chiffre.
                     </Text>
                 )}
-            </View>
+            </ViewInput>
 
             {/* button sign up */}
             <AuthButton isButtonDisabled={isButtonDisabled} onPress={register}>
                 S'inscrire
             </AuthButton>
-        </KeyboardAwareScrollView>
+        </StyledKeyboardAwareScrollView>
     );
 };
 
 export default RegisterScreen;
-
-const styles = StyleSheet.create({
-    container: {
-        backgroundColor: Colors.light.background,
-        display: "flex",
-        padding: 15,
-        height: "100%",
-        width: "100%",
-    },
-    viewInput: {
-        width: "100%",
-        marginBottom: 20,
-    },
-    passwordContainer: {
-        borderRadius: 5,
-        flexDirection: "row",
-        paddingLeft: 10,
-        height: 40,
-        width: "100%",
-        alignItems: "center",
-        justifyContent: "space-between",
-        backgroundColor: Colors.light.inputColor,
-    },
-    iconContainer: {
-        paddingHorizontal: 10,
-    },
-});
