@@ -47,7 +47,7 @@ const CardListScreen = () => {
                 }
             };
             fetchCards();
-        }, []),
+        }, [id, name, navigation]),
     );
 
     if (loading) {

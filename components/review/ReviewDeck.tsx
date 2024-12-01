@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Animated, View } from "react-native";
+import { Animated } from "react-native";
 import FlipCardButton from "@/components/review/FlipCardButton/FlipCardButton";
 import RatingCardButtons from "@/components/review/RatingCardButtons/RatingCardButtons";
 import FlashCard from "@/components/review/FlashCard/FlashCard";

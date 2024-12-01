@@ -1,6 +1,6 @@
 import { AuthProvider, useAuth } from "@/context/AuthContext";
 import React, { useEffect, useState } from "react";
-import { Slot, useRouter } from "expo-router";
+import { router, Slot } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
@@ -21,7 +21,6 @@ import ActivityIndicator from "@/components/UI/ActivityIndicator";
 const RootLayout = () => {
     const { authState } = useAuth();
     const [isAppFirstLaunched, setIsAppFirstLaunched] = useState<boolean | null>(null);
-    const router = useRouter();
 
     const checkFirstLaunch = async () => {
         const appData = await AsyncStorage.getItem("isAppFirstLaunched");
@@ -59,6 +58,7 @@ const RootLayout = () => {
 };
 
 const App = () => {
+
     return (
         <GestureHandlerRootView>
             <BottomSheetModalProvider>

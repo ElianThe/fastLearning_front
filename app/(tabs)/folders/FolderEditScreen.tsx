@@ -25,22 +25,21 @@ const FolderEditScreen = () => {
         }
     };
 
-    const getInfoFolder = async () => {
-        try {
-            const response = await axios.get(`${API_URL}/folders/${id}`);
-            if (response.data.success) {
-                setName(response.data.data.name);
-            } else {
-                throw new Error("erreur survenue");
-            }
-        } catch (err: any) {
-            console.error(err);
-        }
-    };
-
     useEffect(() => {
+        const getInfoFolder = async () => {
+            try {
+                const response = await axios.get(`${API_URL}/folders/${id}`);
+                if (response.data.success) {
+                    setName(response.data.data.name);
+                } else {
+                    throw new Error("erreur survenue");
+                }
+            } catch (err: any) {
+                console.error(err);
+            }
+        };
         getInfoFolder();
-    }, []);
+    }, [id]);
 
     return (
         <Modal onPress={updateFolder} title={"Modifier le dossier"}>

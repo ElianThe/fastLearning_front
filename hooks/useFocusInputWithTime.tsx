@@ -16,7 +16,7 @@ const useFocusInputWithTime = (time = 1000) => {
             clearTimeout(timer);
             currentRef?.blur();
         };
-    }, []);
+    }, [time]);
 
     return aRef;
 };
