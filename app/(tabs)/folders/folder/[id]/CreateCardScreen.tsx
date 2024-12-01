@@ -9,7 +9,13 @@ import Input from "@/components/UI/Input";
 import Label from "@/components/UI/Label";
 import Modal from "@/components/UI/Modal/Modal";
 import ErrorView from "@/components/feedBack/ErrorView/ErrorView";
-import styled from "styled-components/native";
+import {
+    CloseCircle,
+    ImageCard,
+    PressablePickImage, TextImage,
+    ViewImage,
+    ViewInput
+} from "@/app/(tabs)/folders/folder/[id]/CreateCardScreen-styles";
 
 const CreateCardScreen = () => {
     const { id } = useLocalSearchParams<{ id: string }>();
@@ -103,36 +109,3 @@ const CreateCardScreen = () => {
 };
 
 export default CreateCardScreen;
-
-const ViewInput = styled.View`
-    margin-top: 20px;
-`;
-
-const ViewImage = styled.View`
-    align-items: center;
-    margin-top: 40px;
-`;
-
-const PressablePickImage = styled.TouchableOpacity`
-    padding: 30px 0;
-    border-width: 1px;
-    border-style: dashed;
-    border-radius: 10px;
-    margin: 10px 0;
-`;
-
-const TextImage = styled.Text`
-    text-align: center;
-`;
-
-const ImageCard = styled.Image`
-    width: 300px;
-    height: 300px;
-`;
-
-const CloseCircle = styled.Pressable`
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    z-index: 1;
-`;

@@ -8,7 +8,13 @@ export const ViewLabelWithIcon = styled.View`
     justify-content: space-between;
 `;
 
-export const StyledKeyboardAwareScrollView = styled(KeyboardAwareScrollView)`
+export const StyledKeyboardAwareScrollView = styled(KeyboardAwareScrollView).attrs({
+    contentContainerStyle: {
+        flex: 1,
+        justifyContent: "center"
+    },
+    keyboardShouldPersistTaps: "handled"
+})`
     background-color: ${Colors.light.background};
     display: flex;
     padding: 15px;

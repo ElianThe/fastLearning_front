@@ -1,10 +1,14 @@
-import { Text, View } from "react-native";
 import React, { useCallback, useState } from "react";
 import { API_URL } from "@env";
 import axios from "axios";
 import ReviewDeck from "@/components/review/ReviewDeck";
 import { useFocusEffect } from "expo-router";
 import ActivityIndicator from "@/components/UI/ActivityIndicator";
+import {
+    TextNoCards,
+    ViewContainer,
+    ViewNoCards,
+} from "@/app/(tabs)/review/ReviewFlashCardScreen-styles";
 
 export type FlashCardType = {
     id: number;
@@ -49,21 +53,15 @@ const ReviewFlashCardScreen = () => {
     }
 
     return (
-        <View style={{ flex: 1 }}>
+        <ViewContainer>
             {cards.length > 0 ? (
                 <ReviewDeck cards={cards} handleNoMoreCard={() => setCards([])} />
             ) : (
-                <View
-                    style={{
-                        flex: 1,
-                        justifyContent: "center",
-                        alignItems: "center",
-                    }}
-                >
-                    <Text style={{ fontSize: 20 }}>Pas de carte à réviser !</Text>
-                </View>
+                <ViewNoCards>
+                    <TextNoCards>Pas de carte à réviser !</TextNoCards>
+                </ViewNoCards>
             )}
-        </View>
+        </ViewContainer>
     );
 };
 

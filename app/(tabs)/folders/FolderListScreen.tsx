@@ -4,9 +4,9 @@ import { API_URL } from "@env";
 import axios from "axios";
 import { router, useFocusEffect } from "expo-router";
 import FolderItem from "@/components/folders/FolderItem";
-import { Colors } from "@/constants/Colors";
-import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 import ActivityIndicator from "@/components/UI/ActivityIndicator";
+import { IconCirclePlus } from "@/components/UI/Icons/CirclePlus";
+import styled from "styled-components/native";
 
 type FolderProps = {
     id: number;
@@ -52,7 +52,7 @@ const FolderListScreen = () => {
     }
 
     return (
-        <View style={{ position: "relative", flex: 1 }}>
+        <ContainerView>
             <FlatList
                 data={folders}
                 renderItem={({ item }: { item: FolderProps }) => (
@@ -60,14 +60,21 @@ const FolderListScreen = () => {
                 )}
                 keyExtractor={(item) => item.id.toString()}
             />
-            <TouchableOpacity
-                onPress={() => router.push("/folders/CreateFolderScreen")}
-                style={{ position: "absolute", bottom: 30, right: 30 }}
-            >
-                <FontAwesome6 name="circle-plus" size={50} color={Colors.light.icon} />
-            </TouchableOpacity>
-        </View>
+            <IconTouchableOpacity onPress={() => router.push("/folders/CreateFolderScreen")}>
+                <IconCirclePlus />
+            </IconTouchableOpacity>
+        </ContainerView>
     );
 };
 
 export default FolderListScreen;
+
+const ContainerView = styled.View`
+    flex: 1;
+`;
+
+const IconTouchableOpacity = styled.TouchableOpacity`
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+`;

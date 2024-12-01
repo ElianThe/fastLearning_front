@@ -4,7 +4,7 @@ const ReviewStackLayout = () => {
     return (
         <Stack>
             <Stack.Screen
-                name="index"
+                name="ReviewFlashCardScreen"
                 options={{
                     headerTitle: "Réviser",
                     headerTitleAlign: "center",

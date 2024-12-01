@@ -38,7 +38,7 @@ const LoginScreen = () => {
 
     return (
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-            <KeyboardAvoidingViewContainer behavior={"padding"}>
+            <KeyboardAvoidingViewContainer >
                 {error && (
                     <ErrorViewAuth
                         error={error}

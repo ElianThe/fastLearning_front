@@ -59,10 +59,7 @@ const RegisterScreen = () => {
     };
 
     return (
-        <StyledKeyboardAwareScrollView
-            contentContainerStyle={{ flex: 1, justifyContent: "center" }}
-            keyboardShouldPersistTaps="handled"
-        >
+        <StyledKeyboardAwareScrollView>
             {/* error */}
             {error && (
                 <ErrorViewAuth

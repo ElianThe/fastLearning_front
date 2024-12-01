@@ -4,10 +4,9 @@ import React, { useCallback, useState } from "react";
 import axios from "axios";
 import { API_URL } from "@env";
 import CardItem from "@/components/folders/CardItem";
-import { Colors } from "@/constants/Colors";
-import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 import ActivityIndicator from "@/components/UI/ActivityIndicator";
-import styled from "styled-components/native";
+import { IconCirclePlus } from "@/components/UI/Icons/CirclePlus";
+import { ButtonCirclePlus, ViewContainer } from "@/app/(tabs)/folders/folder/[id]/CreateListScreen-styles";
 
 type Card = {
     id: number;
@@ -70,22 +69,10 @@ const CardListScreen = () => {
                     })
                 }
             >
-                <FontAwesome6 name="circle-plus" style={{}} size={50} color={Colors.light.icon} />
+                <IconCirclePlus />
             </ButtonCirclePlus>
         </ViewContainer>
     );
 };
 
 export default CardListScreen;
-
-const ViewContainer = styled.View`
-    flex: 1;
-    padding: 10px;
-    background-color: #f0f0f0;
-`;
-
-const ButtonCirclePlus = styled.TouchableOpacity`
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-`;

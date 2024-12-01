@@ -4,14 +4,14 @@ const LearnStackLayout = () => {
     return (
         <Stack>
             <Stack.Screen
-                name="index"
+                name="CardListScreen"
                 options={{
                     headerTitle: "Apprendre",
                     headerTitleAlign: "center",
                 }}
             />
             <Stack.Screen
-                name="cardLearning/index"
+                name="cardLearning/AutoEvaluationCardsScreen"
                 options={{
                     headerTitle: "Apprendre",
                     headerTitleAlign: "center",

@@ -4,7 +4,7 @@ const ProfileStackLayout = () => {
     return (
         <Stack>
             <Stack.Screen
-                name="index"
+                name="ProfileScreen"
                 options={{
                     headerTitle: "Profile",
                     headerTitleAlign: "center",

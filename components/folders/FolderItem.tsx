@@ -73,7 +73,7 @@ const FolderItem = ({ item, onDelete }: FolderItemProps) => {
             <FolderItemPressable
                 onPress={() =>
                     router.push({
-                        pathname: "/folders/folder/[id]",
+                        pathname: "/folders/folder/[id]/CardListScreen",
                         params: { id: item.id, name: item.name },
                     })
                 }

@@ -4,7 +4,7 @@ const FoldersStackLayout = () => {
     return (
         <Stack>
             <Stack.Screen
-                name="index"
+                name="FolderListScreen"
                 options={{
                     headerTitle: "Librairie",
                     headerTitleAlign: "center",
@@ -25,7 +25,7 @@ const FoldersStackLayout = () => {
                 }}
             />
             <Stack.Screen
-                name="folder/[id]/index"
+                name="folder/[id]/CardListScreen"
                 options={{
                     headerTitleAlign: "center",
                 }}

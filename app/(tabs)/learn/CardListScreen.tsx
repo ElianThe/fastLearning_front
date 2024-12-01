@@ -4,7 +4,15 @@ import { API_URL } from "@env";
 import axios from "axios";
 import { router, useFocusEffect } from "expo-router";
 import ActivityIndicator from "@/components/UI/ActivityIndicator";
-import styled from "styled-components/native";
+import {
+    ButtonLearn,
+    TextLearn, TextNoCards,
+    TitleCard,
+    ViewCard,
+    ViewCardList,
+    ViewContainer,
+    ViewNoCards
+} from "@/app/(tabs)/learn/CardListScreen-styles";
 
 type TypeCard = {
     id: number;
@@ -66,7 +74,7 @@ const CardListScreen = () => {
                     <ButtonLearn
                         onPress={() =>
                             router.push({
-                                pathname: "/learn/cardLearning",
+                                pathname: "/learn/cardLearning/AutoEvaluationCardsScreen",
                                 params: { cards: JSON.stringify(cards) },
                             })
                         }
@@ -75,63 +83,12 @@ const CardListScreen = () => {
                     </ButtonLearn>
                 </ViewCardList>
             ) : (
-                <ViewNoCard>
-                    <TextNoCard>Pas de carte à apprendre</TextNoCard>
-                </ViewNoCard>
+                <ViewNoCards>
+                    <TextNoCards>Pas de carte à apprendre</TextNoCards>
+                </ViewNoCards>
             )}
         </ViewContainer>
     );
 };
 
 export default CardListScreen;
-
-const ViewContainer = styled.View`
-    background-color: white;
-    flex: 1;
-`;
-
-const ViewCardList = styled.View`
-    flex: 1;
-    flex-direction: column;
-    justify-content: space-around;
-    background-color: #f2f2f2;
-    margin: 10px;
-    border-radius: 10px;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-    elevation: 3;
-`;
-
-const ViewCard = styled.View`
-    flex: 1;
-    background-color: white;
-    margin: 10px 10px 0;
-    border-radius: 5px;
-    padding: 10px;
-`;
-
-const TitleCard = styled.Text`
-    font-size: 20px;
-`;
-
-const ViewNoCard = styled.View`
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-`;
-
-const TextNoCard = styled.Text`
-    font-size: 20px;
-`;
-
-const ButtonLearn = styled.Pressable`
-    margin: 10px;
-    padding: 15px;
-    border-radius: 10px;
-    background-color: #003049;
-`;
-
-const TextLearn = styled.Text`
-    text-align: center;
-    color: #ffffff;
-    font-size: 16px;
-`;
